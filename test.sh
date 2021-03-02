@@ -10,6 +10,7 @@ make
 
 for (( lab = 1; lab <= ${LAB_UNTIL}; lab++))
 do
+    echo "Testing Lab${lab}"
     ./tests --gtest_filter=Lab${lab}*
 done
  
