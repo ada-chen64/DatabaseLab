@@ -10,7 +10,7 @@ make
 
 for (( lab = 1; lab <= ${LAB_UNTIL}; lab++))
 do
-    ./tests -gtest_filter=Lab${lab}*
+    ./tests --gtest_filter=Lab${lab}*
 done
  
 echo ALL PASSED
