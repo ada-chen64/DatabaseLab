@@ -11,7 +11,7 @@ make
 for (( lab = 1; lab <= ${LAB_UNTIL}; lab++))
 do
     echo "Testing Lab${lab}"
-    ./tests --gtest_filter=Lab${lab}* --gtest_break_on_failure || exit 1
+    ./lab${lab}_test --gtest_break_on_failure || exit 1
 done
  
 echo ALL PASSED
