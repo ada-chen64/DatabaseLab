@@ -11,6 +11,10 @@ make
 echo current project ${CI_PROJECT_NAME}
 echo pipeline id ${CI_PIPELINE_ID}
 
+ls
+ls bin
+ls test
+
 for (( lab = 1; lab <= ${LAB_UNTIL}; lab++))
 do
     echo "Testing Lab${lab}"
