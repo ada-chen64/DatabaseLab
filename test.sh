@@ -15,7 +15,7 @@ for (( lab = 1; lab <= ${LAB_UNTIL}; lab++))
 do
     echo "Testing Lab${lab}"
     bin/thdb_init
-    bin/lab${lab}_test --gtest_output="json" --gtest_brief=1 || fail=1
+    test/lab${lab}_test --gtest_output="json" --gtest_brief=1 || fail=1
     bin/thdb_clear
 done
 
