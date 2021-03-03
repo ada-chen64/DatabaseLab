@@ -9,7 +9,7 @@ cmake ..
 make -j 16 -l 32
 
 echo -e current project "\x1b[32m${CI_PROJECT_NAME}\x1b[0m"
-echo pipeline id "\x1b[32m${CI_PIPELINE_ID}\x1b[0m"
+echo -e pipeline id "\x1b[32m${CI_PIPELINE_ID}\x1b[0m"
 
 echo -e "\x1b[1;32mStarting testing Lab${CURRENT_LAB}\x1b[0m"
 bin/thdb_init
