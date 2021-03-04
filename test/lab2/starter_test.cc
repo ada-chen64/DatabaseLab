@@ -3,8 +3,8 @@
 namespace thdb {
 
 TEST(Lab2, StarterTest) {
-    int a = 1;
-    EXPECT_EQ(a, 1);
+  int a = 1;
+  EXPECT_EQ(a, 1);
 }
 
-} // namespace thdb
+}  // namespace thdb
