@@ -11,9 +11,10 @@ make -j 16 -l 32
 echo -e current project "\x1b[32m${CI_PROJECT_NAME}\x1b[0m"
 echo -e pipeline id "\x1b[32m${CI_PIPELINE_ID}\x1b[0m"
 
-echo -e "\x1b[1;32mStarting testing Lab${CURRENT_LAB}\x1b[0m"
+echo -e "\x1b[1;32mStarting test Lab${CURRENT_LAB}\x1b[0m"
+fail=0
 bin/thdb_init
-test/lab${lab}_test --gtest_output="json" --gtest_brief=1 || fail=1
+test/lab${CURRENT_LAB}_test --gtest_output="json" --gtest_brief=1 || fail=1
 bin/thdb_clear
 
 if [ $SEND_RESULT -eq 1 -a -e report.json ]
@@ -21,9 +22,9 @@ then
     echo finish send result here
 fi
 
-if [ $fail -eq 1]
+if [ $fail -eq 1 ]
 then
     exit 1
 fi
  
-echo ALL PASSED
+echo -e "\x1b[1;32mLab${CURRENT_LAB} test passed\x1b[0m"
