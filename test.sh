@@ -13,9 +13,9 @@ echo -e pipeline id "\x1b[32m${CI_PIPELINE_ID}\x1b[0m"
 
 echo -e "\x1b[1;32mStarting test Lab${CURRENT_LAB}\x1b[0m"
 echo -e "test/lab${CURRENT_LAB}_test --gtest_output=\"json\" --gtest_brief=1 || fail=1"
-echo -e "\x1b[1;31m"
-test/lab${CURRENT_LAB}_test --gtest_output="json" --gtest_brief=1 || fail=1
-echo -e "\x1b[0m"
+# echo -e "\x1b[1;31m"
+test/lab${CURRENT_LAB}_test --gtest_output="json" || fail=1
+# echo -e "\x1b[0m"
 
 if [ $SEND_RESULT -eq 1 -a -e report.json ]
 then

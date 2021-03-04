@@ -11,5 +11,5 @@ int main(int argc, char **argv)
     printf("Write Back Begin;\n");
     thdb::Close();
     printf("Write Back End;\n");
-    return 0;
+    return res;
 }
