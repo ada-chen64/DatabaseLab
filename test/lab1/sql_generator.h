@@ -29,7 +29,7 @@ String StringGenerator(std::mt19937 &generator) {
 
 std::vector<String> SqlGenerator() {
   std::vector<String> sqls;
-  auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+  auto seed = 0;  // std::chrono::system_clock::now().time_since_epoch().count();
   std::mt19937 generator(seed);
   String table_name = StringGenerator(generator);
   String sql_create_table = "CREATE TABLE " + table_name + "(";
