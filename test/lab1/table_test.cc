@@ -10,7 +10,7 @@ TEST(Lab1, TableTest) {
       "SHOW TABLES;", "CREATE TABLE A(A INT, B FLOAT, C VARCHAR(30), D FLOAT);",
       "SHOW TABLES;", "DROP TABLE A;"};
   for (const auto &sSQL : iSQLVec) {
-    // Execute(pDB, sSQL);
+    Execute(pDB, sSQL);
     printf("%s Finish\n", sSQL.c_str());
   }
   delete pDB;

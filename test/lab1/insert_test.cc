@@ -14,7 +14,7 @@ TEST(Lab1, InsertTest) {
       "CREATE TABLE A(A INT, Bsdfdsfdsfs FLOAT, C VARCHAR(30), D FLOAT);",
       "SHOW TABLES;",
       "INSERT INTO A VALUES(4, 4.5, 'test_string', 5.0)",
-      "INSERT INTO A VALUES(5, 4.5, 'test', 5.0)",
+      "INSERT INTO A VALUES(3, 4.5, 'test', 5.0)",
       "INSERT INTO A VALUES(6, 4.5, 'string', 5.0)",
       "SELECT * FROM A;",
       "SELECT * FROM A WHERE A.A = 4;",
