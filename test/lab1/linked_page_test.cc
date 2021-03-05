@@ -5,7 +5,7 @@
 
 namespace thdb {
 
-TEST(Lab1, StartTest) {
+TEST(Lab1, LinkedPageTest) {
   LinkedPage *pPage1 = new LinkedPage();
   EXPECT_EQ(pPage1->GetPrevID(), NULL_PAGE);
   EXPECT_EQ(pPage1->GetNextID(), NULL_PAGE);

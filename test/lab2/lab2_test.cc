@@ -2,7 +2,7 @@
 
 namespace thdb {
 
-TEST(Lab1, StarterTest) {
+TEST(Lab2, Lab2Test) {
   int a = 1;
   EXPECT_EQ(a, 1);
 }

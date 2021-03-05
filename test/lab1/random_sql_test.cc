@@ -10,9 +10,9 @@ namespace thdb {
 TEST(Lab1, RandomSqlTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = SqlGenerator();
-  for (const String &sql : iSQLVec) {
-    std::cout << sql << std::endl;
-  }
+  //   for (const String &sql : iSQLVec) {
+  //     std::cout << sql << std::endl;
+  //   }
   for (const auto &sSQL : iSQLVec) {
     Execute(pDB, sSQL);
     printf("%s Finish\n", sSQL.c_str());

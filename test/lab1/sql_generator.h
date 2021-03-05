@@ -17,7 +17,7 @@ String StringGenerator(std::mt19937 &generator) {
       "0123456789"
       "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
       "abcdefghijklmnopqrstuvwxyz";
-  auto len = static_cast<uint32_t>(1 + generator() % 50);
+  auto len = static_cast<uint32_t>(1 + generator() % 10);
   String tmp_s;
   tmp_s.reserve(len);
   tmp_s += alpha[generator() % (sizeof(alpha) - 1)];
@@ -61,8 +61,8 @@ std::vector<String> SqlGenerator() {
       if (column_types[j] == "INT") {
         sql_insert += std::to_string(generator() % 1000);
       } else if (column_types[j] == "FLOAT") {
-        // TODO: Add float random generator
-        sql_insert += std::to_string(generator() % 1000);
+        sql_insert +=
+            std::to_string(std::generate_canonical<float, 32>(generator));
       } else if (column_types[j] == "VARCHAR(50)") {
         sql_insert += "'" + StringGenerator(generator) + "'";
       }
