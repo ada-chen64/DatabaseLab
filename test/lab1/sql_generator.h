@@ -54,7 +54,8 @@ std::vector<String> SqlGenerator() {
   sql_create_table += ");";
   sqls.push_back(sql_create_table);
 
-  uint32_t data_num = 1 + generator() % 10;
+  uint32_t data_num = 1 + generator() % 100;
+  printf("%u\n", data_num);
   for (uint32_t i = 0; i < data_num; i++) {
     String sql_insert = "INSERT INTO " + table_name + " VALUES(";
     for (uint32_t j = 0; j < column_num; j++) {
