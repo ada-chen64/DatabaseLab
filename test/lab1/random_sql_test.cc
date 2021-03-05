@@ -5,7 +5,7 @@
 
 namespace thdb {
 
-TEST(Lab1, RandomSqlTest) {
+TEST(Lab1, DISABLED_RandomSqlTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = SqlGenerator();
   for (const auto &sSQL : iSQLVec) {
