@@ -5,11 +5,12 @@
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
+  // clear database files
   thdb::Clear();
+  // Initialize database files
   thdb::Init();
   auto res = RUN_ALL_TESTS();
-  printf("Write Back Begin;\n");
+  // Close database
   thdb::Close();
-  printf("Write Back End;\n");
   return res;
 }

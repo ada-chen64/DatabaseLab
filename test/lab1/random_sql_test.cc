@@ -11,7 +11,7 @@ TEST(Lab1, RandomSqlTest) {
   size_t data_num = 1000;  // Insert 1000 records
   size_t sample_num = 10;  // Select 10 records after inserting
   std::vector<String> iSQLVec = SqlGenerator(data_num, sample_num);
-  ASSERT_EQ(iSQLVec.size(), 1 + data_num + 1 + sample_num + 1);
+  EXPECT_EQ(iSQLVec.size(), 1 + data_num + 1 + sample_num + 1);
   std::vector<size_t> results(1 + data_num + 1 + sample_num + 1, 1);
   results[data_num + 1] = data_num;
   for (uint32_t i = 0; i < iSQLVec.size(); i++) {
