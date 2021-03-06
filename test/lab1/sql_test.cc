@@ -5,10 +5,9 @@
 
 namespace thdb {
 
-TEST(Lab1, SqlTest) {
+TEST(Lab1, SimpleSqlTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
-      "SHOW TABLES;",
       "CREATE TABLE TEST(A INT, B FLOAT, C VARCHAR(30), D FLOAT);",
       "INSERT INTO TEST VALUES(1, 2.5, 'zxcasdweq', 3.4);",
       "SELECT * FROM TEST;", "DROP TABLE TEST;"};

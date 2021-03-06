@@ -29,7 +29,8 @@ String StringGenerator(std::mt19937 &generator) {
 
 std::vector<String> SqlGenerator() {
   std::vector<String> sqls;
-  auto seed = 0;  // std::chrono::system_clock::now().time_since_epoch().count();
+  auto seed =
+      0;  // std::chrono::system_clock::now().time_since_epoch().count();
   std::mt19937 generator(seed);
   String table_name = StringGenerator(generator);
   String sql_create_table = "CREATE TABLE " + table_name + "(";
@@ -55,7 +56,6 @@ std::vector<String> SqlGenerator() {
   sqls.push_back(sql_create_table);
 
   uint32_t data_num = 1 + generator() % 100;
-  printf("%u\n", data_num);
   for (uint32_t i = 0; i < data_num; i++) {
     String sql_insert = "INSERT INTO " + table_name + " VALUES(";
     for (uint32_t j = 0; j < column_num; j++) {
