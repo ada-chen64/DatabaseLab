@@ -13,9 +13,11 @@ TEST(Lab1, InsertSelectTest) {
       "SELECT * FROM Persons;",                                  // NOLINT
       "DROP TABLE Persons;"                                      // NOLINT
   };
-  for (const auto &sSQL : iSQLVec) {
-    std::vector<Result *> iResVec = Execute(pDB, sSQL);
-    PrintTable(iResVec);
+  std::vector<String> results = {"1\n", "1\n", "1,James,Smith,36.4\n", "1\n"};
+  for (uint32_t i = 0; i < iSQLVec.size(); i++) {
+    std::vector<Result *> iResVec = Execute(pDB, iSQLVec[i]);
+    EXPECT_EQ(iResVec.size(), 1);
+    EXPECT_EQ(iResVec[0]->ToString(), results[i]);
   }
   delete pDB;
 }
@@ -30,9 +32,11 @@ TEST(Lab1, UpdateTest) {
       "SELECT * FROM Persons;",                                       // NOLINT
       "DROP TABLE Persons;"                                           // NOLINT
   };
-  for (const auto &sSQL : iSQLVec) {
-    std::vector<Result *> iResVec = Execute(pDB, sSQL);
-    PrintTable(iResVec);
+  std::vector<String> results = {"1\n", "1\n", "1\n", "1\n", "1,James,Smith,36.4\n2,Maria,Garcia,35.4\n", "1\n"};
+  for (uint32_t i = 0; i < iSQLVec.size(); i++) {
+    std::vector<Result *> iResVec = Execute(pDB, iSQLVec[i]);
+    EXPECT_EQ(iResVec.size(), 1);
+    EXPECT_EQ(iResVec[0]->ToString(), results[i]);
   }
   delete pDB;
 }
@@ -47,9 +51,11 @@ TEST(Lab1, DeleteTest) {
       "SELECT * FROM Persons;",                                   // NOLINT
       "DROP TABLE Persons;"                                       // NOLINT
   };
-  for (const auto &sSQL : iSQLVec) {
-    std::vector<Result *> iResVec = Execute(pDB, sSQL);
-    PrintTable(iResVec);
+  std::vector<String> results = {"1\n", "1\n", "1\n", "1\n", "2,Maria,Garcia,36.7\n", "1\n"};
+  for (uint32_t i = 0; i < iSQLVec.size(); i++) {
+    std::vector<Result *> iResVec = Execute(pDB, iSQLVec[i]);
+    EXPECT_EQ(iResVec.size(), 1);
+    EXPECT_EQ(iResVec[0]->ToString(), results[i]);
   }
   delete pDB;
 }
@@ -65,9 +71,11 @@ TEST(Lab1, UpdateDeleteTest) {
       "SELECT * FROM Persons;",                                       // NOLINT
       "DROP TABLE Persons;"                                           // NOLINT
   };
-  for (const auto &sSQL : iSQLVec) {
-    std::vector<Result *> iResVec = Execute(pDB, sSQL);
-    PrintTable(iResVec);
+  std::vector<String> results = {"1\n", "1\n", "1\n", "1\n", "1\n", "2,Maria,Garcia,35.7\n", "1\n"};
+  for (uint32_t i = 0; i < iSQLVec.size(); i++) {
+    std::vector<Result *> iResVec = Execute(pDB, iSQLVec[i]);
+    EXPECT_EQ(iResVec.size(), 1);
+    EXPECT_EQ(iResVec[0]->ToString(), results[i]);
   }
   delete pDB;
 }
