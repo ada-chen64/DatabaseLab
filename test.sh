@@ -6,7 +6,7 @@ echo -e current project "\x1b[32m${CI_PROJECT_NAME}\x1b[0m"
 echo -e pipeline id "\x1b[32m${CI_PIPELINE_ID}\x1b[0m"
 echo -e job id "\x1b[32m${CI_JOB_ID}\x1b[0m"
 
-echo -e "\x1b[1;32mStart to compile${CURRENT_LAB}\x1b[0m"
+echo -e "\x1b[1;32mStart to compile\x1b[0m"
 mkdir build && cd build
 cmake .. || { echo  -e "\x1b[1;31mFailed to cmake\x1b[0m" ; exit 1; }
 make -j 16 -l ${MAX_LOAD_AVERAGE:-32} ||  { echo  -e "\x1b[1;31mFailed to make\x1b[0m" ; exit 1; }
@@ -27,6 +27,6 @@ then
     echo -e "\x1b[1;32mStart to send result\x1b[0m" 
     curl -s -F "project=${CI_PROJECT_NAME}" -F "pipeline=${CI_PIPELINE_ID}" \
      -F "job=${CI_JOB_ID}" -F "lab=${CURRENT_LAB}" -F "file=@report.json" \
-     172.6.31.11:9876/collect/ || { echo -e "\x1b[1;31mFailed to send result\x1b[0m"; exit 1; }
+     172.6.31.11:9876/collect/ || { echo -e "\x1b[1;31mFailed to send result, please contact TA\x1b[0m"; exit 1; }
     echo  -e "\x1b[1;32mResult has been sent\x1b[0m"
 fi
