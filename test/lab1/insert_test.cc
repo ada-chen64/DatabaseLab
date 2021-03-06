@@ -4,6 +4,7 @@
 #include "gtest/gtest.h"
 #include "result/results.h"
 #include "system/instance.h"
+#include "utils/display.h"
 
 namespace thdb {
 
@@ -33,11 +34,7 @@ TEST(Lab1, InsertTest) {
       "DROP TABLE A;"};
   for (const auto &sSQL : iSQLVec) {
     std::vector<Result *> results = Execute(pDB, sSQL);
-    for (auto result : results) {
-      result->Display();
-      delete result;
-    }
-    // printf("%s Finish\n", sSQL.c_str());
+    PrintTable(results);
   }
   delete pDB;
 }
