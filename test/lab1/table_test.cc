@@ -11,7 +11,6 @@ TEST(Lab1, TableTest) {
       "SHOW TABLES;", "DROP TABLE A;"};
   for (const auto &sSQL : iSQLVec) {
     Execute(pDB, sSQL);
-    printf("%s Finish\n", sSQL.c_str());
   }
   delete pDB;
 }

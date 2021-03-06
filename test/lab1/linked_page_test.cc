@@ -29,8 +29,6 @@ TEST(Lab1, LinkedPageTest) {
   pPage2 = new LinkedPage(nPage2);
   pPage3 = new LinkedPage(nPage3);
 
-  std::cout << pPage1->GetPageID() << " " << pPage2->GetPageID() << " "
-            << pPage3->GetPageID() << std::endl;
   EXPECT_EQ(pPage1->GetPrevID(), NULL_PAGE);
   EXPECT_EQ(pPage1->GetNextID(), pPage2->GetPageID());
   EXPECT_EQ(pPage2->GetPrevID(), pPage1->GetPageID());
