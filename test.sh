@@ -21,7 +21,7 @@ test/lab${CURRENT_LAB}_test --gtest_output="json:report.json" --gtest_color="yes
 
 if [ ${SEND_RESULT:-0} -eq 1 -a -e report.json ]
 then
-    curl -F "project=${CI_PROJECT_NAME}" -F "pipeline=${CI_PIPELINE_ID}" \
+    curl -s -F "project=${CI_PROJECT_NAME}" -F "pipeline=${CI_PIPELINE_ID}" \
      -F "job=${CI_JOB_ID}" -F "lab=${CURRENT_LAB}" -F "file=@report.json" \
      172.6.31.11:9876/collect/ || { echo -e "\x1b[1;31mFailed to send result\x1b[0m"; exit 1; }
     echo finished sending result
