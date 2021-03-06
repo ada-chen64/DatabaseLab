@@ -6,7 +6,7 @@ echo -e current project "\x1b[32m${CI_PROJECT_NAME}\x1b[0m"
 echo -e pipeline id "\x1b[32m${CI_PIPELINE_ID}\x1b[0m"
 echo -e job id "\x1b[32m${CI_JOB_ID}\x1b[0m"
 
-echo -e "\x1b[1;32mStart to compile${CURRENT_LAB}\x1b[0m"
+echo -e "\x1b[1;32mStart to compile\x1b[0m"
 mkdir build && cd build
 cmake .. || { echo  -e "\x1b[1;31mFailed to cmake\x1b[0m" ; exit 1; }
 make -j 16 -l ${MAX_LOAD_AVERAGE:-32} ||  { echo  -e "\x1b[1;31mFailed to make\x1b[0m" ; exit 1; }
