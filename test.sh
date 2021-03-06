@@ -28,5 +28,5 @@ then
     curl -s -F "project=${CI_PROJECT_NAME}" -F "pipeline=${CI_PIPELINE_ID}" \
      -F "job=${CI_JOB_ID}" -F "lab=${CURRENT_LAB}" -F "file=@report.json" \
      172.6.31.11:9876/collect/ || { echo -e "\x1b[1;31mFailed to send result\x1b[0m"; exit 1; }
-    echo  -e "\x1b[1;32mLabfinished sending result\x1b[0m"
+    echo  -e "\x1b[1;32mResult has been sent\x1b[0m"
 fi
