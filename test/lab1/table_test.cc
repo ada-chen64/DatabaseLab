@@ -8,9 +8,11 @@ namespace thdb {
 TEST(Lab1, TableTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
-      "SHOW TABLES;",
-      "CREATE TABLE TEST(A INT, B FLOAT, C VARCHAR(30), D FLOAT);",
-      "SHOW TABLES;", "DROP TABLE A;"};
+      "CREATE TABLE Persons(ID INT, FirstName VARCHAR(20), LastName VARCHAR(20), Temperature FLOAT);",
+      "SHOW TABLES;",   // NOLINT
+      "DESC Persons;",  // NOLINT
+      "DROP TABLE A;"   // NOLINT
+  };
   for (const auto &sSQL : iSQLVec) {
     std::vector<Result *> results = Execute(pDB, sSQL);
     PrintTable(results);

@@ -29,55 +29,20 @@ String StringGenerator(std::mt19937 &generator) {
 
 std::vector<String> SqlGenerator() {
   std::vector<String> sqls;
-  auto seed =
-      0;  // std::chrono::system_clock::now().time_since_epoch().count();
+  auto seed = 0;  // std::chrono::system_clock::now().time_since_epoch().count();
   std::mt19937 generator(seed);
-  String table_name = StringGenerator(generator);
-  String sql_create_table = "CREATE TABLE " + table_name + "(";
-
-  uint32_t column_num = 1 + generator() % 10;
-  std::vector<String> column_names;
-  column_names.reserve(column_num);
-  std::vector<String> column_types;
-  column_types.reserve(column_num);
-
-  String types[3] = {"INT", "FLOAT", "VARCHAR(50)"};
-  for (uint32_t i = 0; i < column_num; i++) {
-    column_names.push_back(StringGenerator(generator));
-    column_types.push_back(types[generator() % 3]);
-  }
-  for (uint32_t i = 0; i < column_num; i++) {
-    sql_create_table += " " + column_names[i] + " " + column_types[i];
-    if (i != column_num - 1) {
-      sql_create_table += ",";
-    }
-  }
-  sql_create_table += ");";
-  sqls.push_back(sql_create_table);
 
   uint32_t data_num = 1 + generator() % 100;
   for (uint32_t i = 0; i < data_num; i++) {
-    String sql_insert = "INSERT INTO " + table_name + " VALUES(";
-    for (uint32_t j = 0; j < column_num; j++) {
-      if (column_types[j] == "INT") {
-        sql_insert += std::to_string(generator() % 1000);
-      } else if (column_types[j] == "FLOAT") {
-        sql_insert +=
-            std::to_string(std::generate_canonical<float, 32>(generator));
-      } else if (column_types[j] == "VARCHAR(50)") {
-        sql_insert += "'" + StringGenerator(generator) + "'";
-      }
-      if (j != column_num - 1) {
-        sql_insert += ",";
-      }
-    }
+    String sql_insert = "INSERT INTO Persons VALUES(";
+    sql_insert += std::to_string(generator() % 10000) + ",";
+    sql_insert += std::to_string(std::generate_canonical<float, 32>(generator));
+    sql_insert += "'" + StringGenerator(generator) + "'";
     sql_insert += ");";
     sqls.push_back(sql_insert);
   }
-  String sql_select = "SELECT * FROM " + table_name + ";";
-  sqls.push_back(sql_select);
-  String sql_drop_table = "DROP TABLE " + table_name + ";";
-  sqls.push_back(sql_drop_table);
+  sqls.push_back("SELECT * FROM Persons;");
+  sqls.push_back("DROP TABLE Persons;");
   return sqls;
 }
 
