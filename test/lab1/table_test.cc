@@ -23,9 +23,9 @@ TEST(Lab1, TableTest) {
   PageID page_id = page_slot_id.first;
   SlotID slot_id = page_slot_id.second;
 
-  Size record_size = 4 + 20 + 20 + 8;
+  const Size record_size = 4 + 20 + 20 + 8;
 
-  uint8_t *dst = new uint8_t[record_size];
+  uint8_t dst[record_size];
   Size store_size = record->Store(dst);
   EXPECT_EQ(store_size, record_size);
 
@@ -39,6 +39,13 @@ TEST(Lab1, TableTest) {
   EXPECT_EQ(page_slot_ids.size(), 1);
   EXPECT_EQ(page_slot_ids[0].first, page_id);
   EXPECT_EQ(page_slot_ids[0].second, slot_id);
+
+  std::vector<String> values_new = {"1", "'James'", "'Smith'", "36.4"};
+  std::vector<Transform> trans_vec;
+  for (size_t i = 0; i < values_new.size(); i++) {
+    trans_vec.push_back(Transform(i, types[i], values_new[i]));
+  }
+  table->UpdateRecord(page_id, slot_id, trans_vec);
 
   table->DeleteRecord(page_id, slot_id);
 

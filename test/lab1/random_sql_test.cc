@@ -8,8 +8,8 @@ namespace thdb {
 
 TEST(Lab1, RandomSqlTest) {
   Instance *pDB = new Instance();
-  size_t data_num = 1000;
-  size_t sample_num = 10;
+  size_t data_num = 1000;  // Insert 1000 records
+  size_t sample_num = 10;  // Select 10 records after inserting
   std::vector<String> iSQLVec = SqlGenerator(data_num, sample_num);
   ASSERT_EQ(iSQLVec.size(), 1 + data_num + 1 + sample_num + 1);
   std::vector<size_t> results(1 + data_num + 1 + sample_num + 1, 1);
