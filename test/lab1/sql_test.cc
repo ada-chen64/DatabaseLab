@@ -13,10 +13,14 @@ TEST(Lab1, InsertSelectTest) {
       "SELECT * FROM Persons;",                                  // NOLINT
       "DROP TABLE Persons;"                                      // NOLINT
   };
+  // 存放 sql 执行结果
   std::vector<String> results = {"1\n", "1\n", "1,James,Smith,36.4\n", "1\n"};
+  // 执行每条 sql 语句
   for (uint32_t i = 0; i < iSQLVec.size(); i++) {
     std::vector<Result *> iResVec = Execute(pDB, iSQLVec[i]);
+    // 由于测试 sql 每行只有一条 sql 语句，因此 iResVec 的大小始终为 1.
     EXPECT_EQ(iResVec.size(), 1);
+    // 比较 sql 执行结果是否一致
     EXPECT_EQ(iResVec[0]->ToString(), results[i]);
   }
   delete pDB;
