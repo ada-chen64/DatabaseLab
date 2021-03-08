@@ -1,6 +1,6 @@
 # dbtrain-lab-test
 
-数据库专题训练测例，采用 googletest 测试框架。
+数据库专题训练测例，采用 googletest 测试框架，注意及时运行 git pull 获取更新。
 
 ## 使用说明
 
