@@ -9,12 +9,8 @@
 
 namespace thdb {
 
-<<<<<<< HEAD
-TEST(Lab1, DISABLED_TableTest) {
-=======
 TEST(Lab1, TableTest) {
   // 新建数据库对象
->>>>>>> f317760095ecb5b05bc6ce2ba2228a4c22f20782
   Instance *pDB = new Instance();
 
   // 通过 create table 语句新建测试表
