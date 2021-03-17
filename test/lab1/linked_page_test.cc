@@ -38,6 +38,7 @@ TEST(Lab1, LinkedPageTest) {
 
   delete pPage2;
   delete pPage3;
+
   pPage1->PopBack();
   pPage3 = new LinkedPage(nPage3);
   EXPECT_EQ(pPage1->GetPrevID(), NULL_PAGE);
@@ -46,6 +47,7 @@ TEST(Lab1, LinkedPageTest) {
   EXPECT_EQ(pPage3->GetNextID(), NULL_PAGE);
 
   delete pPage3;
+
   pPage1->PopBack();
   EXPECT_EQ(pPage1->GetPrevID(), NULL_PAGE);
   EXPECT_EQ(pPage1->GetNextID(), NULL_PAGE);
