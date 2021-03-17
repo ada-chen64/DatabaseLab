@@ -5,7 +5,7 @@
 
 namespace thdb {
 
-TEST(Lab1, ShowTableTest) {
+TEST(Lab1, DISABLED_ShowTableTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
       "CREATE TABLE Persons(ID INT, FirstName VARCHAR(20), LastName VARCHAR(20), Temperature FLOAT);",
@@ -23,7 +23,7 @@ TEST(Lab1, ShowTableTest) {
   delete pDB;
 }
 
-TEST(Lab1, InsertSelectTest) {
+TEST(Lab1, DISABLED_InsertSelectTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
       "CREATE TABLE Persons(ID INT, FirstName VARCHAR(20), LastName VARCHAR(20), Temperature FLOAT);",
@@ -40,7 +40,7 @@ TEST(Lab1, InsertSelectTest) {
   delete pDB;
 }
 
-TEST(Lab1, UpdateTest) {
+TEST(Lab1, DISABLED_UpdateTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
       "CREATE TABLE Persons(ID INT, FirstName VARCHAR(20), LastName VARCHAR(20), Temperature FLOAT);",
@@ -59,7 +59,7 @@ TEST(Lab1, UpdateTest) {
   delete pDB;
 }
 
-TEST(Lab1, DeleteTest) {
+TEST(Lab1, DISABLED_DeleteTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
       "CREATE TABLE Persons(ID INT, FirstName VARCHAR(20), LastName VARCHAR(20), Temperature FLOAT);",
@@ -78,7 +78,7 @@ TEST(Lab1, DeleteTest) {
   delete pDB;
 }
 
-TEST(Lab1, UpdateDeleteTest) {
+TEST(Lab1, DISABLED_UpdateDeleteTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
       "CREATE TABLE Persons(ID INT, FirstName VARCHAR(20), LastName VARCHAR(20), Temperature FLOAT);",
@@ -98,7 +98,7 @@ TEST(Lab1, UpdateDeleteTest) {
   delete pDB;
 }
 
-TEST(Lab1, DeleteInsertTest) {
+TEST(Lab1, DISABLED_DeleteInsertTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
       "CREATE TABLE Persons(ID INT, FirstName VARCHAR(20), LastName VARCHAR(20), Temperature FLOAT);",

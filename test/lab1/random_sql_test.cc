@@ -6,7 +6,7 @@
 
 namespace thdb {
 
-TEST(Lab1, RandomSqlTest) {
+TEST(Lab1, DISABLED_RandomSqlTest) {
   Instance *pDB = new Instance();
   size_t data_num = 1000;  // Insert 1000 records
   size_t sample_num = 10;  // Select 10 records after inserting
