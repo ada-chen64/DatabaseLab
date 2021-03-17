@@ -6,7 +6,7 @@
 
 namespace thdb {
 
-TEST(Lab1, DISABLED_RandomSqlTest) {
+TEST(Lab1, RandomSqlTest) {
   Instance *pDB = new Instance();
   Size data_num = 1000;  // 插入记录的行数
   Size sample_num = 10;  // 选择 10 records after inserting
