@@ -26,7 +26,7 @@ TEST(Lab1, InsertSelectTest) {
   delete pDB;
 }
 
-TEST(Lab1, DISABLED_UpdateTest) {
+TEST(Lab1, UpdateTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
       "CREATE TABLE Persons(ID INT, FirstName VARCHAR(20), LastName VARCHAR(20), Temperature FLOAT);",
@@ -45,7 +45,7 @@ TEST(Lab1, DISABLED_UpdateTest) {
   delete pDB;
 }
 
-TEST(Lab1, DISABLED_DeleteTest) {
+TEST(Lab1, DeleteTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
       "CREATE TABLE Persons(ID INT, FirstName VARCHAR(20), LastName VARCHAR(20), Temperature FLOAT);",
@@ -64,7 +64,7 @@ TEST(Lab1, DISABLED_DeleteTest) {
   delete pDB;
 }
 
-TEST(Lab1, DISABLED_UpdateDeleteTest) {
+TEST(Lab1, UpdateDeleteTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
       "CREATE TABLE Persons(ID INT, FirstName VARCHAR(20), LastName VARCHAR(20), Temperature FLOAT);",
@@ -84,7 +84,7 @@ TEST(Lab1, DISABLED_UpdateDeleteTest) {
   delete pDB;
 }
 
-TEST(Lab1, DISABLED_DeleteInsertTest) {
+TEST(Lab1, DeleteInsertTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
       "CREATE TABLE Persons(ID INT, FirstName VARCHAR(20), LastName VARCHAR(20), Temperature FLOAT);",
