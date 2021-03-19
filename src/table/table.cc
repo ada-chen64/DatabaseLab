@@ -57,7 +57,7 @@ PageSlotID Table::InsertRecord(Record *pRecord) {
   // LAB1 BEGIN
   // TODO: 插入一条记录
   insertvisted++;
-  printf("insert visited %d times\n", insertvisted);
+  //printf("insert visited %d times\n", insertvisted);
   PageID pid = _nNotFull;
   RecordPage *page = new RecordPage(pid);
   uint8_t * rec = new uint8_t[PAGE_SIZE];
@@ -69,11 +69,14 @@ PageSlotID Table::InsertRecord(Record *pRecord) {
   Record *record = GetRecord(pid, slot);
   //printf("Inserted record: %s on pid %d slot %d\n", record->ToString().c_str(), pid, slot);
   if(page->Full())
-  {  
+  { 
+    delete page;
+    //printf("page %u full\n", _nNotFull); 
     NextNotFull();
   }
+  else
+    delete page;
   delete[] rec;
-  delete page;
   delete record;
 
 
@@ -135,7 +138,7 @@ std::vector<PageSlotID> Table::SearchRecord(Condition *pCond) {
   // TODO: 对记录的条件检索
   // TIPS: 仿照InsertRecord从无格式数据导入原始记录
   //printf("Condition type = %d\n", pCond->GetType());
-  printf("in search. table inserted %d times\n table successfully inserted %d times\n", insertvisted, recordcount);
+  //printf("in search. table inserted %d times\n table successfully inserted %d times\n", insertvisted, recordcount);
   std::vector<PageSlotID> matches;
   PageID nBegin = _nHeadID;
   int totalrecords = 0;
@@ -199,8 +202,8 @@ void Table::NextNotFull() {
     RecordPage *rp = new RecordPage(pid);
     if(!rp->Full())
     {
-      //printf("not full\n");
       _nNotFull = pid;
+      //printf("not full %u\n",_nNotFull);
       delete rp;
       return;
     }
@@ -215,7 +218,7 @@ void Table::NextNotFull() {
   tailpage->PushBack(newpage);
   _nTailID = newpage->GetPageID();
   _nNotFull = newpage->GetPageID();
-  printf("completely full. new page: %u\n", _nTailID);
+  //printf("completely full. new page: %u\n", _nTailID);
   delete tailpage;
   delete newpage;
   

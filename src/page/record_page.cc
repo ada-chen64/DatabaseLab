@@ -66,13 +66,13 @@ SlotID RecordPage::InsertRecord(const uint8_t *src) {
   // TIPS: 利用_pUsed位图判断槽位是否使用，插入后需要更新_pUsed
   // TIPS: 使用SetData实现写数据
   // LAB1 END
-  printf("in recordpage insert\n");
+  //printf("in recordpage insert\n");
   for(SlotID sid = 0; sid < _nCap; sid++)
   {
     if(!HasRecord(sid))
     {  
       _pUsed->Set(sid);
-      printf("page %u Set %d\n", _nPageID,sid);
+      //printf("page %u Set %d\n", _nPageID,sid);
       SetData(src, _nFixed, BITMAP_OFFSET + BITMAP_SIZE + sid * _nFixed);
       return sid;
     } 
