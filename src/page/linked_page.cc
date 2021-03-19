@@ -50,16 +50,49 @@ bool LinkedPage::PushBack(LinkedPage *pPage) {
   // 不要同时建立两个指向相同磁盘位置的且可变对象，否则会出现一致性问题 ALERT:
   // 页面对象完成修改后一定要及时析构，析构会自动调用写回。以方便其他函数重新基于这一页面建立页面对象
   // TIPS: 需要判断当前页面是否存在后续页面
+  if(this->_nNextID == NULL_PAGE)
+  {
+    this->SetNextID(pPage->GetPageID());
+    //printf("set nextID: %u\n", this->_nNextID);
+    pPage->SetPrevID(this->_nPageID);
+    pPage->SetNextID(NULL_PAGE);
+  }
+  else
+  {
+    LinkedPage *nextpage = new LinkedPage(this->_nNextID);
+    pPage->SetNextID(this->_nNextID);
+    pPage->SetPrevID(this->_nPageID);
+    this->SetNextID(pPage->GetPageID());
+    nextpage->SetPrevID(pPage->GetPageID());
+    delete nextpage;
+  }
   // TIPS：正确设置当前页面和pPage的PrevID以及NextID
   // LAB1 END
   return true;
 }
 
 PageID LinkedPage::PopBack() {
-  return -1;  // 开始实验时删除此行
   // LAB1 BEGIN
   // TODO: 删除下一个链表结点，返回删除结点的PageID
   // TIPS: 需要判断当前页面是否存在后续页面
+  PageID nextID = this->_nNextID;
+  if(nextID != NULL_PAGE)
+  {
+    
+    LinkedPage *nextpage = new LinkedPage(nextID);
+    if(nextpage->GetNextID() != NULL_PAGE)
+    {
+      this->SetNextID(nextpage->GetNextID());
+      LinkedPage *nnext = new LinkedPage(nextpage->GetNextID());
+      nnext->SetPrevID(this->_nPageID);
+      delete nnext;
+    }
+    else
+      this->SetNextID(NULL_PAGE);
+    delete nextpage;
+    MiniOS::GetOS()->DeletePage(nextID);
+  }
+  return nextID;
   // TIPS:
   // 正确设置当前页面的NextID，如果后一个结点不是空页，需要讨论是否存在后两页的PrevID问题
   // TIPS: 可以使用MiniOS::DeletePage在最后释放被删除的页面

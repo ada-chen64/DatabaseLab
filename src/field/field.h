@@ -5,6 +5,7 @@
 
 namespace thdb {
 
+//Field is the data, FieldType is type of data
 enum class FieldType {
   NONE_TYPE = 0,
   INT_TYPE = 1,

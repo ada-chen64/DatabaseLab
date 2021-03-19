@@ -56,7 +56,6 @@ class RecordPage : public LinkedPage {
   Size GetUsed() const;
   bool Full() const;
   void Clear();
-
  private:
   void StoreBitmap();
   void LoadBitmap();

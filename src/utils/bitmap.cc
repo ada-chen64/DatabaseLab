@@ -5,7 +5,9 @@
 namespace thdb {
 
 Bitmap::Bitmap(Size size) {
+  //printf("bitmap constructing\n");
   _pBits = new uint8_t[(size - 1) / 8 + 1];
+  //printf("after new uint8_t\n");
   memset(_pBits, 0, (size - 1) / 8 + 1);
   _nSize = size;
   _nUsed = 0;
@@ -23,8 +25,9 @@ void Bitmap::Set(Size pos) {
 void Bitmap::Unset(Size pos) {
   if (Get(pos)) {
     _pBits[pos >> 3] &= ~(1 << (pos & 7));
-    ++_nUsed;
+    --_nUsed;
   }
+
 }
 
 bool Bitmap::Get(Size pos) const { return _pBits[pos >> 3] & (1 << (pos & 7)); }

@@ -1,0 +1,1 @@
+/usr/bin/c++   -Wall -Wextra -Wno-unused-parameter   CMakeFiles/thdb_init.dir/executable/init.cc.o  -o bin/thdb_init -Wl,-rpath,/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/lib lib/libthdb_shared.so lib/libantlr4-runtime.so 

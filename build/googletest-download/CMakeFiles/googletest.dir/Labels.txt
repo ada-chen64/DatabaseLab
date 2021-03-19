@@ -1,0 +1,14 @@
+# Target labels
+ googletest
+# Source files and their labels
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/googletest-download/CMakeFiles/googletest
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/googletest-download/CMakeFiles/googletest.rule
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/googletest-download/CMakeFiles/googletest-complete.rule
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/googletest-download/googletest-prefix/src/googletest-stamp/googletest-install.rule
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/googletest-download/googletest-prefix/src/googletest-stamp/googletest-mkdir.rule
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/googletest-download/googletest-prefix/src/googletest-stamp/googletest-download.rule
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/googletest-download/googletest-prefix/src/googletest-stamp/googletest-update.rule
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/googletest-download/googletest-prefix/src/googletest-stamp/googletest-patch.rule
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/googletest-download/googletest-prefix/src/googletest-stamp/googletest-configure.rule
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/googletest-download/googletest-prefix/src/googletest-stamp/googletest-build.rule
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/googletest-download/googletest-prefix/src/googletest-stamp/googletest-test.rule

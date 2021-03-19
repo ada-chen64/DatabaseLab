@@ -26,6 +26,10 @@ class RecordTypeException : public PageException {
  public:
   virtual const char* what() const throw() { return "Unknown record type";; }
 };
+class RecordFullException : public PageException {
+ public:
+  virtual const char* what() const throw() { return "No EMpty SLot available";; }
+};
 
 }  // namespace thdb
 

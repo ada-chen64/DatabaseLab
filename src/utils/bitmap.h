@@ -18,6 +18,7 @@ class Bitmap {
   bool Get(Size pos) const;
   Size GetSize() const;
   Size GetUsed() const;
+  Size GetUnused();
   bool Full() const;
   bool Empty() const;
   void Load(const uint8_t *pBits);

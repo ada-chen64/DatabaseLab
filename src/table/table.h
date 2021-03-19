@@ -72,6 +72,8 @@ class Table {
   std::vector<String> GetColumnNames() const;
 
  private:
+  int recordcount;
+  int insertvisted;
   TablePage *pTable;
   PageID _nHeadID;
   PageID _nTailID;

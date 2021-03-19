@@ -1,0 +1,3 @@
+repository='git@git.tsinghua.edu.cn:dbtrain-2021/googletest.git'
+module=''
+tag=''
