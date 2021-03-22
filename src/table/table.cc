@@ -222,6 +222,11 @@ void Table::NextNotFull() {
   delete tailpage;
   delete newpage;
   
+
+  // ALERT: ！！！一定要注意！！！
+  // 不要同时建立两个指向相同磁盘位置的且可变对象，否则会出现一致性问题
+  // ALERT: 可以适当增加传入参数，本接口不会被外部函数调用，例如额外传入Page
+  // *指针
   // TIPS:
   // 充分利用链表性质，注意全满时需要在结尾_pTable->GetTailID对应结点后插入新的结点，并更新_pTable的TailID
   // TIPS: 只需要保证均摊复杂度较低即可

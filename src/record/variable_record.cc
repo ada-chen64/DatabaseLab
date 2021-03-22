@@ -26,7 +26,9 @@ Size VariableRecord::Load(const uint8_t *src) {
   int pos = 0;
   for(FieldID i =0; i < _iFields.size(); i++)
   {
-    int catcher = pos;
+    uint16_t size = 0;
+    memcpy((uint8_t *)&size, src+pos, 2);
+    pos+=2;
     FieldType iType = _iTypeVec[i];
     Field *iField;
     if(iType == FieldType::NONE_TYPE)
@@ -43,13 +45,13 @@ Size VariableRecord::Load(const uint8_t *src) {
     }
     else if(iType == FieldType::STRING_TYPE)
     {
-      iField = new StringField(_iSizeVec[i]);
+      iField = new StringField(size);
     }
     else
       throw RecordTypeException();
-    
+    iField->SetData(src + pos, size);
     SetField(i, iField);
-    pos += _iSizeVec[i];
+    pos = size;
   }
   return pos;
   // LAB1 END
@@ -68,16 +70,26 @@ Size VariableRecord::Store(uint8_t *dst) const {
     FieldType iType = _iTypeVec[i];
     if(iType == FieldType::NONE_TYPE)
     {
+      //store the size
+      uint16_t size= _iSizeVec[i];
+      memcpy(dst+pos, (uint8_t*)&size, 2);
+      pos += 2;
       _iFields[i]->GetData(dst + pos, _iSizeVec[i]);
       pos += _iSizeVec[i];
     }
     else if(iType ==FieldType::INT_TYPE)
     {
+      uint16_t size= _iSizeVec[i];
+      memcpy(dst+pos, (uint8_t*)&size, 2);
+      pos += 2;
       _iFields[i]->GetData(dst + pos, _iSizeVec[i]);
       pos += _iSizeVec[i];
     }
     else if(iType == FieldType::FLOAT_TYPE)
     {
+      uint16_t size= _iSizeVec[i];
+      memcpy(dst+pos, (uint8_t*)&size, 2);
+      pos += 2;
       _iFields[i]->GetData(dst + pos, _iSizeVec[i]);
       pos += _iSizeVec[i]; 
     }
@@ -85,18 +97,15 @@ Size VariableRecord::Store(uint8_t *dst) const {
     {
       StringField *ifield = (StringField*)_iFields[i];
       String s = ifield->GetString();
-      _iFields[i]->GetData(dst + pos, sizeof(s));
-      pos += sizeof(s);
+      uint16_t size= sizeof(s);
+      memcpy(dst+pos, (uint8_t*)&size, 2);
+      pos += 2;
+      _iFields[i]->GetData(dst + pos, size);
+      pos += size;
     }
     else
       throw RecordTypeException();
-    if(i <_iFields.size()-1)
-    {
-      char *c = new char[1];
-      c[0] = '\0';
-      memcpy(dst+pos, (uint8_t *)&c,1);
-      pos += 1;
-    }
+    
   }
 
 
