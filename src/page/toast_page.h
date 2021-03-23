@@ -75,6 +75,7 @@ class ToastPage : public LinkedPage {
   void Clear();
  private:
   void SetSlotDir();
+  void moveSlot(Slot s, PageOffset newpos);
 //   void StoreBitmap();
 //   void LoadBitmap();
   /**
@@ -86,6 +87,8 @@ class ToastPage : public LinkedPage {
    * @brief 记录槽的大小和offset
    */
   std::vector<Slot> slot_dir;
+
+  std::map<PageOffset, SlotID> slot_organizer;
   /**
    * @brief 表示页面能容纳的记录数量
    */

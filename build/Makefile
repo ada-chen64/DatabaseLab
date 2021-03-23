@@ -1216,32 +1216,59 @@ src/page/table_page.cc.s:
 	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/page/table_page.cc.s
 .PHONY : src/page/table_page.cc.s
 
-src/parser/ErrorListner.o: src/parser/ErrorListner.cc.o
+src/page/toast_page.o: src/page/toast_page.cc.o
 
-.PHONY : src/parser/ErrorListner.o
+.PHONY : src/page/toast_page.o
 
 # target to build an object file
-src/parser/ErrorListner.cc.o:
-	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/parser/ErrorListner.cc.o
-.PHONY : src/parser/ErrorListner.cc.o
+src/page/toast_page.cc.o:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/page/toast_page.cc.o
+.PHONY : src/page/toast_page.cc.o
 
-src/parser/ErrorListner.i: src/parser/ErrorListner.cc.i
+src/page/toast_page.i: src/page/toast_page.cc.i
 
-.PHONY : src/parser/ErrorListner.i
+.PHONY : src/page/toast_page.i
 
 # target to preprocess a source file
-src/parser/ErrorListner.cc.i:
-	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/parser/ErrorListner.cc.i
-.PHONY : src/parser/ErrorListner.cc.i
+src/page/toast_page.cc.i:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/page/toast_page.cc.i
+.PHONY : src/page/toast_page.cc.i
 
-src/parser/ErrorListner.s: src/parser/ErrorListner.cc.s
+src/page/toast_page.s: src/page/toast_page.cc.s
 
-.PHONY : src/parser/ErrorListner.s
+.PHONY : src/page/toast_page.s
 
 # target to generate assembly for a file
-src/parser/ErrorListner.cc.s:
-	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/parser/ErrorListner.cc.s
-.PHONY : src/parser/ErrorListner.cc.s
+src/page/toast_page.cc.s:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/page/toast_page.cc.s
+.PHONY : src/page/toast_page.cc.s
+
+src/parser/ErrorListener.o: src/parser/ErrorListener.cc.o
+
+.PHONY : src/parser/ErrorListener.o
+
+# target to build an object file
+src/parser/ErrorListener.cc.o:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/parser/ErrorListener.cc.o
+.PHONY : src/parser/ErrorListener.cc.o
+
+src/parser/ErrorListener.i: src/parser/ErrorListener.cc.i
+
+.PHONY : src/parser/ErrorListener.i
+
+# target to preprocess a source file
+src/parser/ErrorListener.cc.i:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/parser/ErrorListener.cc.i
+.PHONY : src/parser/ErrorListener.cc.i
+
+src/parser/ErrorListener.s: src/parser/ErrorListener.cc.s
+
+.PHONY : src/parser/ErrorListener.s
+
+# target to generate assembly for a file
+src/parser/ErrorListener.cc.s:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/parser/ErrorListener.cc.s
+.PHONY : src/parser/ErrorListener.cc.s
 
 src/parser/SQLBaseVisitor.o: src/parser/SQLBaseVisitor.cc.o
 
@@ -5417,9 +5444,12 @@ help:
 	@echo "... src/page/table_page.o"
 	@echo "... src/page/table_page.i"
 	@echo "... src/page/table_page.s"
-	@echo "... src/parser/ErrorListner.o"
-	@echo "... src/parser/ErrorListner.i"
-	@echo "... src/parser/ErrorListner.s"
+	@echo "... src/page/toast_page.o"
+	@echo "... src/page/toast_page.i"
+	@echo "... src/page/toast_page.s"
+	@echo "... src/parser/ErrorListener.o"
+	@echo "... src/parser/ErrorListener.i"
+	@echo "... src/parser/ErrorListener.s"
 	@echo "... src/parser/SQLBaseVisitor.o"
 	@echo "... src/parser/SQLBaseVisitor.i"
 	@echo "... src/parser/SQLBaseVisitor.s"
