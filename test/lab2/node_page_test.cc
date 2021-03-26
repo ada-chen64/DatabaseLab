@@ -12,20 +12,46 @@ void Search(NodePage* pNode, int nLow, int nHigh) {
   Field* pLow = new IntField(nLow);
   Field* pHigh = new IntField(nHigh);
   auto iRes = pNode->Range(pLow, pHigh);
-  printf("Range[%d,%d]: ", nLow, nHigh);
+  delete pLow;
+  delete pHigh;
+  printf("Range[%d,%d): ", nLow, nHigh);
   for (const auto& it : iRes) printf("%u.%u ", it.first, it.second);
+  printf("\n");
+}
+
+TEST(Lab2, LeafPageTest) {
+  NodePage* pLeaf = new NodePage(4, FieldType::INT_TYPE, true);
+  PageID nPageID = pLeaf->GetPageID();
+  for (int i = 0; i < 9; ++i) {
+    pLeaf->Insert(new IntField(i), PageSlotID(0, i));
+  }
+  pLeaf->Insert(new IntField(5), PageSlotID(1, 5));
+  pLeaf->Insert(new IntField(5), PageSlotID(2, 5));
+  for (int i = 0; i < 10; ++i) {
+    Search(pLeaf, 0, i);
+  }
+  pLeaf->Delete(new IntField(4));
+  Search(pLeaf, 3, 6);
+  pLeaf->Delete(new IntField(5), PageSlotID(1, 5));
+  Search(pLeaf, 4, 6);
+  delete pLeaf;
 }
 
 TEST(Lab2, NodePageTest) {
-  NodePage* pNode = new NodePage(4, FieldType::INT_TYPE, true);
+  NodePage* pNode = new NodePage(4, FieldType::INT_TYPE, false);
   PageID nPageID = pNode->GetPageID();
-  for (int i = 3; i < 7; ++i) {
+  for (int i = 0; i < 9; ++i) {
     pNode->Insert(new IntField(i), PageSlotID(0, i));
-    printf("Insert %d\n", i);
   }
+  pNode->Insert(new IntField(5), PageSlotID(1, 5));
+  pNode->Insert(new IntField(5), PageSlotID(2, 5));
   for (int i = 0; i < 10; ++i) {
-    Search(pNode, i, i);
+    Search(pNode, 0, i);
   }
+  pNode->Delete(new IntField(4));
+  Search(pNode, 3, 6);
+  pNode->Delete(new IntField(5), PageSlotID(1, 5));
+  Search(pNode, 4, 6);
   delete pNode;
 }
 
