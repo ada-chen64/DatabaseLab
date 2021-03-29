@@ -5,6 +5,8 @@
 echo -e current project "\x1b[32m${CI_PROJECT_NAME}\x1b[0m"
 echo -e pipeline id "\x1b[32m${CI_PIPELINE_ID}\x1b[0m"
 echo -e job id "\x1b[32m${CI_JOB_ID}\x1b[0m"
+echo -e CI_COMMIT_TIMESTAMP "\x1b[32m${CI_COMMIT_TIMESTAMP}\x1b[0m"
+echo -e CI_PIPELINE_CREATED_AT "\x1b[32m${CI_PIPELINE_CREATED_AT}\x1b[0m"
 
 echo -e "\x1b[1;32mStart to compile\x1b[0m"
 mkdir build && cd build
@@ -18,9 +20,12 @@ then
 fi
 
 echo -e "\x1b[1;32mStart to test Lab${CURRENT_LAB}\x1b[0m"
-test/lab${CURRENT_LAB}_test --gtest_output="json:report.json" --gtest_color="yes" || exit 1
+test/lab${CURRENT_LAB}_test --gtest_output="json:report.json" --gtest_color="yes" || fail=1
 
-echo -e "\x1b[1;32mPassed lab${CURRENT_LAB} test\x1b[0m"
+if [ ${fail:-0} -eq 0 ]
+then
+    echo -e "\x1b[1;32mPassed lab${CURRENT_LAB} test\x1b[0m"
+fi
 
 if [ ${SEND_RESULT:-0} -eq 1 -a -e report.json ]
 then
