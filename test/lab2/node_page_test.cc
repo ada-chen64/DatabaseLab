@@ -40,12 +40,12 @@ TEST(Lab2, LeafPageTest) {
 TEST(Lab2, NodePageTest) {
   NodePage* pNode = new NodePage(4, FieldType::INT_TYPE, false);
   PageID nPageID = pNode->GetPageID();
-  for (int i = 0; i < 9; ++i) {
+  for (int i = 0; i < 15; ++i) {
     pNode->Insert(new IntField(i), PageSlotID(0, i));
   }
   pNode->Insert(new IntField(5), PageSlotID(1, 5));
   pNode->Insert(new IntField(5), PageSlotID(2, 5));
-  for (int i = 0; i < 10; ++i) {
+  for (int i = 0; i < 20; ++i) {
     Search(pNode, 0, i);
   }
   pNode->Delete(new IntField(4));
