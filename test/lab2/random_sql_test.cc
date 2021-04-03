@@ -24,6 +24,7 @@ TEST(Lab2, RandomSqlTest) {
     std::vector<Result *> iResVec = Execute(pDB, iSQLVec[i]);
     // 由于 SqlGenerator 函数生成的 sql 中，每行只有一条 sql 语句，因此 iResVec 的大小始终为 1.
     // 只有当一行包含多条 sql 时，iResVec 大小为一行内 sql 语句的个数。
+    printf("SQL:%s\n", iSQLVec[i].c_str());
     EXPECT_EQ(iResVec.size(), 1);
     // 比较 sql 执行结果数量是否正确
     EXPECT_EQ(iResVec[0]->GetSize(), results[i]);
