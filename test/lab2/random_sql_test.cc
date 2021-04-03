@@ -17,7 +17,7 @@ TEST(Lab2, RandomSqlTest) {
 
   // results 表示 sql 执行结果行数
   std::vector<Size> results(1 + data_num + 1 + 1 + sample_num + 1, 1);
-  results[data_num + 1] = data_num;
+  results[data_num + 2] = data_num;
 
   // 执行每条 sql 语句
   for (uint32_t i = 0; i < iSQLVec.size(); i++) {
