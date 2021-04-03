@@ -6,17 +6,17 @@
 
 namespace thdb {
 
-TEST(Lab1, RandomSqlTest) {
+TEST(Lab2, RandomSqlTest) {
   Instance *pDB = new Instance();
   Size data_num = 1000;  // 插入记录的行数
   Size sample_num = 10;  // 选择 10 records after inserting
 
   // 生成 1 条 create table 语句, 1000 条 insert 语句, 1 条 select * 语句, 10 条条件 select 语句, 1 条 drop table 语句
   std::vector<String> iSQLVec = SqlGenerator(data_num, sample_num);
-  EXPECT_EQ(iSQLVec.size(), 1 + data_num + 1 + sample_num + 1);
+  EXPECT_EQ(iSQLVec.size(), 1 + data_num + 1 + 1 + sample_num + 1);
 
   // results 表示 sql 执行结果行数
-  std::vector<Size> results(1 + data_num + 1 + sample_num + 1, 1);
+  std::vector<Size> results(1 + data_num + 1 + 1 + sample_num + 1, 1);
   results[data_num + 1] = data_num;
 
   // 执行每条 sql 语句
