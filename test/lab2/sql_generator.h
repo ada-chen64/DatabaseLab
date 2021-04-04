@@ -38,8 +38,8 @@ std::vector<String> SqlGenerator(size_t data_num, size_t sample_num) {
     sql_insert += ");";
     sqls.push_back(sql_insert);
   }
-  sqls.push_back("ALTER TABLE Persons ADD INDEX(ID);");
   sqls.push_back("SELECT * FROM Persons;");
+  sqls.push_back("ALTER TABLE Persons ADD INDEX(ID);");
   for (size_t i = 0; i < sample_num; i++) {
     String sql_sample = "SELECT * FROM Persons WHERE Persons.ID = " + std::to_string(generator() % data_num) + ";";
     sqls.push_back(sql_sample);
