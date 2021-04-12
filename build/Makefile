@@ -784,6 +784,33 @@ src/condition/condition.cc.s:
 	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/condition/condition.cc.s
 .PHONY : src/condition/condition.cc.s
 
+src/condition/index_condition.o: src/condition/index_condition.cc.o
+
+.PHONY : src/condition/index_condition.o
+
+# target to build an object file
+src/condition/index_condition.cc.o:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o
+.PHONY : src/condition/index_condition.cc.o
+
+src/condition/index_condition.i: src/condition/index_condition.cc.i
+
+.PHONY : src/condition/index_condition.i
+
+# target to preprocess a source file
+src/condition/index_condition.cc.i:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.i
+.PHONY : src/condition/index_condition.cc.i
+
+src/condition/index_condition.s: src/condition/index_condition.cc.s
+
+.PHONY : src/condition/index_condition.s
+
+# target to generate assembly for a file
+src/condition/index_condition.cc.s:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.s
+.PHONY : src/condition/index_condition.cc.s
+
 src/condition/join_condition.o: src/condition/join_condition.cc.o
 
 .PHONY : src/condition/join_condition.o
@@ -891,6 +918,33 @@ src/condition/range_condition.s: src/condition/range_condition.cc.s
 src/condition/range_condition.cc.s:
 	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.s
 .PHONY : src/condition/range_condition.cc.s
+
+src/field/compare.o: src/field/compare.cc.o
+
+.PHONY : src/field/compare.o
+
+# target to build an object file
+src/field/compare.cc.o:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/field/compare.cc.o
+.PHONY : src/field/compare.cc.o
+
+src/field/compare.i: src/field/compare.cc.i
+
+.PHONY : src/field/compare.i
+
+# target to preprocess a source file
+src/field/compare.cc.i:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/field/compare.cc.i
+.PHONY : src/field/compare.cc.i
+
+src/field/compare.s: src/field/compare.cc.s
+
+.PHONY : src/field/compare.s
+
+# target to generate assembly for a file
+src/field/compare.cc.s:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/field/compare.cc.s
+.PHONY : src/field/compare.cc.s
 
 src/field/field.o: src/field/field.cc.o
 
@@ -1027,6 +1081,60 @@ src/field/string_field.cc.s:
 	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/field/string_field.cc.s
 .PHONY : src/field/string_field.cc.s
 
+src/index/index.o: src/index/index.cc.o
+
+.PHONY : src/index/index.o
+
+# target to build an object file
+src/index/index.cc.o:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/index/index.cc.o
+.PHONY : src/index/index.cc.o
+
+src/index/index.i: src/index/index.cc.i
+
+.PHONY : src/index/index.i
+
+# target to preprocess a source file
+src/index/index.cc.i:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/index/index.cc.i
+.PHONY : src/index/index.cc.i
+
+src/index/index.s: src/index/index.cc.s
+
+.PHONY : src/index/index.s
+
+# target to generate assembly for a file
+src/index/index.cc.s:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/index/index.cc.s
+.PHONY : src/index/index.cc.s
+
+src/manager/index_manager.o: src/manager/index_manager.cc.o
+
+.PHONY : src/manager/index_manager.o
+
+# target to build an object file
+src/manager/index_manager.cc.o:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o
+.PHONY : src/manager/index_manager.cc.o
+
+src/manager/index_manager.i: src/manager/index_manager.cc.i
+
+.PHONY : src/manager/index_manager.i
+
+# target to preprocess a source file
+src/manager/index_manager.cc.i:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.i
+.PHONY : src/manager/index_manager.cc.i
+
+src/manager/index_manager.s: src/manager/index_manager.cc.s
+
+.PHONY : src/manager/index_manager.s
+
+# target to generate assembly for a file
+src/manager/index_manager.cc.s:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.s
+.PHONY : src/manager/index_manager.cc.s
+
 src/manager/table_manager.o: src/manager/table_manager.cc.o
 
 .PHONY : src/manager/table_manager.o
@@ -1134,6 +1242,33 @@ src/page/linked_page.s: src/page/linked_page.cc.s
 src/page/linked_page.cc.s:
 	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.s
 .PHONY : src/page/linked_page.cc.s
+
+src/page/node_page.o: src/page/node_page.cc.o
+
+.PHONY : src/page/node_page.o
+
+# target to build an object file
+src/page/node_page.cc.o:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o
+.PHONY : src/page/node_page.cc.o
+
+src/page/node_page.i: src/page/node_page.cc.i
+
+.PHONY : src/page/node_page.i
+
+# target to preprocess a source file
+src/page/node_page.cc.i:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/page/node_page.cc.i
+.PHONY : src/page/node_page.cc.i
+
+src/page/node_page.s: src/page/node_page.cc.s
+
+.PHONY : src/page/node_page.s
+
+# target to generate assembly for a file
+src/page/node_page.cc.s:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/page/node_page.cc.s
+.PHONY : src/page/node_page.cc.s
 
 src/page/page.o: src/page/page.cc.o
 
@@ -5396,6 +5531,9 @@ help:
 	@echo "... src/condition/condition.o"
 	@echo "... src/condition/condition.i"
 	@echo "... src/condition/condition.s"
+	@echo "... src/condition/index_condition.o"
+	@echo "... src/condition/index_condition.i"
+	@echo "... src/condition/index_condition.s"
 	@echo "... src/condition/join_condition.o"
 	@echo "... src/condition/join_condition.i"
 	@echo "... src/condition/join_condition.s"
@@ -5408,6 +5546,9 @@ help:
 	@echo "... src/condition/range_condition.o"
 	@echo "... src/condition/range_condition.i"
 	@echo "... src/condition/range_condition.s"
+	@echo "... src/field/compare.o"
+	@echo "... src/field/compare.i"
+	@echo "... src/field/compare.s"
 	@echo "... src/field/field.o"
 	@echo "... src/field/field.i"
 	@echo "... src/field/field.s"
@@ -5423,6 +5564,12 @@ help:
 	@echo "... src/field/string_field.o"
 	@echo "... src/field/string_field.i"
 	@echo "... src/field/string_field.s"
+	@echo "... src/index/index.o"
+	@echo "... src/index/index.i"
+	@echo "... src/index/index.s"
+	@echo "... src/manager/index_manager.o"
+	@echo "... src/manager/index_manager.i"
+	@echo "... src/manager/index_manager.s"
 	@echo "... src/manager/table_manager.o"
 	@echo "... src/manager/table_manager.i"
 	@echo "... src/manager/table_manager.s"
@@ -5435,6 +5582,9 @@ help:
 	@echo "... src/page/linked_page.o"
 	@echo "... src/page/linked_page.i"
 	@echo "... src/page/linked_page.s"
+	@echo "... src/page/node_page.o"
+	@echo "... src/page/node_page.i"
+	@echo "... src/page/node_page.s"
 	@echo "... src/page/page.o"
 	@echo "... src/page/page.i"
 	@echo "... src/page/page.s"

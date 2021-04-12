@@ -12,13 +12,16 @@ CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o
  ../src/exception/parser_exception.h
  ../src/exception/special_exception.h
  ../src/exception/table_exception.h
+ ../src/field/compare.h
  ../src/field/field.h
  ../src/field/fields.h
  ../src/field/float_field.h
  ../src/field/int_field.h
  ../src/field/none_field.h
  ../src/field/string_field.h
+ ../src/index/index.h
  ../src/macros.h
+ ../src/manager/index_manager.h
  ../src/manager/table_manager.h
  ../src/minios/os.h
  ../src/minios/raw_page.h
@@ -212,6 +215,19 @@ CMakeFiles/thdb_shared.dir/src/condition/condition.cc.o
  ../src/field/field.h
  ../src/record/record.h
  /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/condition/condition.cc
+CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o
+ ../src/condition/condition.h
+ ../src/condition/index_condition.h
+ ../src/defines.h
+ ../src/field/compare.h
+ ../src/field/field.h
+ ../src/field/fields.h
+ ../src/field/float_field.h
+ ../src/field/int_field.h
+ ../src/field/none_field.h
+ ../src/field/string_field.h
+ ../src/record/record.h
+ /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/condition/index_condition.cc
 CMakeFiles/thdb_shared.dir/src/condition/join_condition.cc.o
  ../src/condition/condition.h
  ../src/condition/join_condition.h
@@ -237,6 +253,7 @@ CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.o
  ../src/condition/condition.h
  ../src/condition/range_condition.h
  ../src/defines.h
+ ../src/field/compare.h
  ../src/field/field.h
  ../src/field/fields.h
  ../src/field/float_field.h
@@ -245,6 +262,16 @@ CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.o
  ../src/field/string_field.h
  ../src/record/record.h
  /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/condition/range_condition.cc
+CMakeFiles/thdb_shared.dir/src/field/compare.cc.o
+ ../src/defines.h
+ ../src/field/compare.h
+ ../src/field/field.h
+ ../src/field/fields.h
+ ../src/field/float_field.h
+ ../src/field/int_field.h
+ ../src/field/none_field.h
+ ../src/field/string_field.h
+ /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/field/compare.cc
 CMakeFiles/thdb_shared.dir/src/field/field.cc.o
  ../src/defines.h
  ../src/field/field.h
@@ -269,6 +296,42 @@ CMakeFiles/thdb_shared.dir/src/field/string_field.cc.o
  /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/field/field.h
  /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/field/string_field.cc
  /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/field/string_field.h
+CMakeFiles/thdb_shared.dir/src/index/index.cc.o
+ ../src/defines.h
+ ../src/field/compare.h
+ ../src/field/field.h
+ ../src/field/fields.h
+ ../src/field/float_field.h
+ ../src/field/int_field.h
+ ../src/field/none_field.h
+ ../src/field/string_field.h
+ ../src/index/index.h
+ ../src/page/node_page.h
+ ../src/page/page.h
+ /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/index/index.cc
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o
+ ../src/defines.h
+ ../src/exception/exception.h
+ ../src/exception/index_exception.h
+ ../src/field/compare.h
+ ../src/field/field.h
+ ../src/field/fields.h
+ ../src/field/float_field.h
+ ../src/field/int_field.h
+ ../src/field/none_field.h
+ ../src/field/string_field.h
+ ../src/index/index.h
+ ../src/macros.h
+ ../src/manager/index_manager.h
+ ../src/minios/os.h
+ ../src/minios/raw_page.h
+ ../src/page/linked_page.h
+ ../src/page/page.h
+ ../src/page/record_page.h
+ ../src/record/fixed_record.h
+ ../src/record/record.h
+ ../src/utils/bitmap.h
+ /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/index_manager.cc
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o
  ../src/condition/condition.h
  ../src/defines.h
@@ -279,6 +342,7 @@ CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o
  ../src/exception/parser_exception.h
  ../src/exception/special_exception.h
  ../src/exception/table_exception.h
+ ../src/field/compare.h
  ../src/field/field.h
  ../src/field/fields.h
  ../src/field/float_field.h
@@ -339,6 +403,29 @@ CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o
  ../src/page/page.h
  ../src/utils/bitmap.h
  /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/page/linked_page.cc
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o
+ ../src/defines.h
+ ../src/exception/exception.h
+ ../src/exception/exceptions.h
+ ../src/exception/os_exception.h
+ ../src/exception/page_exception.h
+ ../src/exception/parser_exception.h
+ ../src/exception/special_exception.h
+ ../src/exception/table_exception.h
+ ../src/field/compare.h
+ ../src/field/field.h
+ ../src/field/fields.h
+ ../src/field/float_field.h
+ ../src/field/int_field.h
+ ../src/field/none_field.h
+ ../src/field/string_field.h
+ ../src/macros.h
+ ../src/minios/os.h
+ ../src/minios/raw_page.h
+ ../src/page/node_page.h
+ ../src/page/page.h
+ ../src/utils/bitmap.h
+ /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/page/node_page.cc
 CMakeFiles/thdb_shared.dir/src/page/page.cc.o
  ../src/defines.h
  ../src/macros.h
@@ -1208,6 +1295,7 @@ CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o
  ../src/condition/and_condition.h
  ../src/condition/condition.h
  ../src/condition/conditions.h
+ ../src/condition/index_condition.h
  ../src/condition/join_condition.h
  ../src/condition/not_condition.h
  ../src/condition/or_condition.h
@@ -1220,13 +1308,16 @@ CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o
  ../src/exception/parser_exception.h
  ../src/exception/special_exception.h
  ../src/exception/table_exception.h
+ ../src/field/compare.h
  ../src/field/field.h
  ../src/field/fields.h
  ../src/field/float_field.h
  ../src/field/int_field.h
  ../src/field/none_field.h
  ../src/field/string_field.h
+ ../src/index/index.h
  ../src/macros.h
+ ../src/manager/index_manager.h
  ../src/manager/table_manager.h
  ../src/page/page.h
  ../src/page/table_page.h
@@ -1410,6 +1501,7 @@ CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o
  ../src/exception/parser_exception.h
  ../src/exception/special_exception.h
  ../src/exception/table_exception.h
+ ../src/field/compare.h
  ../src/field/field.h
  ../src/field/fields.h
  ../src/field/float_field.h
@@ -1442,6 +1534,7 @@ CMakeFiles/thdb_shared.dir/src/record/transform.cc.o
  ../src/exception/parser_exception.h
  ../src/exception/special_exception.h
  ../src/exception/table_exception.h
+ ../src/field/compare.h
  ../src/field/field.h
  ../src/field/fields.h
  ../src/field/float_field.h
@@ -1460,6 +1553,7 @@ CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o
  ../src/exception/parser_exception.h
  ../src/exception/special_exception.h
  ../src/exception/table_exception.h
+ ../src/field/compare.h
  ../src/field/field.h
  ../src/field/fields.h
  ../src/field/float_field.h
@@ -1484,7 +1578,14 @@ CMakeFiles/thdb_shared.dir/src/result/result.cc.o
  ../src/result/result.h
  /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/result/result.cc
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o
+ ../src/condition/and_condition.h
  ../src/condition/condition.h
+ ../src/condition/conditions.h
+ ../src/condition/index_condition.h
+ ../src/condition/join_condition.h
+ ../src/condition/not_condition.h
+ ../src/condition/or_condition.h
+ ../src/condition/range_condition.h
  ../src/defines.h
  ../src/exception/exception.h
  ../src/exception/exceptions.h
@@ -1493,13 +1594,16 @@ CMakeFiles/thdb_shared.dir/src/system/instance.cc.o
  ../src/exception/parser_exception.h
  ../src/exception/special_exception.h
  ../src/exception/table_exception.h
+ ../src/field/compare.h
  ../src/field/field.h
  ../src/field/fields.h
  ../src/field/float_field.h
  ../src/field/int_field.h
  ../src/field/none_field.h
  ../src/field/string_field.h
+ ../src/index/index.h
  ../src/macros.h
+ ../src/manager/index_manager.h
  ../src/manager/table_manager.h
  ../src/page/page.h
  ../src/page/table_page.h
@@ -1536,6 +1640,7 @@ CMakeFiles/thdb_shared.dir/src/table/table.cc.o
  ../src/exception/parser_exception.h
  ../src/exception/special_exception.h
  ../src/exception/table_exception.h
+ ../src/field/compare.h
  ../src/field/field.h
  ../src/field/fields.h
  ../src/field/float_field.h

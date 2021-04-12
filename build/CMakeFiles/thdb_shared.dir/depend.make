@@ -11,13 +11,16 @@ CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/exception/page_excep
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/exception/parser_exception.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/exception/special_exception.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/exception/table_exception.h
+CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/field/compare.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/field/field.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/field/fields.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/field/float_field.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/field/int_field.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/field/none_field.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/field/string_field.h
+CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/index/index.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/macros.h
+CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/manager/index_manager.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/manager/table_manager.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/minios/os.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/minios/raw_page.h
@@ -212,6 +215,19 @@ CMakeFiles/thdb_shared.dir/src/condition/condition.cc.o: ../src/field/field.h
 CMakeFiles/thdb_shared.dir/src/condition/condition.cc.o: ../src/record/record.h
 CMakeFiles/thdb_shared.dir/src/condition/condition.cc.o: ../src/condition/condition.cc
 
+CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o: ../src/condition/condition.h
+CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o: ../src/condition/index_condition.h
+CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o: ../src/defines.h
+CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o: ../src/field/compare.h
+CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o: ../src/field/field.h
+CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o: ../src/field/fields.h
+CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o: ../src/field/float_field.h
+CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o: ../src/field/int_field.h
+CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o: ../src/field/none_field.h
+CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o: ../src/field/string_field.h
+CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o: ../src/record/record.h
+CMakeFiles/thdb_shared.dir/src/condition/index_condition.cc.o: ../src/condition/index_condition.cc
+
 CMakeFiles/thdb_shared.dir/src/condition/join_condition.cc.o: ../src/condition/condition.h
 CMakeFiles/thdb_shared.dir/src/condition/join_condition.cc.o: ../src/condition/join_condition.h
 CMakeFiles/thdb_shared.dir/src/condition/join_condition.cc.o: ../src/defines.h
@@ -236,6 +252,7 @@ CMakeFiles/thdb_shared.dir/src/condition/or_condition.cc.o: ../src/condition/or_
 CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.o: ../src/condition/condition.h
 CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.o: ../src/condition/range_condition.h
 CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.o: ../src/defines.h
+CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.o: ../src/field/compare.h
 CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.o: ../src/field/field.h
 CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.o: ../src/field/fields.h
 CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.o: ../src/field/float_field.h
@@ -244,6 +261,16 @@ CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.o: ../src/field/none
 CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.o: ../src/field/string_field.h
 CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.o: ../src/record/record.h
 CMakeFiles/thdb_shared.dir/src/condition/range_condition.cc.o: ../src/condition/range_condition.cc
+
+CMakeFiles/thdb_shared.dir/src/field/compare.cc.o: ../src/defines.h
+CMakeFiles/thdb_shared.dir/src/field/compare.cc.o: ../src/field/compare.h
+CMakeFiles/thdb_shared.dir/src/field/compare.cc.o: ../src/field/field.h
+CMakeFiles/thdb_shared.dir/src/field/compare.cc.o: ../src/field/fields.h
+CMakeFiles/thdb_shared.dir/src/field/compare.cc.o: ../src/field/float_field.h
+CMakeFiles/thdb_shared.dir/src/field/compare.cc.o: ../src/field/int_field.h
+CMakeFiles/thdb_shared.dir/src/field/compare.cc.o: ../src/field/none_field.h
+CMakeFiles/thdb_shared.dir/src/field/compare.cc.o: ../src/field/string_field.h
+CMakeFiles/thdb_shared.dir/src/field/compare.cc.o: ../src/field/compare.cc
 
 CMakeFiles/thdb_shared.dir/src/field/field.cc.o: ../src/defines.h
 CMakeFiles/thdb_shared.dir/src/field/field.cc.o: ../src/field/field.h
@@ -269,6 +296,42 @@ CMakeFiles/thdb_shared.dir/src/field/string_field.cc.o: ../src/field/field.h
 CMakeFiles/thdb_shared.dir/src/field/string_field.cc.o: ../src/field/string_field.cc
 CMakeFiles/thdb_shared.dir/src/field/string_field.cc.o: ../src/field/string_field.h
 
+CMakeFiles/thdb_shared.dir/src/index/index.cc.o: ../src/defines.h
+CMakeFiles/thdb_shared.dir/src/index/index.cc.o: ../src/field/compare.h
+CMakeFiles/thdb_shared.dir/src/index/index.cc.o: ../src/field/field.h
+CMakeFiles/thdb_shared.dir/src/index/index.cc.o: ../src/field/fields.h
+CMakeFiles/thdb_shared.dir/src/index/index.cc.o: ../src/field/float_field.h
+CMakeFiles/thdb_shared.dir/src/index/index.cc.o: ../src/field/int_field.h
+CMakeFiles/thdb_shared.dir/src/index/index.cc.o: ../src/field/none_field.h
+CMakeFiles/thdb_shared.dir/src/index/index.cc.o: ../src/field/string_field.h
+CMakeFiles/thdb_shared.dir/src/index/index.cc.o: ../src/index/index.h
+CMakeFiles/thdb_shared.dir/src/index/index.cc.o: ../src/page/node_page.h
+CMakeFiles/thdb_shared.dir/src/index/index.cc.o: ../src/page/page.h
+CMakeFiles/thdb_shared.dir/src/index/index.cc.o: ../src/index/index.cc
+
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/defines.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/exception/exception.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/exception/index_exception.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/field/compare.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/field/field.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/field/fields.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/field/float_field.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/field/int_field.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/field/none_field.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/field/string_field.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/index/index.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/macros.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/manager/index_manager.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/minios/os.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/minios/raw_page.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/page/linked_page.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/page/page.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/page/record_page.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/record/fixed_record.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/record/record.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/utils/bitmap.h
+CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o: ../src/manager/index_manager.cc
+
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/condition/condition.h
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/defines.h
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/exception/exception.h
@@ -278,6 +341,7 @@ CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/exception/page
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/exception/parser_exception.h
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/exception/special_exception.h
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/exception/table_exception.h
+CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/field/compare.h
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/field/field.h
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/field/fields.h
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/field/float_field.h
@@ -338,6 +402,29 @@ CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o: ../src/page/linked_page.h
 CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o: ../src/page/page.h
 CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o: ../src/utils/bitmap.h
 CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o: ../src/page/linked_page.cc
+
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/defines.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/exception/exception.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/exception/exceptions.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/exception/os_exception.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/exception/page_exception.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/exception/parser_exception.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/exception/special_exception.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/exception/table_exception.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/field/compare.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/field/field.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/field/fields.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/field/float_field.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/field/int_field.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/field/none_field.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/field/string_field.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/macros.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/minios/os.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/minios/raw_page.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/page/node_page.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/page/page.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/utils/bitmap.h
+CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/page/node_page.cc
 
 CMakeFiles/thdb_shared.dir/src/page/page.cc.o: ../src/defines.h
 CMakeFiles/thdb_shared.dir/src/page/page.cc.o: ../src/macros.h
@@ -1207,6 +1294,7 @@ CMakeFiles/thdb_shared.dir/src/parser/SQLVisitor.cc.o: ../src/parser/SQLVisitor.
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/condition/and_condition.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/condition/condition.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/condition/conditions.h
+CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/condition/index_condition.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/condition/join_condition.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/condition/not_condition.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/condition/or_condition.h
@@ -1219,13 +1307,16 @@ CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/exception/page_
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/exception/parser_exception.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/exception/special_exception.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/exception/table_exception.h
+CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/field/compare.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/field/field.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/field/fields.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/field/float_field.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/field/int_field.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/field/none_field.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/field/string_field.h
+CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/index/index.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/macros.h
+CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/manager/index_manager.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/manager/table_manager.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/page/page.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/page/table_page.h
@@ -1409,6 +1500,7 @@ CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o: ../src/exception/page_e
 CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o: ../src/exception/parser_exception.h
 CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o: ../src/exception/special_exception.h
 CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o: ../src/exception/table_exception.h
+CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o: ../src/field/compare.h
 CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o: ../src/field/field.h
 CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o: ../src/field/fields.h
 CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o: ../src/field/float_field.h
@@ -1441,6 +1533,7 @@ CMakeFiles/thdb_shared.dir/src/record/transform.cc.o: ../src/exception/page_exce
 CMakeFiles/thdb_shared.dir/src/record/transform.cc.o: ../src/exception/parser_exception.h
 CMakeFiles/thdb_shared.dir/src/record/transform.cc.o: ../src/exception/special_exception.h
 CMakeFiles/thdb_shared.dir/src/record/transform.cc.o: ../src/exception/table_exception.h
+CMakeFiles/thdb_shared.dir/src/record/transform.cc.o: ../src/field/compare.h
 CMakeFiles/thdb_shared.dir/src/record/transform.cc.o: ../src/field/field.h
 CMakeFiles/thdb_shared.dir/src/record/transform.cc.o: ../src/field/fields.h
 CMakeFiles/thdb_shared.dir/src/record/transform.cc.o: ../src/field/float_field.h
@@ -1459,6 +1552,7 @@ CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o: ../src/exception/pag
 CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o: ../src/exception/parser_exception.h
 CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o: ../src/exception/special_exception.h
 CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o: ../src/exception/table_exception.h
+CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o: ../src/field/compare.h
 CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o: ../src/field/field.h
 CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o: ../src/field/fields.h
 CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o: ../src/field/float_field.h
@@ -1483,7 +1577,14 @@ CMakeFiles/thdb_shared.dir/src/result/result.cc.o: ../src/record/record.h
 CMakeFiles/thdb_shared.dir/src/result/result.cc.o: ../src/result/result.h
 CMakeFiles/thdb_shared.dir/src/result/result.cc.o: ../src/result/result.cc
 
+CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/condition/and_condition.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/condition/condition.h
+CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/condition/conditions.h
+CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/condition/index_condition.h
+CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/condition/join_condition.h
+CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/condition/not_condition.h
+CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/condition/or_condition.h
+CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/condition/range_condition.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/defines.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/exception/exception.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/exception/exceptions.h
@@ -1492,13 +1593,16 @@ CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/exception/page_excep
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/exception/parser_exception.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/exception/special_exception.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/exception/table_exception.h
+CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/field/compare.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/field/field.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/field/fields.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/field/float_field.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/field/int_field.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/field/none_field.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/field/string_field.h
+CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/index/index.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/macros.h
+CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/manager/index_manager.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/manager/table_manager.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/page/page.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/page/table_page.h
@@ -1535,6 +1639,7 @@ CMakeFiles/thdb_shared.dir/src/table/table.cc.o: ../src/exception/page_exception
 CMakeFiles/thdb_shared.dir/src/table/table.cc.o: ../src/exception/parser_exception.h
 CMakeFiles/thdb_shared.dir/src/table/table.cc.o: ../src/exception/special_exception.h
 CMakeFiles/thdb_shared.dir/src/table/table.cc.o: ../src/exception/table_exception.h
+CMakeFiles/thdb_shared.dir/src/table/table.cc.o: ../src/field/compare.h
 CMakeFiles/thdb_shared.dir/src/table/table.cc.o: ../src/field/field.h
 CMakeFiles/thdb_shared.dir/src/table/table.cc.o: ../src/field/fields.h
 CMakeFiles/thdb_shared.dir/src/table/table.cc.o: ../src/field/float_field.h

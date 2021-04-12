@@ -32,11 +32,17 @@ string
 vector
 -
 
+../src/field/compare.h
+field/field.h
+../src/field/field/field.h
+
 ../src/field/field.h
 defines.h
 ../src/field/defines.h
 
 ../src/field/fields.h
+compare.h
+../src/field/compare.h
 float_field.h
 ../src/field/float_field.h
 int_field.h
@@ -66,9 +72,21 @@ string
 field.h
 ../src/field/field.h
 
+../src/index/index.h
+defines.h
+../src/index/defines.h
+field/fields.h
+../src/index/field/fields.h
+
 ../src/macros.h
 defines.h
 ../src/defines.h
+
+../src/manager/index_manager.h
+defines.h
+../src/manager/defines.h
+index/index.h
+../src/manager/index/index.h
 
 ../src/manager/table_manager.h
 defines.h
@@ -153,6 +171,10 @@ defines.h
 ../src/system/defines.h
 field/fields.h
 ../src/system/field/fields.h
+index/index.h
+../src/system/index/index.h
+manager/index_manager.h
+../src/system/manager/index_manager.h
 manager/table_manager.h
 ../src/system/manager/table_manager.h
 record/transform.h

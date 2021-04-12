@@ -4,13 +4,16 @@
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/backend/backend.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/condition/condition.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/defines.h
+CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/field/compare.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/field/field.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/field/fields.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/field/float_field.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/field/int_field.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/field/none_field.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/field/string_field.h
+CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/index/index.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/macros.h
+CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/manager/index_manager.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/manager/table_manager.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/page/page.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/page/table_page.h
