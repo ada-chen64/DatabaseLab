@@ -272,20 +272,43 @@ Size NodePage::Delete(Field *pKey) {
     }
     else
     {
+      //printf("KEy only has one elem\n");
       if(!less)
       {
-        _iKeyVec.clear();
-        Field *iField;
-        if(_iKeyType ==FieldType::INT_TYPE)
+        PageID lsID = _iChildVec[pos].first;
+        NodePage *leftsib = new NodePage(lsID);
+        if(leftsib->Empty())
         {
-          iField = new IntField(0);
+          _iKeyVec.clear();
+          Field *iField;
+          if(_iKeyType ==FieldType::INT_TYPE)
+          {
+            iField = new IntField(0);
+          }
+          else if(_iKeyType == FieldType::FLOAT_TYPE)
+          {
+            iField = new FloatField(0);
+          }
+          _iKeyVec.push_back(iField);
+          _nNullKey = true;
         }
-        else if(_iKeyType == FieldType::FLOAT_TYPE)
+        else 
         {
-          iField = new FloatField(0);
+          //printf("left sib not empty\n");
+          _iChildVec.pop_back();
+          _iKeyVec.clear();
+          std::pair<std::vector<Field *>, std::vector<PageSlotID>> halfelem = leftsib->PopHalf();
+          //printf("pophalf success\n fields %d\t pageslot %d\n", halfelem.first.size(), halfelem.second.size());
+          NodePage *newchildpage = new NodePage(_nKeyLen, _iKeyType, childpage->GetBLeaf(),
+                                                halfelem.first, halfelem.second);
+          _iKeyVec.push_back(newchildpage->FirstKey());
+          // printf("leftsib empty? %d", leftsib->Empty());
+          // printf("_iKeyVec new head %s", _iKeyVec[0]->ToString().c_str());
+          _iChildVec.push_back({newchildpage->GetPageID(), 0});
+          delete newchildpage;
         }
-        _iKeyVec.push_back(iField);
-        _nNullKey = true;
+        delete leftsib;
+        
       }
         
     }
