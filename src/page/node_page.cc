@@ -233,7 +233,8 @@ Size NodePage::Delete(Field *pKey) {
     }
     else
     {
-      _iKeyVec.clear();
+      if(!less)
+        _iKeyVec.clear();
     }
     
   }
@@ -312,7 +313,8 @@ bool NodePage::Delete(Field *pKey, const PageSlotID &iPair) {
     }
     else
     {
-      _iKeyVec.clear();
+      if(!less)
+        _iKeyVec.clear();
     }
     
   }
