@@ -11,6 +11,7 @@ FloatField::FloatField(const double &fData) : _fData(fData) {}
 void FloatField::SetData(const uint8_t *src, Size nSize) {
   assert(nSize == 8);
   memcpy((uint8_t *)&_fData, src, nSize);
+  //printf("FloatFIeld Set Data _fData %f\n", _fData);
 }
 
 void FloatField::GetData(uint8_t *dst, Size nSize) const {

@@ -37,10 +37,12 @@ void Index::Clear() {
 PageID Index::GetRootID() const { return _nRootID; }
 
 bool Index::Insert(Field *pKey, const PageSlotID &iPair) {
+  printf("In Index Insert\n");
   // TODO: 利用RootID获得根结点
   // TODO: 利用根结点的Insert执行插入
   // TODO: 根结点满时，需要进行分裂操作，同时更新RootID
   NodePage *rootpage = new NodePage(_nRootID);
+  printf("rootpage construct complete\n");
   bool success = rootpage->Insert(pKey, iPair);
   if(rootpage->Full())
   {

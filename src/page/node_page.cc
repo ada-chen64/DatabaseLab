@@ -16,17 +16,19 @@ const PageOffset LEAF_OFFSET = 8;
 const PageOffset USED_SLOT_OFFSET = 12;
 const PageOffset KEY_LEN_OFFSET = 16;
 const PageOffset KEY_TYPE_OFFSET = 20;
+const PageOffset NULL_KEY_OFFSET = 24;
 
 NodePage::NodePage(Size nKeyLen, FieldType iKeyType, bool bLeaf)
     : _nKeyLen(nKeyLen), _iKeyType(iKeyType), _bLeaf(bLeaf){
-  
   SetHeader((uint8_t*)&_bLeaf, 4, LEAF_OFFSET);
   SetHeader((uint8_t*)&_nKeyLen, 4, KEY_LEN_OFFSET);
   SetHeader((uint8_t*)&_iKeyType, 4, KEY_TYPE_OFFSET);
+  //printf("Initialize NodePage\n");
   // TODO: 基于自己实现的Store算法确定最大容量
   if(_bLeaf)
   {
       _nCap = (DATA_SIZE) / (_nKeyLen + 6)+1;
+      _nNullKey = false;
   }
   else
   {
@@ -51,9 +53,16 @@ NodePage::NodePage(Size nKeyLen, FieldType iKeyType, bool bLeaf,
   SetHeader((uint8_t*)&_nKeyLen, 4, KEY_LEN_OFFSET);
   SetHeader((uint8_t*)&_iKeyType, 4, KEY_TYPE_OFFSET);
   if(_bLeaf)
+  {
     _nCap = (DATA_SIZE) / (_nKeyLen + 6)+1;
+    _nNullKey = false;
+  }
   else
+  {
     _nCap = (DATA_SIZE - 4) / (_nKeyLen + 4)+1;
+    _nNullKey = false;
+
+  }
 }
 
 NodePage::NodePage(PageID nPageID) : Page(nPageID) {
@@ -63,11 +72,17 @@ NodePage::NodePage(PageID nPageID) : Page(nPageID) {
   GetHeader((uint8_t*)&_bLeaf, 4, LEAF_OFFSET);
   GetHeader((uint8_t*)&_nKeyLen, 4, KEY_LEN_OFFSET);
   GetHeader((uint8_t*)&_iKeyType, 4, KEY_TYPE_OFFSET);
+  GetHeader((uint8_t*)&_nNullKey,4, NULL_KEY_OFFSET);
   // TODO: 确定最大容量
+  //printf("PAGE CONSTRUCT BASED ON ID. _bLeaf: %d\n",_bLeaf);
   if(_bLeaf)
+  {
     _nCap = (DATA_SIZE) / (_nKeyLen + 6)+1;
+  }
   else
+  {
     _nCap = (DATA_SIZE - 4) / (_nKeyLen + 4)+1;
+  }
   Load();
 }
 
@@ -75,41 +90,51 @@ NodePage::~NodePage() {
   // TODO: 将结点信息格式化并写回到页面中
   Size used_slots = _iKeyVec.size();
   SetHeader((uint8_t*)&used_slots, 4, USED_SLOT_OFFSET);
+  SetHeader((uint8_t*)&_nNullKey, 4, NULL_KEY_OFFSET);
   Store();
   // TODO: 注意析构KeyVec中的指针
-  while(_iKeyVec.size() > 0)
-  {
-    delete(_iKeyVec[0]);
-  }
+  //printf("store complete\n");
 }
 
 bool NodePage::Insert(Field *pKey, const PageSlotID &iPair) {
   // TODO: 需要基于结点类型判断执行过程
   // 叶结点：
   // 1.确定插入位置后插入数据即可
+  printf("In NodePage Insert pKey: %s\n", pKey->ToString().c_str());
+  //printf("_bLeaf = %d _nNullKey=%d\n", _bLeaf, _nNullKey);
   if(_bLeaf)
   {
     if(_iKeyVec.size() >= _nCap)
       return false;
     Size pos = LowerBound(pKey);
-    for(; pos < _iChildVec.size(); pos++)
+    //printf("Leaf Keyvec size = %d\tpos=%u\n", _iKeyVec.size(), pos);
+    //printf("_iChildVec.size() %d\n",_iChildVec.size());
+    while(pos != _iChildVec.size())
     {
+      //printf("in while\n");
       if(Equal(_iKeyVec[pos], pKey, _iKeyType)&&
         iPair >= _iChildVec[pos])
       {
+        
         _iKeyVec.insert(_iKeyVec.begin() + pos, pKey);
         _iChildVec.insert(_iChildVec.begin() + pos, iPair);
+        //printf("Equal. _iKeysize=%d\n", _iKeyVec.size());
         return true;
       }
       else if(Greater(_iKeyVec[pos], pKey, _iKeyType))
       {
         _iKeyVec.insert(_iKeyVec.begin() + pos, pKey);
         _iChildVec.insert(_iChildVec.begin() + pos, iPair);
+        //printf("Greater. _iKeysize=%d\n", _iKeyVec.size());
+        //printf("iPair.first: %u, iPair.second:%u\n", iPair.first, iPair.second);
         return true;
       }
+      pos++;
     }
+    //printf("After while\n");
     _iKeyVec.push_back(pKey);
     _iChildVec.push_back(iPair);
+    //printf("returning from leafnode insert\n");
     return true;
   }
   // 中间结点:
@@ -117,30 +142,43 @@ bool NodePage::Insert(Field *pKey, const PageSlotID &iPair) {
   // 2.对应的子结点执行插入函数
   // 3.判断子结点是否为满结点，满结点时执行分裂
   // 4.子结点分裂情况下需要更新KeyVec和ChildVec
-  if(_iKeyVec.size() == 0)
+  
+  if(_nNullKey)
   {
     //if this is an empty node
+    _iKeyVec.pop_back();
     _iKeyVec.push_back(pKey);
+    _nNullKey = false;
     NodePage *childpage = new NodePage(_iChildVec[1].first);
     childpage->Insert(pKey, iPair);
     delete(childpage);
     return true;
   }
+  // printf("KeyVec size %d\n",_iKeyVec.size());
+  // printf("ChildVec size %d\n", _iChildVec.size());
+  // printf("Key %s\n", _iKeyVec[0]->ToString().c_str());
   Size pg = LowerBound(pKey);
+  // printf("HELLO pg: %d\n", pg);
   PageID cpID;
-  if(Less(_iKeyVec[pg], pKey, _iKeyType))
+  if(pg == _iKeyVec.size())
   {
     cpID = _iChildVec[pg].first;
+  }
+  else if(Less(pKey, _iKeyVec[pg], _iKeyType))
+  {
+    cpID = _iChildVec[pg].first;
+    //printf("Less, cpID: %u\n", cpID);
   }
   else
   {
     cpID = _iChildVec[pg+1].first;
+    //printf("Greater Equal, cpID: %u\n", cpID);
   }
   NodePage *childpage = new NodePage(cpID);
   childpage->Insert(pKey, iPair);
   if(childpage->Full())
   {
-    
+    printf("childpage full\n");
     std::pair<std::vector<Field *>, std::vector<PageSlotID>> newchildinfo = 
       childpage->PopHalf();
     NodePage *newchild = new NodePage(_nKeyLen, _iKeyType, 
@@ -175,6 +213,7 @@ Size NodePage::Delete(Field *pKey) {
   // TODO: 需要基于结点类型判断执行过程
   // 叶结点：
   // 1.确定删除位置后删除数据即可
+  //printf("Delete pKey: %s", pKey->ToString().c_str());
   if(_bLeaf)
   {
     Size amt = 0;
@@ -234,7 +273,21 @@ Size NodePage::Delete(Field *pKey) {
     else
     {
       if(!less)
+      {
         _iKeyVec.clear();
+        Field *iField;
+        if(_iKeyType ==FieldType::INT_TYPE)
+        {
+          iField = new IntField(0);
+        }
+        else if(_iKeyType == FieldType::FLOAT_TYPE)
+        {
+          iField = new FloatField(0);
+        }
+        _iKeyVec.push_back(iField);
+        _nNullKey = true;
+      }
+        
     }
     
   }
@@ -261,6 +314,8 @@ bool NodePage::Delete(Field *pKey, const PageSlotID &iPair) {
   // TODO: 需要基于结点类型判断执行过程
   // 叶结点：
   // 1.确定删除位置后删除数据即可
+  printf("In Delete pKey %s Ipair _bLEaf: %d\n", pKey->ToString().c_str(), _bLeaf);
+  printf("KeyVec size %d\n", _iKeyVec.size());
   if(_bLeaf)
   {
     Size pos = LowerBound(pKey);
@@ -271,6 +326,7 @@ bool NodePage::Delete(Field *pKey, const PageSlotID &iPair) {
       {
         _iKeyVec.erase(_iKeyVec.begin()+pos);
         _iChildVec.erase(_iChildVec.begin() + pos);
+        printf("After deleting in leaf KeyVec size %d\n", _iKeyVec.size());
         return true;
       }
     }
@@ -281,10 +337,15 @@ bool NodePage::Delete(Field *pKey, const PageSlotID &iPair) {
   // 2.对应的子结点执行删除函数
   // 3.判断子结点是否为满结点，空结点时清除空结点
   // 4.删除空结点情况下需要更新KeyVec和ChildVec
+  
   Size pos = LowerBound(pKey);
   PageID cpID;
   bool less = false;
-  if(Less(pKey,_iKeyVec[pos], _iKeyType))
+  if(pos == _iKeyVec.size())
+  {
+    cpID = _iChildVec[pos].first;
+  }
+  else if(Less(pKey,_iKeyVec[pos], _iKeyType))
   {
     cpID = _iChildVec[pos].first;
     less = true;
@@ -298,6 +359,7 @@ bool NodePage::Delete(Field *pKey, const PageSlotID &iPair) {
   bool success = childpage->Delete(pKey, iPair);
   if(childpage->Empty())
   {
+    printf("Childpage empty\n");
     if(_iKeyVec.size() > 1)
     {
       if(less)
@@ -313,8 +375,44 @@ bool NodePage::Delete(Field *pKey, const PageSlotID &iPair) {
     }
     else
     {
+      printf("KEy only has one elem\n");
       if(!less)
-        _iKeyVec.clear();
+      {
+        PageID lsID = _iChildVec[pos].first;
+        NodePage *leftsib = new NodePage(lsID);
+        if(leftsib->Empty())
+        {
+          _iKeyVec.clear();
+          Field *iField;
+          if(_iKeyType ==FieldType::INT_TYPE)
+          {
+            iField = new IntField(0);
+          }
+          else if(_iKeyType == FieldType::FLOAT_TYPE)
+          {
+            iField = new FloatField(0);
+          }
+          _iKeyVec.push_back(iField);
+          _nNullKey = true;
+        }
+        else 
+        {
+          printf("left sib not empty\n");
+          _iChildVec.pop_back();
+          _iKeyVec.clear();
+          std::pair<std::vector<Field *>, std::vector<PageSlotID>> halfelem = leftsib->PopHalf();
+          printf("pophalf success\n fields %d\t pageslot %d\n", halfelem.first.size(), halfelem.second.size());
+          NodePage *newchildpage = new NodePage(_nKeyLen, _iKeyType, childpage->GetBLeaf(),
+                                                halfelem.first, halfelem.second);
+          _iKeyVec.push_back(newchildpage->FirstKey());
+          printf("leftsib empty? %d", leftsib->Empty());
+          printf("_iKeyVec new head %s", _iKeyVec[0]->ToString().c_str());
+          _iChildVec.push_back({newchildpage->GetPageID(), 0});
+          delete newchildpage;
+        }
+        delete leftsib;
+        
+      }
     }
     
   }
@@ -323,6 +421,7 @@ bool NodePage::Delete(Field *pKey, const PageSlotID &iPair) {
     if(!less)
     {
       _iKeyVec[pos] = childpage->FirstKey();
+      printf("AFTER DELETE NEW FIRST KEY: %s\n", _iKeyVec[pos]->ToString().c_str());
     }
     else if(pos > 0)
     {
@@ -340,6 +439,7 @@ bool NodePage::Update(Field *pKey, const PageSlotID &iOld,
   // TODO: 需要基于结点类型判断执行过程
   // 叶结点：
   // 1.确定更新位置后更新数据即可
+  printf("UPDATE _BLEAF: %d\n", _bLeaf);
   if(_bLeaf)
   {
     Size pos = LowerBound(pKey);
@@ -361,7 +461,11 @@ bool NodePage::Update(Field *pKey, const PageSlotID &iOld,
   Size pos = LowerBound(pKey);
   PageID cpID;
   bool less = false;
-  if(Less(pKey,_iKeyVec[pos], _iKeyType))
+  if(pos == _iKeyVec.size())
+  {
+    cpID = _iChildVec[pos].first;
+  }
+  else if(Less(pKey,_iKeyVec[pos], _iKeyType))
   {
     cpID = _iChildVec[pos].first;
     less = true;
@@ -384,10 +488,15 @@ std::vector<PageSlotID> NodePage::Range(Field *pLow, Field *pHigh) {
   // TODO: 需要基于结点类型判断执行过程 [pLow, pHigh)
   // 叶结点：
   // 1.确定上下界范围，返回这一区间内的所有Value值
+  printf("IN Range _bLeaf=%d\n", _bLeaf);
+  printf("low field: %s\t", pLow->ToString().c_str());
+  printf("high field: %s\n", pHigh->ToString().c_str());
+  printf("_iKeyVec.size()=%d\n", _iKeyVec.size());
   std::vector<PageSlotID> ans;
   if(_bLeaf)
   {
     Size lpos = LowerBound(pLow);
+    printf("lpos=%d\n", lpos);
     for(; lpos < _iKeyVec.size(); lpos++)
     {
       if(!Less(_iKeyVec[lpos], pLow, _iKeyType) && 
@@ -402,21 +511,31 @@ std::vector<PageSlotID> NodePage::Range(Field *pLow, Field *pHigh) {
   // 1.确定所有可能包含上下界范围的子结点
   // 2.依次对添加各个子结点执行查询函数所得的结果
   Size kpos = LowerBound(pLow);
+  printf("kpos=%d\n", kpos);
   Size lpos, hpos= _iKeyVec.size()+1;
+  
+  
   PageID cpID;
   bool less = false;
-  if(Less(pLow,_iKeyVec[kpos], _iKeyType))
+  if(kpos == _iKeyVec.size())
+  {
+    lpos = kpos;
+  }
+  else if(Less(pLow,_iKeyVec[kpos], _iKeyType))
   {
     lpos = kpos;
   }
   else
   {
     lpos = kpos+1;
+    printf("Greater Equal. lpos %d\n", lpos);
   }
   for(; kpos < _iKeyVec.size();kpos++)
   {
+    printf("kpos: %d, Key: %s\n", kpos, _iKeyVec[kpos]->ToString().c_str());
     if(!Less(_iKeyVec[kpos], pHigh, _iKeyType))
     {
+      printf("ALERT\n");
       hpos = kpos+1;
       break;
     }
@@ -424,11 +543,13 @@ std::vector<PageSlotID> NodePage::Range(Field *pLow, Field *pHigh) {
   for(Size i = lpos; i < hpos; i++)
   {
     cpID = _iChildVec[i].first;
+    printf("UPDATE cpID %u\n", cpID);
     NodePage *childpage = new NodePage(cpID);
     std::vector<PageSlotID> childans = childpage->Range(pLow, pHigh);
     ans.insert(ans.end(), childans.begin(), childans.end());
     delete childpage;
   }
+  //printf("Range done\n");
   return ans;
   // ALERT: 注意叶结点可能为空结点，需要针对这种情况进行特判
 }
@@ -482,7 +603,7 @@ Field *NodePage::FirstKey() const {
 std::pair<std::vector<Field *>, std::vector<PageSlotID>> NodePage::PopHalf() {
   std::vector<Field *> iKeyVec{};
   std::vector<PageSlotID> iChildVec{};
-  Size mid = _nCap / 2;
+  Size mid = _iKeyVec.size() / 2;
   for (auto it = _iKeyVec.begin() + mid; it != _iKeyVec.end();) {
     iKeyVec.push_back(*it);
     it = _iKeyVec.erase(it);
@@ -497,6 +618,18 @@ std::pair<std::vector<Field *>, std::vector<PageSlotID>> NodePage::PopHalf() {
 void NodePage::InitFirst() {
   // TODO:
   // 当初始化一个空的中间结点时，默认为其分配一个空的叶子结点有利于简化实现
+  _nNullKey = true;
+  Field *iField;
+  if(_iKeyType ==FieldType::INT_TYPE)
+  {
+    iField = new IntField(0);
+  }
+  else if(_iKeyType == FieldType::FLOAT_TYPE)
+  {
+    iField = new FloatField(0);
+  }
+  _iKeyVec.push_back(iField);
+  //printf("InitFirst pushback iField complete\n");
   NodePage *childone = new NodePage(_nKeyLen, _iKeyType, true);
   NodePage *childtwo = new NodePage(_nKeyLen, _iKeyType, true);
   _iChildVec.push_back({childone->GetPageID(), 0});
@@ -510,6 +643,17 @@ void NodePage::InitFirst() {
 void NodePage::ResetFirst() {
   // TODO: 当中间结点清空时，为其保留一个空的叶子结点可以简化删除的合并过程
   // TODO: 此处需要基于结点Key的类型，重新设置KeyVec的第一个Key值
+  _nNullKey = true;
+  Field *iField;
+  if(_iKeyType ==FieldType::INT_TYPE)
+  {
+    iField = new IntField(0);
+  }
+  else if(_iKeyType == FieldType::FLOAT_TYPE)
+  {
+    iField = new FloatField(0);
+  }
+  _iKeyVec.push_back(iField);
   NodePage *childone = new NodePage(_nKeyLen, _iKeyType, true);
   NodePage *childtwo = new NodePage(_nKeyLen, _iKeyType, true);
   _iChildVec.push_back({childone->GetPageID(), 0});
@@ -521,7 +665,7 @@ void NodePage::ResetFirst() {
 void NodePage::Load() {
   // TODO: 从格式化页面数据中导入结点信息
   Size used_slots;
-  
+  //printf("In Load. Keylen %d\n", _nKeyLen);
   GetHeader((uint8_t*)&used_slots, 4, USED_SLOT_OFFSET);
   if(_bLeaf) //leaf node
   {
@@ -534,7 +678,6 @@ void NodePage::Load() {
       GetData((uint8_t*)&pageslot.first, 4, recordsize * i);
       GetData((uint8_t*)&pageslot.second, 2, recordsize * i + 4);
       GetData(data, _nKeyLen, recordsize*i + 6);
-      _iChildVec.push_back(pageslot);
       if(_iKeyType == FieldType::NONE_TYPE)
       {
         iField = new NoneField();
@@ -569,6 +712,7 @@ void NodePage::Load() {
       GetData((uint8_t*)&pageslot.first, 4, recordsize * i);
       pageslot.second = 0;
       GetData(data, _nKeyLen, recordsize*i + 4);
+      //printf("Load nonLeaf data: %u\n", data);
       if(_iKeyType == FieldType::NONE_TYPE)
       {
         iField = new NoneField();
@@ -607,6 +751,7 @@ void NodePage::Store() {
     {
       uint8_t *data = new uint8_t[_nKeyLen];
       _iKeyVec[i]->GetData(data, _nKeyLen);
+      
       SetData((uint8_t*)&_iChildVec[i].first, 4, recordsize * i);
       SetData((uint8_t*)&_iChildVec[i].second, 2, recordsize * i + 4);
       SetData(data, _nKeyLen, recordsize*i + 6);
@@ -636,11 +781,14 @@ Size NodePage::LowerBound(Field *pField) {
   while (nBegin < nEnd) {
     Size nMid = (nBegin + nEnd) / 2;
     if (!Less(_iKeyVec[nMid], pField, _iKeyType)) {
+      //printf("Lowerbound !Less\n");
       nEnd = nMid;
     } else {
+      //printf("Lowerbound less\n");
       nBegin = nMid+1;
     }
   }
+  //printf("return from LOwerBound\n");
   return nBegin;
 }
 

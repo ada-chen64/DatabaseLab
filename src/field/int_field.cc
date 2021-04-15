@@ -10,6 +10,7 @@ IntField::IntField(const int &nData) : _nData(nData) {}
 void IntField::SetData(const uint8_t *src, Size nSize) {
   assert(nSize == 4);
   memcpy((uint8_t *)&_nData, src, nSize);
+  //printf("IntFIeld Set Data _nData %d\n", _nData);
 }
 
 void IntField::GetData(uint8_t *dst, Size nSize) const {

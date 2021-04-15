@@ -164,8 +164,11 @@ class NodePage : public Page {
    *
    */
   void ResetFirst();
-  
-  
+  /**
+   * @brief 对于中间节点为空的时候因为必须至少右一个Key，这里
+   * 表示那唯一的key是否至少为了占位。
+   */ 
+  bool _nNullKey;
   /**
    * @brief 页面对应结点是否为叶结点
    */
