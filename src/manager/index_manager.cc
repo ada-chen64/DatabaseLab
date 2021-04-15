@@ -48,15 +48,12 @@ Index *IndexManager::GetIndex(const String &sTableName,
 
 Index *IndexManager::AddIndex(const String &sTableName, const String &sColName,
                               FieldType iType) {
-  printf("In AddIndex\n");
   if (IsIndex(sTableName, sColName)) throw IndexException();
   String sIndexName = GetIndexName(sTableName, sColName);
   Index *pIndex = new Index(iType);
-  printf("index initialize with type\n");
   PageID nRoot = pIndex->GetRootID();
   delete pIndex;
   pIndex = new Index(nRoot);
-  printf("index initialize with ID\n");
   _iIndexIDMap[sIndexName] = nRoot;
   _iIndexMap[sIndexName] = pIndex;
   if (_iTableIndexes.find(sTableName) == _iTableIndexes.end()) {
@@ -64,7 +61,6 @@ Index *IndexManager::AddIndex(const String &sTableName, const String &sColName,
   } else {
     _iTableIndexes[sTableName].push_back(sColName);
   }
-  printf("right before return\n");
   return pIndex;
 }
 

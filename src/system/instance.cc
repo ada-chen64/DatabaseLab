@@ -240,19 +240,15 @@ bool Instance::CreateIndex(const String &sTableName, const String &sColName,
                            FieldType iType) {
   auto iAll = Search(sTableName, nullptr, {});
   _pIndexManager->AddIndex(sTableName, sColName, iType);
-  printf("AddIndex Complete\n");
   Table *pTable = GetTable(sTableName);
-  printf("GetTable complete\n");
   // Handle Exists Data
   for (const auto &iPair : iAll) {
     FieldID nPos = pTable->GetPos(sColName);
     Record *pRecord = pTable->GetRecord(iPair.first, iPair.second);
     Field *pKey = pRecord->GetField(nPos);
     _pIndexManager->GetIndex(sTableName, sColName)->Insert(pKey, iPair);
-    printf("Insert Complete\n");
     delete pRecord;
   }
-  printf("Create Index complete\n");
   return true;
 }
 

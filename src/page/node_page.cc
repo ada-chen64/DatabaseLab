@@ -100,7 +100,7 @@ bool NodePage::Insert(Field *pKey, const PageSlotID &iPair) {
   // TODO: 需要基于结点类型判断执行过程
   // 叶结点：
   // 1.确定插入位置后插入数据即可
-  printf("In NodePage Insert pKey: %s\n", pKey->ToString().c_str());
+  //printf("In NodePage Insert pKey: %s\n", pKey->ToString().c_str());
   //printf("_bLeaf = %d _nNullKey=%d\n", _bLeaf, _nNullKey);
   if(_bLeaf)
   {
@@ -178,7 +178,7 @@ bool NodePage::Insert(Field *pKey, const PageSlotID &iPair) {
   childpage->Insert(pKey, iPair);
   if(childpage->Full())
   {
-    printf("childpage full\n");
+    //printf("childpage full\n");
     std::pair<std::vector<Field *>, std::vector<PageSlotID>> newchildinfo = 
       childpage->PopHalf();
     NodePage *newchild = new NodePage(_nKeyLen, _iKeyType, 
@@ -314,8 +314,8 @@ bool NodePage::Delete(Field *pKey, const PageSlotID &iPair) {
   // TODO: 需要基于结点类型判断执行过程
   // 叶结点：
   // 1.确定删除位置后删除数据即可
-  printf("In Delete pKey %s Ipair _bLEaf: %d\n", pKey->ToString().c_str(), _bLeaf);
-  printf("KeyVec size %d\n", _iKeyVec.size());
+  // printf("In Delete pKey %s Ipair _bLEaf: %d\n", pKey->ToString().c_str(), _bLeaf);
+  // printf("KeyVec size %d\n", _iKeyVec.size());
   if(_bLeaf)
   {
     Size pos = LowerBound(pKey);
@@ -326,7 +326,7 @@ bool NodePage::Delete(Field *pKey, const PageSlotID &iPair) {
       {
         _iKeyVec.erase(_iKeyVec.begin()+pos);
         _iChildVec.erase(_iChildVec.begin() + pos);
-        printf("After deleting in leaf KeyVec size %d\n", _iKeyVec.size());
+        //printf("After deleting in leaf KeyVec size %d\n", _iKeyVec.size());
         return true;
       }
     }
@@ -359,7 +359,7 @@ bool NodePage::Delete(Field *pKey, const PageSlotID &iPair) {
   bool success = childpage->Delete(pKey, iPair);
   if(childpage->Empty())
   {
-    printf("Childpage empty\n");
+    //printf("Childpage empty\n");
     if(_iKeyVec.size() > 1)
     {
       if(less)
@@ -375,7 +375,7 @@ bool NodePage::Delete(Field *pKey, const PageSlotID &iPair) {
     }
     else
     {
-      printf("KEy only has one elem\n");
+      //printf("KEy only has one elem\n");
       if(!less)
       {
         PageID lsID = _iChildVec[pos].first;
@@ -397,16 +397,16 @@ bool NodePage::Delete(Field *pKey, const PageSlotID &iPair) {
         }
         else 
         {
-          printf("left sib not empty\n");
+          //printf("left sib not empty\n");
           _iChildVec.pop_back();
           _iKeyVec.clear();
           std::pair<std::vector<Field *>, std::vector<PageSlotID>> halfelem = leftsib->PopHalf();
-          printf("pophalf success\n fields %d\t pageslot %d\n", halfelem.first.size(), halfelem.second.size());
+          //printf("pophalf success\n fields %d\t pageslot %d\n", halfelem.first.size(), halfelem.second.size());
           NodePage *newchildpage = new NodePage(_nKeyLen, _iKeyType, childpage->GetBLeaf(),
                                                 halfelem.first, halfelem.second);
           _iKeyVec.push_back(newchildpage->FirstKey());
-          printf("leftsib empty? %d", leftsib->Empty());
-          printf("_iKeyVec new head %s", _iKeyVec[0]->ToString().c_str());
+          // printf("leftsib empty? %d", leftsib->Empty());
+          // printf("_iKeyVec new head %s", _iKeyVec[0]->ToString().c_str());
           _iChildVec.push_back({newchildpage->GetPageID(), 0});
           delete newchildpage;
         }
@@ -421,7 +421,7 @@ bool NodePage::Delete(Field *pKey, const PageSlotID &iPair) {
     if(!less)
     {
       _iKeyVec[pos] = childpage->FirstKey();
-      printf("AFTER DELETE NEW FIRST KEY: %s\n", _iKeyVec[pos]->ToString().c_str());
+      //printf("AFTER DELETE NEW FIRST KEY: %s\n", _iKeyVec[pos]->ToString().c_str());
     }
     else if(pos > 0)
     {
@@ -439,7 +439,7 @@ bool NodePage::Update(Field *pKey, const PageSlotID &iOld,
   // TODO: 需要基于结点类型判断执行过程
   // 叶结点：
   // 1.确定更新位置后更新数据即可
-  printf("UPDATE _BLEAF: %d\n", _bLeaf);
+  //printf("UPDATE _BLEAF: %d\n", _bLeaf);
   if(_bLeaf)
   {
     Size pos = LowerBound(pKey);
@@ -488,15 +488,15 @@ std::vector<PageSlotID> NodePage::Range(Field *pLow, Field *pHigh) {
   // TODO: 需要基于结点类型判断执行过程 [pLow, pHigh)
   // 叶结点：
   // 1.确定上下界范围，返回这一区间内的所有Value值
-  printf("IN Range _bLeaf=%d\n", _bLeaf);
-  printf("low field: %s\t", pLow->ToString().c_str());
-  printf("high field: %s\n", pHigh->ToString().c_str());
-  printf("_iKeyVec.size()=%d\n", _iKeyVec.size());
+  // printf("IN Range _bLeaf=%d\n", _bLeaf);
+  // printf("low field: %s\t", pLow->ToString().c_str());
+  // printf("high field: %s\n", pHigh->ToString().c_str());
+  // printf("_iKeyVec.size()=%d\n", _iKeyVec.size());
   std::vector<PageSlotID> ans;
   if(_bLeaf)
   {
     Size lpos = LowerBound(pLow);
-    printf("lpos=%d\n", lpos);
+    //printf("lpos=%d\n", lpos);
     for(; lpos < _iKeyVec.size(); lpos++)
     {
       if(!Less(_iKeyVec[lpos], pLow, _iKeyType) && 
@@ -511,7 +511,7 @@ std::vector<PageSlotID> NodePage::Range(Field *pLow, Field *pHigh) {
   // 1.确定所有可能包含上下界范围的子结点
   // 2.依次对添加各个子结点执行查询函数所得的结果
   Size kpos = LowerBound(pLow);
-  printf("kpos=%d\n", kpos);
+  //printf("kpos=%d\n", kpos);
   Size lpos, hpos= _iKeyVec.size()+1;
   
   
@@ -528,14 +528,14 @@ std::vector<PageSlotID> NodePage::Range(Field *pLow, Field *pHigh) {
   else
   {
     lpos = kpos+1;
-    printf("Greater Equal. lpos %d\n", lpos);
+    //printf("Greater Equal. lpos %d\n", lpos);
   }
   for(; kpos < _iKeyVec.size();kpos++)
   {
-    printf("kpos: %d, Key: %s\n", kpos, _iKeyVec[kpos]->ToString().c_str());
+    //printf("kpos: %d, Key: %s\n", kpos, _iKeyVec[kpos]->ToString().c_str());
     if(!Less(_iKeyVec[kpos], pHigh, _iKeyType))
     {
-      printf("ALERT\n");
+      //printf("ALERT\n");
       hpos = kpos+1;
       break;
     }
@@ -543,7 +543,7 @@ std::vector<PageSlotID> NodePage::Range(Field *pLow, Field *pHigh) {
   for(Size i = lpos; i < hpos; i++)
   {
     cpID = _iChildVec[i].first;
-    printf("UPDATE cpID %u\n", cpID);
+    //printf("UPDATE cpID %u\n", cpID);
     NodePage *childpage = new NodePage(cpID);
     std::vector<PageSlotID> childans = childpage->Range(pLow, pHigh);
     ans.insert(ans.end(), childans.begin(), childans.end());
