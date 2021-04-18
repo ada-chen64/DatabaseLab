@@ -27,7 +27,7 @@ foreach(executable_source ${EXECUTABLE_SOURCES})
 endforeach(executable_source ${EXECUTABLE_SOURCES})
 
 # Add test
-file(GLOB LABS ${PROJECT_SOURCE_DIR}/test/lab*)
+file(GLOB LABS ${PROJECT_SOURCE_DIR}/test/lab${Lab})
 foreach(lab_dir ${LABS})
     file(GLOB_RECURSE LAB_SOURCES ${lab_dir}/*.cc)
     get_filename_component(lab ${lab_dir} NAME)

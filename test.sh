@@ -10,7 +10,7 @@ echo -e CI_PIPELINE_CREATED_AT "\x1b[32m${CI_PIPELINE_CREATED_AT}\x1b[0m"
 
 echo -e "\x1b[1;32mStart to compile\x1b[0m"
 mkdir build && cd build
-cmake .. || { echo  -e "\x1b[1;31mFailed to cmake\x1b[0m" ; exit 1; }
+cmake .. -D Lab=$CURRENT_LAB || { echo  -e "\x1b[1;31mFailed to cmake\x1b[0m" ; exit 1; }
 make -j 16 -l ${MAX_LOAD_AVERAGE:-32} ||  { echo  -e "\x1b[1;31mFailed to make\x1b[0m" ; exit 1; }
 
 
