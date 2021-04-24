@@ -1,17 +1,29 @@
+#include <algorithm>
+
 #include "backend/backend.h"
 #include "gtest/gtest.h"
 #include "system/instance.h"
 
 namespace thdb {
 
-void check_equal(Instance *pDB, const std::vector<String> &iSQLVec, const std::vector<String> results) {
+void check_equal(std::vector<String> lhs, String rhs) {
+  std::sort(lhs.begin(), lhs.end());
+  String result;
+  for (const String &str : lhs) {
+    result += str;
+    result += "\n";
+  }
+  EXPECT_EQ(result, rhs);
+}
+
+void check_results(Instance *pDB, const std::vector<String> &iSQLVec, const std::vector<String> results) {
   ASSERT_EQ(iSQLVec.size(), results.size());
   for (uint32_t i = 0; i < iSQLVec.size(); i++) {
     std::vector<Result *> iResVec = Execute(pDB, iSQLVec[i]);
     // 由于测试 sql 每行只有一条 sql 语句，因此 iResVec 的大小始终为 1.
     EXPECT_EQ(iResVec.size(), 1);
     // 比较 sql 执行结果是否一致
-    EXPECT_EQ(iResVec[0]->ToString(), results[i]);
+    check_equal(iResVec[0]->ToVector(), results[i]);
   }
 }
 
@@ -41,11 +53,11 @@ TEST(Lab3, BasicJoinTest) {
       "1\n",                                                                                // NOLINT
       "1\n",                                                                                // NOLINT
       "1\n",                                                                                // NOLINT
-      "1,James,Smith,1,1\n2,Michael,Johnson,2,3\n3,Thomas,Brown,3,2\n1,James,Smith,1,3\n",  // NOLINT
+      "1,James,Smith,1,1\n1,James,Smith,1,3\n2,Michael,Johnson,2,3\n3,Thomas,Brown,3,2\n",  // NOLINT
       "1\n",                                                                                // NOLINT
       "1\n"                                                                                 // NOLINT
   };
-  check_equal(pDB, iSQLVec, results);
+  check_results(pDB, iSQLVec, results);
   delete pDB;
 }
 
@@ -91,7 +103,7 @@ TEST(Lab3, DISABLED_MultiTableJoinTest) {
       "1\n",                                           // NOLINT
       "1\n"                                            // NOLINT
   };
-  check_equal(pDB, iSQLVec, results);
+  check_results(pDB, iSQLVec, results);
   delete pDB;
 }
 
@@ -145,7 +157,7 @@ TEST(Lab3, DISABLED_IndexJoinTest) {
       "1\n",                                           // NOLINT
       "1\n"                                            // NOLINT
   };
-  check_equal(pDB, iSQLVec, results);
+  check_results(pDB, iSQLVec, results);
   delete pDB;
 }
 
