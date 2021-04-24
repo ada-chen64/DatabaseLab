@@ -45,10 +45,11 @@ TEST(Lab3, BasicJoinTest) {
       "1\n",                                                                                // NOLINT
       "1\n"                                                                                 // NOLINT
   };
+  check_equal(pDB, iSQLVec, results);
   delete pDB;
 }
 
-TEST(Lab3, MultiTableJoinTest) {
+TEST(Lab3, DISABLED_MultiTableJoinTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
       "CREATE TABLE students(stu_id INT, first_name VARCHAR(20), last_name VARCHAR(20));",  // NOLINT
@@ -61,9 +62,9 @@ TEST(Lab3, MultiTableJoinTest) {
       "INSERT INTO students_courses VALUES(2, 3);",                                         // NOLINT
       "INSERT INTO students_courses VALUES(3, 2);",                                         // NOLINT
       "INSERT INTO students_courses VALUES(1, 3);",                                         // NOLINT
-      "INSERT INTO courses VALUES(1, 'calculus')",                                          // NOLINT
-      "INSERT INTO courses VALUES(2, 'linear algebra')",                                    // NOLINT
-      "INSERT INTO courses VALUES(3, 'database system')",                                   // NOLINT
+      "INSERT INTO courses VALUES(1, 'calculus');",                                         // NOLINT
+      "INSERT INTO courses VALUES(2, 'linear algebra');",                                   // NOLINT
+      "INSERT INTO courses VALUES(3, 'database system');",                                  // NOLINT
       "SELECT * FROM students, students_courses, courses WHERE students.stu_id = students_courses.stu_id AND "
       "students_courses.course_id = courses.course_id;",  // NOLINT
       "DROP TABLE students;",                             // NOLINT
@@ -90,6 +91,7 @@ TEST(Lab3, MultiTableJoinTest) {
       "1\n",                                           // NOLINT
       "1\n"                                            // NOLINT
   };
+  check_equal(pDB, iSQLVec, results);
   delete pDB;
 }
 
@@ -99,10 +101,10 @@ TEST(Lab3, IndexJoinTest) {
       "CREATE TABLE students(stu_id INT, first_name VARCHAR(20), last_name VARCHAR(20));",  // NOLINT
       "CREATE TABLE students_courses(stu_id INT, course_id INT);",                          // NOLINT
       "CREATE TABLE courses(course_id INT, course_name VARCHAR(30));",                      // NOLINT
-      "ALTER TABLE students ADD INDEX(stu_id)",                                             // NOLINT
-      "ALTER TABLE students_courses ADD INDEX(stu_id)",                                     // NOLINT
-      "ALTER TABLE students_courses ADD INDEX(course_id)",                                  // NOLINT
-      "ALTER TABLE courses ADD INDEX(course_id)",                                           // NOLINT
+      "ALTER TABLE students ADD INDEX(stu_id);",                                            // NOLINT
+      "ALTER TABLE students_courses ADD INDEX(stu_id);",                                    // NOLINT
+      "ALTER TABLE students_courses ADD INDEX(course_id);",                                 // NOLINT
+      "ALTER TABLE courses ADD INDEX(course_id);",                                          // NOLINT
       "INSERT INTO students VALUES(1, 'James', 'Smith');",                                  // NOLINT
       "INSERT INTO students VALUES(2, 'Michael', 'Johnson');",                              // NOLINT
       "INSERT INTO students VALUES(3, 'Thomas', 'Brown');",                                 // NOLINT
@@ -110,9 +112,9 @@ TEST(Lab3, IndexJoinTest) {
       "INSERT INTO students_courses VALUES(2, 3);",                                         // NOLINT
       "INSERT INTO students_courses VALUES(3, 2);",                                         // NOLINT
       "INSERT INTO students_courses VALUES(1, 3);",                                         // NOLINT
-      "INSERT INTO courses VALUES(1, 'calculus')",                                          // NOLINT
-      "INSERT INTO courses VALUES(2, 'linear algebra')",                                    // NOLINT
-      "INSERT INTO courses VALUES(3, 'database system')",                                   // NOLINT
+      "INSERT INTO courses VALUES(1, 'calculus');",                                         // NOLINT
+      "INSERT INTO courses VALUES(2, 'linear algebra');",                                   // NOLINT
+      "INSERT INTO courses VALUES(3, 'database system');",                                  // NOLINT
       "SELECT * FROM students, students_courses, courses WHERE students.stu_id = students_courses.stu_id AND "
       "students_courses.course_id = courses.course_id;",  // NOLINT
       "DROP TABLE students;",                             // NOLINT
@@ -133,12 +135,17 @@ TEST(Lab3, IndexJoinTest) {
       "1\n",  // NOLINT
       "1\n",  // NOLINT
       "1\n",  // NOLINT
+      "1\n",  // NOLINT
+      "1\n",  // NOLINT
+      "1\n",  // NOLINT
+      "1\n",  // NOLINT
       "1,James,Smith,1,1,calculus\n2,Michael,Johnson,2,3,database system\n3,Thomas,Brown,3,2,linear "
       "algebra\n1,James,Smith,1,3,database system\n",  // NOLINT
       "1\n",                                           // NOLINT
       "1\n",                                           // NOLINT
       "1\n"                                            // NOLINT
   };
+  check_equal(pDB, iSQLVec, results);
   delete pDB;
 }
 
