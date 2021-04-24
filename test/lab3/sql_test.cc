@@ -95,7 +95,7 @@ TEST(Lab3, DISABLED_MultiTableJoinTest) {
   delete pDB;
 }
 
-TEST(Lab3, IndexJoinTest) {
+TEST(Lab3, DISABLED_IndexJoinTest) {
   Instance *pDB = new Instance();
   std::vector<String> iSQLVec = {
       "CREATE TABLE students(stu_id INT, first_name VARCHAR(20), last_name VARCHAR(20));",  // NOLINT
