@@ -1,4 +1,6 @@
 #include <algorithm>
+#include <chrono>
+#include <random>
 
 #include "backend/backend.h"
 #include "gtest/gtest.h"
@@ -18,17 +20,6 @@ bool CheckEqual(std::vector<String> lhs, std::vector<String> rhs) {
   return true;
 }
 
-void CheckResults(Instance *pDB, const std::vector<String> &iSQLVec, const std::vector<String> results) {
-  ASSERT_EQ(iSQLVec.size(), results.size());
-  for (uint32_t i = 0; i < iSQLVec.size(); i++) {
-    std::vector<Result *> iResVec = Execute(pDB, iSQLVec[i]);
-    // 由于测试 sql 每行只有一条 sql 语句，因此 iResVec 的大小始终为 1.
-    EXPECT_EQ(iResVec.size(), 1);
-    // 比较 sql 执行结果是否一致
-    // CheckEqual(iResVec[0]->ToVector(), results[i]);
-  }
-}
-
 void ExecuteBatch(Instance *pDB, const std::vector<String> &iSQLVec) {
   for (const auto &sql : iSQLVec) {
     Execute(pDB, sql);
@@ -46,7 +37,7 @@ TEST(Lab3, BasicJoinTest) {
       "INSERT INTO students_courses VALUES(1, 1);",                                         // NOLINT
       "INSERT INTO students_courses VALUES(2, 3);",                                         // NOLINT
       "INSERT INTO students_courses VALUES(3, 2);",                                         // NOLINT
-      "INSERT INTO students_courses VALUES(1, 3);",                                         // NOLINT // NOLINT
+      "INSERT INTO students_courses VALUES(1, 3);",                                         // NOLINT
   };
   std::vector<String> select = {
       "SELECT * FROM students, students_courses WHERE students.stu_id = students_courses.stu_id;",  // NOLINT
@@ -70,46 +61,6 @@ TEST(Lab3, BasicJoinTest) {
   ExecuteBatch(pDB, create_and_insert);
   std::vector<String> execute_results = Execute(pDB, select[0])[0]->ToVector();
   EXPECT_TRUE(CheckEqual(execute_results, results_1) || CheckEqual(execute_results, results_2));
-  ExecuteBatch(pDB, drop);
-  delete pDB;
-}
-
-TEST(Lab3, DISABLED_MultiTableJoinTest) {
-  Instance *pDB = new Instance();
-  std::vector<String> create_and_insert = {
-      "CREATE TABLE students(stu_id INT, first_name VARCHAR(20), last_name VARCHAR(20));",  // NOLINT
-      "CREATE TABLE students_courses(stu_id INT, course_id INT);",                          // NOLINT
-      "CREATE TABLE courses(course_id INT, course_name VARCHAR(30));",                      // NOLINT
-      "INSERT INTO students VALUES(1, 'James', 'Smith');",                                  // NOLINT
-      "INSERT INTO students VALUES(2, 'Michael', 'Johnson');",                              // NOLINT
-      "INSERT INTO students VALUES(3, 'Thomas', 'Brown');",                                 // NOLINT
-      "INSERT INTO students_courses VALUES(1, 1);",                                         // NOLINT
-      "INSERT INTO students_courses VALUES(2, 3);",                                         // NOLINT
-      "INSERT INTO students_courses VALUES(3, 2);",                                         // NOLINT
-      "INSERT INTO students_courses VALUES(1, 3);",                                         // NOLINT
-      "INSERT INTO courses VALUES(1, 'calculus');",                                         // NOLINT
-      "INSERT INTO courses VALUES(2, 'linear algebra');",                                   // NOLINT
-      "INSERT INTO courses VALUES(3, 'database system');"                                   // NOLINT
-  };
-  std::vector<String> select = {
-      "SELECT * FROM students, students_courses, courses "
-      "WHERE students.stu_id = students_courses.stu_id "
-      "AND students_courses.course_id = courses.course_id;",  // NOLINT
-  };
-  std::vector<String> results = {
-      "1,James,Smith,1,1,1,calculus",             // NOLINT
-      "2,Michael,Johnson,2,3,3,database system",  // NOLINT
-      "3,Thomas,Brown,3,2,2,linear algebra",      // NOLINT
-      "1,James,Smith,1,3,3,database system"       // NOLINT
-  };
-  std::vector<String> drop = {
-      "DROP TABLE students;",          // NOLINT
-      "DROP TABLE students_courses;",  // NOLINT
-      "DROP TABLE courses"             // NOLINT
-  };
-  ExecuteBatch(pDB, create_and_insert);
-  std::vector<String> execute_results = Execute(pDB, select[0])[0]->ToVector();
-  EXPECT_TRUE(CheckEqual(execute_results, results));
   ExecuteBatch(pDB, drop);
   delete pDB;
 }
@@ -160,7 +111,7 @@ TEST(Lab3, DuplicateJoinTest) {
   Instance *pDB = new Instance();
   std::vector<String> create_and_insert = {
       "CREATE TABLE A(id INT, info VARCHAR(20));",  // NOLINT
-      "CREATE TABLE B(id INT, text VARCHAR(20));",  // NOLINT                                        // NOLINT
+      "CREATE TABLE B(id INT, text VARCHAR(20));",  // NOLINT
       "INSERT INTO A VALUES(1, 'A_a');",            // NOLINT
       "INSERT INTO A VALUES(1, 'A_b');",            // NOLINT
       "INSERT INTO A VALUES(1, 'A_c');",            // NOLINT
@@ -186,6 +137,91 @@ TEST(Lab3, DuplicateJoinTest) {
   ExecuteBatch(pDB, create_and_insert);
   std::vector<String> execute_results = Execute(pDB, select[0])[0]->ToVector();
   EXPECT_TRUE(CheckEqual(execute_results, results_1) || CheckEqual(execute_results, results_2));
+  ExecuteBatch(pDB, drop);
+  delete pDB;
+}
+
+std::vector<String> SqlGenerator(size_t data_num) {
+  static const char alphanum[] =
+      "0123456789"
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      "abcdefghijklmnopqrstuvwxyz";
+  std::vector<String> sqls;
+  const String table[2] = {"A", "B"};
+  auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+  std::mt19937 generator(seed);
+  for (size_t i = 0; i < data_num; i++) {
+    String sql = "INSERT INTO A VALUES(" + std::to_string(i / (data_num / 2)) + "," + "'" +
+                 alphanum[generator() % (sizeof(alphanum) - 1)] + "');";
+    sqls.push_back(sql);
+  }
+  for (size_t i = 0; i < data_num; i++) {
+    String sql = "INSERT INTO B VALUES(" + std::to_string(i / (data_num / 4)) + "," + "'" +
+                 alphanum[generator() % (sizeof(alphanum) - 1)] + "');";
+    sqls.push_back(sql);
+  }
+  return sqls;
+}
+
+TEST(Lab3, RandomTest) {
+  size_t data_num = 1000;
+  Instance *pDB = new Instance();
+  std::vector<String> create = {
+      "CREATE TABLE A(id INT, info VARCHAR(20));",  // NOLINT
+      "CREATE TABLE B(id INT, text VARCHAR(20));",  // NOLINT
+  };
+  std::vector<String> insert = SqlGenerator(data_num);
+  std::vector<String> select = {"SELECT * FROM A, B WHERE A.id = B.id;"};
+  std::vector<String> drop = {
+      "DROP TABLE A;",  // NOLINT
+      "DROP TABLE B;"   // NOLINT
+  };
+  ExecuteBatch(pDB, create);
+  ExecuteBatch(pDB, insert);
+  size_t size = Execute(pDB, select[0])[0]->GetSize();
+  EXPECT_EQ(size, data_num * data_num / 4);
+  ExecuteBatch(pDB, drop);
+  delete pDB;
+}
+
+// 多表连接，选做
+TEST(Lab3, DISABLED_MultiTableJoinTest) {
+  Instance *pDB = new Instance();
+  std::vector<String> create_and_insert = {
+      "CREATE TABLE students(stu_id INT, first_name VARCHAR(20), last_name VARCHAR(20));",  // NOLINT
+      "CREATE TABLE students_courses(stu_id INT, course_id INT);",                          // NOLINT
+      "CREATE TABLE courses(course_id INT, course_name VARCHAR(30));",                      // NOLINT
+      "INSERT INTO students VALUES(1, 'James', 'Smith');",                                  // NOLINT
+      "INSERT INTO students VALUES(2, 'Michael', 'Johnson');",                              // NOLINT
+      "INSERT INTO students VALUES(3, 'Thomas', 'Brown');",                                 // NOLINT
+      "INSERT INTO students_courses VALUES(1, 1);",                                         // NOLINT
+      "INSERT INTO students_courses VALUES(2, 3);",                                         // NOLINT
+      "INSERT INTO students_courses VALUES(3, 2);",                                         // NOLINT
+      "INSERT INTO students_courses VALUES(1, 3);",                                         // NOLINT
+      "INSERT INTO courses VALUES(1, 'calculus');",                                         // NOLINT
+      "INSERT INTO courses VALUES(2, 'linear algebra');",                                   // NOLINT
+      "INSERT INTO courses VALUES(3, 'database system');"                                   // NOLINT
+  };
+  std::vector<String> select = {
+      "SELECT * FROM students, students_courses, courses "
+      "WHERE students.stu_id = students_courses.stu_id "
+      "AND students_courses.course_id = courses.course_id;",  // NOLINT
+  };
+  // 多表连接列的顺序可能有所不同，可自行调整
+  std::vector<String> results = {
+      "1,James,Smith,1,1,1,calculus",             // NOLINT
+      "2,Michael,Johnson,2,3,3,database system",  // NOLINT
+      "3,Thomas,Brown,3,2,2,linear algebra",      // NOLINT
+      "1,James,Smith,1,3,3,database system"       // NOLINT
+  };
+  std::vector<String> drop = {
+      "DROP TABLE students;",          // NOLINT
+      "DROP TABLE students_courses;",  // NOLINT
+      "DROP TABLE courses"             // NOLINT
+  };
+  ExecuteBatch(pDB, create_and_insert);
+  std::vector<String> execute_results = Execute(pDB, select[0])[0]->ToVector();
+  EXPECT_TRUE(CheckEqual(execute_results, results));
   ExecuteBatch(pDB, drop);
   delete pDB;
 }
