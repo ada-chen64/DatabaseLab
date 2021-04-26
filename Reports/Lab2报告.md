@@ -116,11 +116,12 @@ bool NodePage::Insert(Field *pKey, const PageSlotID &iPair) {
     if(_iKeyVec.size() >= _nCap)
       return false;
     Size pos = LowerBound(pKey);
-    for(; pos < _iChildVec.size(); pos++)
+    while(pos != _iChildVec.size())
     {
       if(Equal(_iKeyVec[pos], pKey, _iKeyType)&&
         iPair >= _iChildVec[pos])
       {
+        
         _iKeyVec.insert(_iKeyVec.begin() + pos, pKey);
         _iChildVec.insert(_iChildVec.begin() + pos, iPair);
         return true;
@@ -131,6 +132,7 @@ bool NodePage::Insert(Field *pKey, const PageSlotID &iPair) {
         _iChildVec.insert(_iChildVec.begin() + pos, iPair);
         return true;
       }
+      pos++;
     }
     _iKeyVec.push_back(pKey);
     _iChildVec.push_back(iPair);
@@ -141,18 +143,26 @@ bool NodePage::Insert(Field *pKey, const PageSlotID &iPair) {
   // 2.对应的子结点执行插入函数
   // 3.判断子结点是否为满结点，满结点时执行分裂
   // 4.子结点分裂情况下需要更新KeyVec和ChildVec
-  if(_iKeyVec.size() == 0)
+  
+  if(_nNullKey)
   {
     //if this is an empty node
+    _iKeyVec.pop_back();
     _iKeyVec.push_back(pKey);
+    _nNullKey = false;
     NodePage *childpage = new NodePage(_iChildVec[1].first);
     childpage->Insert(pKey, iPair);
     delete(childpage);
     return true;
   }
+  
   Size pg = LowerBound(pKey);
   PageID cpID;
-  if(Less(_iKeyVec[pg], pKey, _iKeyType))
+  if(pg == _iKeyVec.size())
+  {
+    cpID = _iChildVec[pg].first;
+  }
+  else if(Less(pKey, _iKeyVec[pg], _iKeyType))
   {
     cpID = _iChildVec[pg].first;
   }
@@ -164,7 +174,6 @@ bool NodePage::Insert(Field *pKey, const PageSlotID &iPair) {
   childpage->Insert(pKey, iPair);
   if(childpage->Full())
   {
-    
     std::pair<std::vector<Field *>, std::vector<PageSlotID>> newchildinfo = 
       childpage->PopHalf();
     NodePage *newchild = new NodePage(_nKeyLen, _iKeyType, 
@@ -188,20 +197,15 @@ bool NodePage::Insert(Field *pKey, const PageSlotID &iPair) {
   }
   delete childpage;
   return true;
-}
-Field *NodePage::FirstKey() const {
-  if (Empty()) return nullptr;
-  if(_bLeaf)
-    return _iKeyVec[0];
-  else
-  {
-    NodePage *childpage = new NodePage(_iChildVec[0].first);
-    return childpage->FirstKey();
-  }
+  // ALERT:
+  // 中间结点执行插入过程中，需要考虑到实际中间结点为空结点的特殊情况进行特判
+  // ALERT: 对于头结点的插入可能更新头结点的Key值
+  // ALERT: KeyVec中的Key的赋值需要使用深拷贝，否则会出现析构导致的问题
+  // ALERT: 上层保证每次插入的iPair不同
 }
 ```
 
-删除和插入的概念类似，只是在子节点空的时候要进行一些处理。如果当前`_iKeyVec.size()>1`那么我就删除指向叶节点的`_iChildVec`项和对应的`_iKeyVec`项。如果当前节点只剩下一个Key, 那么需要判断刚才删除的时候左孩子还是右孩子，如果时候右孩子则清空`_iKeyVec`。
+删除和插入的概念类似，只是在子节点空的时候要进行一些处理。如果当前`_iKeyVec.size()>1`那么我就删除指向叶节点的`_iChildVec`项和对应的`_iKeyVec`项。如果当前节点只剩下一个Key, 那么需要判断刚才删除的时候左孩子还是右孩子，如果时候右孩子，就必须判断左孩子是否为空，若左孩子也是空的则清空`_iKeyVec`。如果左孩子不为空，则将左孩子的一半送给右孩子。
 
 如果删除后子节点非空则和插入一样，修改以下`_iKeyVec`里当前位置的Key，确认时候分支里最小的Key。
 
@@ -225,7 +229,38 @@ Field *NodePage::FirstKey() const {
         else
         {
             if(!less)
-                _iKeyVec.clear();
+            {
+                PageID lsID = _iChildVec[pos].first;
+                NodePage *leftsib = new NodePage(lsID);
+                if(leftsib->Empty())
+                {
+                    _iKeyVec.clear();
+                    Field *iField;
+                    if(_iKeyType ==FieldType::INT_TYPE)
+                    {
+                        iField = new IntField(0);
+                    }
+                    else if(_iKeyType == FieldType::FLOAT_TYPE)
+                    {
+                        iField = new FloatField(0);
+                    }
+                    _iKeyVec.push_back(iField);
+                    _nNullKey = true;
+                }
+                else 
+                {
+                    _iChildVec.pop_back();
+                    _iKeyVec.clear();
+                    std::pair<std::vector<Field *>, std::vector<PageSlotID>> halfelem = leftsib->PopHalf();
+                    NodePage *newchildpage = new NodePage(_nKeyLen, _iKeyType, childpage->GetBLeaf(),
+                                                          halfelem.first, halfelem.second);
+                    _iKeyVec.push_back(newchildpage->FirstKey());
+                    _iChildVec.push_back({newchildpage->GetPageID(), 0});
+                    delete newchildpage;
+                }
+                delete leftsib;
+
+            }
         }
 
     }
