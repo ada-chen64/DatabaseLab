@@ -34,6 +34,12 @@ class FixedRecord : public Record {
    */
   void Build(const std::vector<String> &iRawVec) override;
 
+  Record *Copy() const override;
+
+  void Sub(const std::vector<Size> &iPos) override;
+  void Add(Record *pRecord) override;
+  void Remove(FieldID nPos) override;
+
  private:
   /**
    * @brief 各个字段的类型
