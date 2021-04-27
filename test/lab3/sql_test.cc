@@ -217,7 +217,7 @@ TEST(Lab3, DISABLED_MultiTableJoinTest) {
   std::vector<String> drop = {
       "DROP TABLE students;",          // NOLINT
       "DROP TABLE students_courses;",  // NOLINT
-      "DROP TABLE courses"             // NOLINT
+      "DROP TABLE courses;"            // NOLINT
   };
   ExecuteBatch(pDB, create_and_insert);
   std::vector<String> execute_results = Execute(pDB, select[0])[0]->ToVector();
