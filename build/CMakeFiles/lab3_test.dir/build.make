@@ -81,20 +81,46 @@ CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/main.cc.o.provides.build: CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/main.cc.o
 
 
+CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o: CMakeFiles/lab3_test.dir/flags.make
+CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o: /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc
+
+CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc > CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.i
+
+CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc -o CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.s
+
+CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o.requires:
+
+.PHONY : CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o.requires
+
+CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o.provides: CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o.requires
+	$(MAKE) -f CMakeFiles/lab3_test.dir/build.make CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o.provides.build
+.PHONY : CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o.provides
+
+CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o.provides.build: CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o
+
+
 # Object files for target lab3_test
 lab3_test_OBJECTS = \
-"CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/main.cc.o"
+"CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/main.cc.o" \
+"CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o"
 
 # External object files for target lab3_test
 lab3_test_EXTERNAL_OBJECTS =
 
 test/lab3_test: CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/main.cc.o
+test/lab3_test: CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o
 test/lab3_test: CMakeFiles/lab3_test.dir/build.make
 test/lab3_test: lib/libthdb_shared.so
 test/lab3_test: lib/libgtest.a
 test/lab3_test: lib/libantlr4-runtime.so
 test/lab3_test: CMakeFiles/lab3_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test/lab3_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable test/lab3_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab3_test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -103,6 +129,7 @@ CMakeFiles/lab3_test.dir/build: test/lab3_test
 .PHONY : CMakeFiles/lab3_test.dir/build
 
 CMakeFiles/lab3_test.dir/requires: CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/main.cc.o.requires
+CMakeFiles/lab3_test.dir/requires: CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o.requires
 
 .PHONY : CMakeFiles/lab3_test.dir/requires
 

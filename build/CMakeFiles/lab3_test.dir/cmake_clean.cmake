@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/main.cc.o"
+  "CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o"
   "test/lab3_test.pdb"
   "test/lab3_test"
 )

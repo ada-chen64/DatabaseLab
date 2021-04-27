@@ -11,6 +11,7 @@
 #include "exception/exceptions.h"
 #include "manager/table_manager.h"
 #include "record/fixed_record.h"
+#include "field/fields.h"
 
 namespace thdb {
 
@@ -277,7 +278,6 @@ std::pair<std::vector<String>, std::vector<Record *>> Instance::Join(
   // ALERT:针对于不同的JOIN情况（此处只需要考虑数据量和是否为索引列），可以选择使用不同的JOIN算法
   // ALERT:JOIN前已经经过了Filter过程
   // ALERT:建议不要使用不经过优化的NestedLoopJoin算法
-
   // TIPS:JoinCondition中保存了JOIN两方的表名和列名
   // TIPS:利用GetTable(TableName)的方式可以获得Table*指针，之后利用lab1中的Table::GetRecord获得初始Record*数据
   // TIPs:利用Table::GetColumnNames可以获得Table初始的列名，与初始Record*顺序一致
@@ -285,6 +285,95 @@ std::pair<std::vector<String>, std::vector<Record *>> Instance::Join(
   // TIPS:利用GetColID/Type/Size三个函数可以基于表名和列名获得列的信息
   // TIPS:利用IsIndex可以判断列是否存在索引
   // TIPS:利用GetIndex可以获得索引Index*指针
+  //determining the order which tables should get iterated
+  /*std::map<int,int> tableorder;
+  int i = 0;
+  for(auto it = iResultMap.begin(); it != iResultMap.end(); it++)
+  {
+    Size tablesize = it->second.size();
+    tableorder[tablesize] = i;
+    i++;
+  }
+  std::vector<int> order;
+  for(auto it = tableorder.begin(); it != tableorder.end(); it++)
+  {
+    order.push_back(it->second);
+  }*/
+  //std::pair<std::vector<String>, std::vector<Record *>> result;
+  std::vector<String> totcolNames;
+  std::vector<Record *> newTable;
+  //printf("JOIN CONDITIONS: %d\n", iJoinConds.size());
+  JoinCondition *joinCond = dynamic_cast<JoinCondition*> (iJoinConds[0]);
+  String sTableA = joinCond->sTableA;//outer
+  String sTableB = joinCond->sTableB; //inner
+  String sColA = joinCond->sColA;
+  String sColB = joinCond->sColB;
+  FieldID iColA = GetColID(sTableA, sColA);
+  FieldID iColB = GetColID(sTableB, sColB);
+  Table *tableA = GetTable(sTableA);
+  Table *tableB = GetTable(sTableB);
+  std::vector<String> aColNames = tableA->GetColumnNames();
+  // for(int i = 0; i < aColNames.size(); i++)
+  // {
+  //   if(sColA.compare(aColNames[i]) == 0)
+  //   {
+  //     printf("%s in table %s\n", sColA.c_str(), sTableA.c_str());
+  //   }
+  // }
+  std::vector<String> bColNames = tableB->GetColumnNames();
+  totcolNames.insert(totcolNames.begin(), bColNames.begin(), bColNames.end());
+  totcolNames.insert(totcolNames.begin(), aColNames.begin(), aColNames.end());
+  /*nested loop begin
+  for(auto iPairA: iResultMap[sTableA])
+  {
+    Record *aRecord = GetRecord(sTableA, iPairA);
+    Field *aField = aRecord->GetField(iColA);
+    FieldType aType = aField->GetType();
+    for(auto iPairB: iResultMap[sTableB])
+    {
+      Record *bRecord = GetRecord(sTableB, iPairB);
+      Field *bField = bRecord->GetField(iColB);
+      FieldType bType = bField->GetType();
+      assert(bType == aType);
+      //printf("btype and aType same\n");
+      if(Equal(aField, bField, aType))
+      {
+        //printf("bField == aField\n");
+        //satisfies join cond
+        Record *newRec = aRecord->Copy();
+        newRec->Add(bRecord);
+        newTable.push_back(newRec);
+      }
+    }
+  }
+  nested loop end*/
+  // heap join
+  std::map<String, std::vector<Record*>> hashmap;
+  for(auto iPair: iResultMap[sTableA])
+  {
+    Record *aRecord = GetRecord(sTableA, iPair);
+    Field *aField = aRecord->GetField(iColA);
+    if(hashmap.find(aField->ToString()) == hashmap.end())
+    {
+      hashmap[aField->ToString()] = {aRecord};
+    }
+    else
+      hashmap[aField->ToString()].push_back(aRecord);
+    
+  }
+  for(auto iPair: iResultMap[sTableB])
+  {
+    Record *bRecord = GetRecord(sTableB, iPair);
+    Field *bField = bRecord->GetField(iColA);
+    std::vector<Record*> aRecords = hashmap[bField->ToString()];
+    for(auto record: aRecords)
+    {
+      Record *newRec = record->Copy();
+      newRec->Add(bRecord);
+      newTable.push_back(newRec);
+    }
+  }
+  return {totcolNames, newTable};
 
   // EXTRA:JOIN的表的数量超过2时，所以需要先计算一个JOIN执行计划（不要求复杂算法）,有兴趣的同学可以自行实现
   // EXTRA:在多表JOIN时，可以采用并查集或执行树来确定执行JOIN的数据内容

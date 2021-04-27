@@ -730,6 +730,33 @@ home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/main.cc.s:
 	$(MAKE) -f CMakeFiles/lab3_test.dir/build.make CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/main.cc.s
 .PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/main.cc.s
 
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.o: home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o
+
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.o
+
+# target to build an object file
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o:
+	$(MAKE) -f CMakeFiles/lab3_test.dir/build.make CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.o
+
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.i: home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.i
+
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.i
+
+# target to preprocess a source file
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.i:
+	$(MAKE) -f CMakeFiles/lab3_test.dir/build.make CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.i
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.i
+
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.s: home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.s
+
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.s
+
+# target to generate assembly for a file
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.s:
+	$(MAKE) -f CMakeFiles/lab3_test.dir/build.make CMakeFiles/lab3_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.s
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.cc.s
+
 home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.o: home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.o
 
 .PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.o
@@ -5579,6 +5606,9 @@ help:
 	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/main.o"
 	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/main.i"
 	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/main.s"
+	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.o"
+	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.i"
+	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab3/sql_test.s"
 	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.o"
 	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.i"
 	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.s"
