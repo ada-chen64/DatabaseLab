@@ -129,7 +129,7 @@ TEST(Lab3, DuplicateJoinTest) {
                                    "2,A_e,2,B_c", "2,A_e,2,B_d", "2,A_f,2,B_c", "2,A_f,2,B_d"};
   std::vector<String> results_2 = {"1,B_a,1,A_a", "1,B_b,1,A_a", "1,B_a,1,A_b", "1,B_b,1,A_b",
                                    "1,B_a,1,A_c", "1,B_b,1,A_c", "2,B_c,2,A_d", "2,B_d,2,A_d",
-                                   "2,B_c,2,A_e", "2,B_d,2,A_e", "2,B_d,2,A_f", "2,B_d,2,A_f"};
+                                   "2,B_c,2,A_e", "2,B_d,2,A_e", "2,B_c,2,A_f", "2,B_d,2,A_f"};
   std::vector<String> drop = {
       "DROP TABLE A;",  // NOLINT
       "DROP TABLE B;"   // NOLINT
