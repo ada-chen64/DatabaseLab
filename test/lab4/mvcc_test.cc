@@ -232,6 +232,10 @@ TEST_F(MVCCTests, AbortInsert2) {
   delete txn2;
 }
 
+/**
+ * The following tests are optional
+ */
+
 //    Txn #0 | Txn #1 | Txn #2 |
 //    --------------------------
 //    BEGIN  |        |        |
@@ -249,7 +253,7 @@ TEST_F(MVCCTests, AbortInsert2) {
 // Txn #0 should only read Txn #0's version of X
 // Txn #1 should only read the previous version of X because its start time is before #0's commit
 // Txn #2 should only read Txn #0's version of X
-TEST_F(MVCCTests, DISABLED_CommitUpdate1) {
+TEST_F(MVCCTests, CommitUpdate1) {
   // Insert the tuple to be Updated later
   auto *txn = txn_manager->Begin();
   db->Insert(table_name, record_build, txn);
@@ -257,7 +261,7 @@ TEST_F(MVCCTests, DISABLED_CommitUpdate1) {
 
   auto *txn0 = txn_manager->Begin();
 
-  db->Update(table_name, nullptr, {}, transform, txn);
+  db->Update(table_name, nullptr, {}, transform, txn0);
 
   CheckExist(txn0, record_updated);
 
@@ -298,7 +302,7 @@ TEST_F(MVCCTests, DISABLED_CommitUpdate1) {
 // Txn #0 should only read Txn #0's version of X
 // Txn #1 should only read the previous version of X because its start time is before #0's commit
 // Txn #2 should only read Txn #0's version of X
-TEST_F(MVCCTests, DISABLED_CommitDelete1) {
+TEST_F(MVCCTests, CommitDelete1) {
   // Insert the tuple to be Deleted later
   auto *txn = txn_manager->Begin();
   db->Insert(table_name, record_build, txn);
@@ -306,7 +310,7 @@ TEST_F(MVCCTests, DISABLED_CommitDelete1) {
 
   auto *txn0 = txn_manager->Begin();
 
-  db->Delete(table_name, nullptr, {}, txn);
+  db->Delete(table_name, nullptr, {}, txn0);
 
   CheckNotExist(txn0);
 
@@ -324,7 +328,7 @@ TEST_F(MVCCTests, DISABLED_CommitDelete1) {
 
   auto *txn2 = txn_manager->Begin();
 
-  CheckNotExist(txn0);
+  CheckNotExist(txn2);
 
   txn_manager->Commit(txn2);
   delete txn2;
