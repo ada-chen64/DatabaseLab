@@ -253,7 +253,7 @@ TEST_F(MVCCTests, AbortInsert2) {
 // Txn #0 should only read Txn #0's version of X
 // Txn #1 should only read the previous version of X because its start time is before #0's commit
 // Txn #2 should only read Txn #0's version of X
-TEST_F(MVCCTests, DISABLED_CommitUpdate1) {
+TEST_F(MVCCTests, CommitUpdate1) {
   // Insert the tuple to be Updated later
   auto *txn = txn_manager->Begin();
   db->Insert(table_name, record_build, txn);
@@ -302,7 +302,7 @@ TEST_F(MVCCTests, DISABLED_CommitUpdate1) {
 // Txn #0 should only read the previous version of X because its start time is before #1's commit
 // Txn #1 should only read Txn #1's version of X
 // Txn #2 should only read Txn #1's version of X
-TEST_F(MVCCTests, DISABLED_CommitUpdate2) {
+TEST_F(MVCCTests, CommitUpdate2) {
   auto *txn = txn_manager->Begin();
   db->Insert(table_name, record_build, txn);
   txn_manager->Commit(txn);
@@ -350,7 +350,7 @@ TEST_F(MVCCTests, DISABLED_CommitUpdate2) {
 // Txn #0 should only read Txn #0's version of X
 // Txn #1 should only read the previous version of X because its start time is before #0's commit
 // Txn #2 should only read Txn #0's version of X
-TEST_F(MVCCTests, DISABLED_CommitDelete1) {
+TEST_F(MVCCTests, CommitDelete1) {
   // Insert the tuple to be Deleted later
   auto *txn = txn_manager->Begin();
   db->Insert(table_name, record_build, txn);
@@ -399,7 +399,7 @@ TEST_F(MVCCTests, DISABLED_CommitDelete1) {
 // Txn #0 should only read the previous version of X because its start time is before #1's commit
 // Txn #1 should only read Txn #1's version of X
 // Txn #2 should only read Txn #1's version of X
-TEST_F(MVCCTests, DISABLED_CommitDelete2) {
+TEST_F(MVCCTests, CommitDelete2) {
   auto *txn = txn_manager->Begin();
   db->Insert(table_name, record_build, txn);
   txn_manager->Commit(txn);
