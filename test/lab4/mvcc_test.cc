@@ -288,6 +288,54 @@ TEST_F(MVCCTests, CommitUpdate1) {
 //    Txn #0 | Txn #1 | Txn #2 |
 //    --------------------------
 //    BEGIN  |        |        |
+//           | BEGIN  |        |
+//           | W(X)   |        |
+//    R(X)   |        |        |
+//           | R(X)   |        |
+//           | COMMIT |        |
+//    R(X)   |        |        |
+//    COMMIT |        |        |
+//           |        | BEGIN  |
+//           |        | R(X)   |
+//           |        | COMMIT |
+//
+// Txn #0 should only read the previous version of X because its start time is before #1's commit
+// Txn #1 should only read Txn #1's version of X
+// Txn #2 should only read Txn #1's version of X
+TEST_F(MVCCTests, CommitUpdate2) {
+  auto *txn = txn_manager->Begin();
+  db->Insert(table_name, record_build, txn);
+  txn_manager->Commit(txn);
+
+  auto *txn0 = txn_manager->Begin();
+
+  auto *txn1 = txn_manager->Begin();
+
+  db->Update(table_name, nullptr, {}, transform, txn1);
+
+  CheckExist(txn0, record_init);
+
+  CheckExist(txn1, record_updated);
+
+  txn_manager->Commit(txn1);
+  delete txn1;
+
+  CheckExist(txn0, record_init);
+
+  txn_manager->Commit(txn0);
+  delete txn0;
+
+  auto *txn2 = txn_manager->Begin();
+
+  CheckExist(txn2, record_updated);
+
+  txn_manager->Commit(txn2);
+  delete txn2;
+}
+
+//    Txn #0 | Txn #1 | Txn #2 |
+//    --------------------------
+//    BEGIN  |        |        |
 //    W(X)   |        |        |
 //    R(X)   |        |        |
 //           | BEGIN  |        |
@@ -325,6 +373,54 @@ TEST_F(MVCCTests, CommitDelete1) {
 
   txn_manager->Commit(txn1);
   delete txn1;
+
+  auto *txn2 = txn_manager->Begin();
+
+  CheckNotExist(txn2);
+
+  txn_manager->Commit(txn2);
+  delete txn2;
+}
+
+//    Txn #0 | Txn #1 | Txn #2 |
+//    --------------------------
+//    BEGIN  |        |        |
+//           | BEGIN  |        |
+//           | W(X)   |        |
+//    R(X)   |        |        |
+//           | R(X)   |        |
+//           | COMMIT |        |
+//    R(X)   |        |        |
+//    COMMIT |        |        |
+//           |        | BEGIN  |
+//           |        | R(X)   |
+//           |        | COMMIT |
+//
+// Txn #0 should only read the previous version of X because its start time is before #1's commit
+// Txn #1 should only read Txn #1's version of X
+// Txn #2 should only read Txn #1's version of X
+TEST_F(MVCCTests, CommitDelete2) {
+  auto *txn = txn_manager->Begin();
+  db->Insert(table_name, record_build, txn);
+  txn_manager->Commit(txn);
+
+  auto *txn0 = txn_manager->Begin();
+
+  auto *txn1 = txn_manager->Begin();
+
+  db->Delete(table_name, nullptr, {}, txn1);
+
+  CheckExist(txn0, record_init);
+
+  CheckNotExist(txn1);
+
+  txn_manager->Commit(txn1);
+  delete txn1;
+
+  CheckExist(txn0, record_init);
+
+  txn_manager->Commit(txn0);
+  delete txn0;
 
   auto *txn2 = txn_manager->Begin();
 
