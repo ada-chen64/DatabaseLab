@@ -25,6 +25,7 @@ Size FixedRecord::Load(const uint8_t *src) {
   // TIPS: 基于类型判断构建的指针类型
   //先遍历header的信息
   Size pos = 0;
+  
   for(FieldID i =0; i < _iFields.size(); i++)
   {
     FieldType iType = _iTypeVec[i];
@@ -64,8 +65,7 @@ Size FixedRecord::Store(uint8_t *dst) const {
   //fill in data
   Size pos = 0;
   for(FieldID i=0; i < _iFields.size(); i++)
-  {
-    //printf("Field Type: %d Size: %u\n", _iTypeVec[i], _iSizeVec[i]);
+  {    
     _iFields[i]->GetData(dst + pos, _iSizeVec[i]);
     pos += _iSizeVec[i];
   }

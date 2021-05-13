@@ -72,7 +72,6 @@ class Table {
   Record *EmptyRecord() const;
 
   std::vector<String> GetColumnNames() const;
-
  private:
   int recordcount;
   int insertvisted;

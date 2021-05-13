@@ -98,6 +98,14 @@ table/schema.h
 table/table.h
 ../src/manager/table/table.h
 
+../src/manager/transaction_manager.h
+unordered_map
+-
+defines.h
+../src/manager/defines.h
+transaction/transaction.h
+../src/manager/transaction/transaction.h
+
 ../src/page/linked_page.h
 defines.h
 ../src/page/defines.h
@@ -177,6 +185,8 @@ manager/index_manager.h
 ../src/system/manager/index_manager.h
 manager/table_manager.h
 ../src/system/manager/table_manager.h
+manager/transaction_manager.h
+../src/system/manager/transaction_manager.h
 record/transform.h
 ../src/system/record/transform.h
 result/results.h
@@ -209,6 +219,22 @@ record/transform.h
 ../src/table/record/transform.h
 table/schema.h
 ../src/table/table/schema.h
+
+../src/transaction/transaction.h
+defines.h
+../src/transaction/defines.h
+record/record.h
+../src/transaction/record/record.h
+transaction/writerecord.h
+../src/transaction/transaction/writerecord.h
+
+../src/transaction/writerecord.h
+defines.h
+../src/transaction/defines.h
+record/record.h
+../src/transaction/record/record.h
+table/table.h
+../src/transaction/table/table.h
 
 ../src/utils/bitmap.h
 cstdint

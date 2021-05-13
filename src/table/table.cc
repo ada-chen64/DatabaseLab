@@ -37,12 +37,13 @@ Record *Table::GetRecord(PageID nPageID, SlotID nSlotID) {
   //return nullptr;  // 开始实验时删除此行
   // LAB1 BEGIN
   // TODO: 获得一条记录
-  //printf("Table Get RECORD\n");
+  //printf("Table Get RECORD %d\n", nPageID);
   RecordPage *rp = new RecordPage(nPageID);
   uint8_t *rec = rp->GetRecord(nSlotID);
   FixedRecord *fr = new FixedRecord(pTable->GetFieldSize(), pTable->GetTypeVec(),
     pTable->GetSizeVec());
   fr->Load(rec);
+  
   delete rp;
   delete[] rec;
   return fr;
@@ -56,18 +57,20 @@ Record *Table::GetRecord(PageID nPageID, SlotID nSlotID) {
 PageSlotID Table::InsertRecord(Record *pRecord) {
   // LAB1 BEGIN
   // TODO: 插入一条记录
+  
   insertvisted++;
   //printf("insert visited %d times\n", insertvisted);
   PageID pid = _nNotFull;
   RecordPage *page = new RecordPage(pid);
   uint8_t * rec = new uint8_t[PAGE_SIZE];
   pRecord->Store(rec);
+  
   SlotID slot = -1;
   slot = page->InsertRecord(rec);
   if(slot != -1)
     recordcount++;
   Record *record = GetRecord(pid, slot);
-  //printf("Inserted record: %s on pid %d slot %d\n", record->ToString().c_str(), pid, slot);
+  
   if(page->Full())
   { 
     delete page;
@@ -273,5 +276,6 @@ std::vector<String> Table::GetColumnNames() const {
   for (const auto &it : iPairVec) iVec.push_back(it.first);
   return iVec;
 }
+
 
 }  // namespace thdb

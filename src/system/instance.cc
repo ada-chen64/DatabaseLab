@@ -11,6 +11,7 @@
 #include "exception/exceptions.h"
 #include "manager/table_manager.h"
 #include "record/fixed_record.h"
+#include "record/record.h"
 #include "field/fields.h"
 
 namespace thdb {
@@ -33,7 +34,15 @@ Table *Instance::GetTable(const String &sTableName) const {
 
 bool Instance::CreateTable(const String &sTableName, const Schema &iSchema,
                            bool useTxn) {
-  _pTableManager->AddTable(sTableName, iSchema);
+  Schema nSchema = iSchema;
+  if(useTxn)
+  {
+    Column nCol(affairsCol, FieldType::INT_TYPE);
+    nSchema.AddCol(nCol);
+  }
+  
+  _pTableManager->AddTable(sTableName, nSchema);
+  
   return true;
 }
 
@@ -85,12 +94,13 @@ std::vector<PageSlotID> Instance::Search(
     const std::vector<Condition *> &iIndexCond, const Transaction *txn) {
   Table *pTable = GetTable(sTableName);
   if (pTable == nullptr) throw TableException();
+  std::vector<PageSlotID> iRes;
   if (iIndexCond.size() > 0) {
     IndexCondition *pIndexCond = dynamic_cast<IndexCondition *>(iIndexCond[0]);
     assert(pIndexCond != nullptr);
     auto iName = pIndexCond->GetIndexName();
     auto iRange = pIndexCond->GetIndexRange();
-    std::vector<PageSlotID> iRes =
+    iRes =
         GetIndex(iName.first, iName.second)->Range(iRange.first, iRange.second);
     for (Size i = 1; i < iIndexCond.size(); ++i) {
       IndexCondition *pIndexCond =
@@ -100,9 +110,58 @@ std::vector<PageSlotID> Instance::Search(
       iRes = Intersection(iRes, GetIndex(iName.first, iName.second)
                                     ->Range(iRange.first, iRange.second));
     }
-    return iRes;
-  } else
-    return pTable->SearchRecord(pCond);
+    
+  } 
+  else
+    iRes = pTable->SearchRecord(pCond);
+  if(txn != nullptr)
+  {
+    std::vector<PageSlotID> tRes;
+    for(auto iPair: iRes)
+    {
+      Record *pRecord = GetRecord(sTableName, iPair, nullptr);
+      
+      FieldID nPos = pTable->GetPos(affairsCol);
+      Field *tField = pRecord->GetField(nPos);
+      IntField *iField = dynamic_cast<IntField*>(tField);
+      if(txn->GetTxnID() == iField->GetIntData())
+      {
+        
+        tRes.push_back(iPair);
+      }
+      else
+      {
+        
+        std::vector<TxnID> active = txn->GetActive();
+        for(auto ID: active)
+        {
+          //current txn started before record.txn committed
+          if(ID == iField->GetIntData())
+          {
+            return {};
+          }
+        }
+        std::vector<TxnID> committed = txn->GetCommitted();
+        bool toAdd = false;
+        for(auto ID: committed)
+        {
+          //the record.txn hasn't committed yet
+          if(ID == iField->GetIntData())
+          {
+            toAdd = true;
+            break;
+          }
+        }
+        if(toAdd)
+          tRes.push_back(iPair);
+        else
+          return {};
+      }
+    }
+    return tRes;
+  }
+
+  return iRes;
 }
 
 PageSlotID Instance::Insert(const String &sTableName,
@@ -111,8 +170,40 @@ PageSlotID Instance::Insert(const String &sTableName,
   Table *pTable = GetTable(sTableName);
   if (pTable == nullptr) throw TableException();
   Record *pRecord = pTable->EmptyRecord();
-  pRecord->Build(iRawVec);
+  
+  
+  //printf("before joining Record to string, %s\n", pRecord->ToString().c_str());
+  if(txn != nullptr)
+  {
+    std::vector<String> nRawVec;
+    for(int i = 0; i < iRawVec.size(); i++)
+    {
+      nRawVec.push_back(iRawVec[i]);
+    }
+    //printf("txn ID: %s\n",std::to_string(txn->GetTxnID()).c_str());
+    nRawVec.push_back(std::to_string(txn->GetTxnID()));
+    pRecord->Build(nRawVec);
+    
+    
+    // Field *iField = new IntField(stoi(iRawVec[0]));
+    // pRecord->SetField(0, iField);
+    // Field *tField = new IntField(txn->GetTxnID());
+    // pRecord->SetField(1, tField);
+
+
+  }
+  else
+  {
+    pRecord->Build(iRawVec);
+  }
+  
+
   PageSlotID iPair = pTable->InsertRecord(pRecord);
+  if(txn != nullptr)
+  {
+    std::vector<WriteRecord*>* iWR = txn->GetWriteRecords();
+    iWR->push_back(new WriteRecord(pTable, pRecord, ActionType::DELETE_TYPE, iPair));
+  }
   // Handle Insert on Index
   if (_pIndexManager->HasIndex(sTableName)) {
     auto iColNames = _pIndexManager->GetTableIndexes(sTableName);
@@ -122,7 +213,7 @@ PageSlotID Instance::Insert(const String &sTableName,
       _pIndexManager->GetIndex(sTableName, sCol)->Insert(pKey, iPair);
     }
   }
-
+  
   delete pRecord;
   return iPair;
 }
@@ -130,7 +221,7 @@ PageSlotID Instance::Insert(const String &sTableName,
 uint32_t Instance::Delete(const String &sTableName, Condition *pCond,
                           const std::vector<Condition *> &iIndexCond,
                           const Transaction *txn) {
-  auto iResVec = Search(sTableName, pCond, iIndexCond);
+  auto iResVec = Search(sTableName, pCond, iIndexCond, txn);
   Table *pTable = GetTable(sTableName);
   bool bHasIndex = _pIndexManager->HasIndex(sTableName);
   for (const auto &iPair : iResVec) {
@@ -155,7 +246,7 @@ uint32_t Instance::Update(const String &sTableName, Condition *pCond,
                           const std::vector<Condition *> &iIndexCond,
                           const std::vector<Transform> &iTrans,
                           const Transaction *txn) {
-  auto iResVec = Search(sTableName, pCond, iIndexCond);
+  auto iResVec = Search(sTableName, pCond, iIndexCond, txn);
   Table *pTable = GetTable(sTableName);
   bool bHasIndex = _pIndexManager->HasIndex(sTableName);
   for (const auto &iPair : iResVec) {
@@ -170,9 +261,19 @@ uint32_t Instance::Update(const String &sTableName, Condition *pCond,
       }
       delete pRecord;
     }
-
-    pTable->UpdateRecord(iPair.first, iPair.second, iTrans);
-
+    std::vector<Transform> nTrans = iTrans;
+    if(txn != nullptr)
+    {
+      Record *pRecord = pTable->GetRecord(iPair.first, iPair.second);
+      //txn add pRecord to WriteRecord
+      std::vector<WriteRecord*>* iWR = txn->GetWriteRecords();
+      iWR->push_back(new WriteRecord(pTable, pRecord, ActionType::UPDATE_TYPE, iPair));
+      Transform _iTrans(pTable->GetPos(affairsCol), FieldType::INT_TYPE, 
+            std::to_string(txn->GetTxnID()));
+      nTrans.push_back(_iTrans);
+    }
+    pTable->UpdateRecord(iPair.first, iPair.second, nTrans);
+    
     // Handle Delete on Index
     if (bHasIndex) {
       Record *pRecord = pTable->GetRecord(iPair.first, iPair.second);
@@ -191,7 +292,16 @@ uint32_t Instance::Update(const String &sTableName, Condition *pCond,
 Record *Instance::GetRecord(const String &sTableName, const PageSlotID &iPair,
                             const Transaction *txn) const {
   Table *pTable = GetTable(sTableName);
-  return pTable->GetRecord(iPair.first, iPair.second);
+  Record *pRecord = pTable->GetRecord(iPair.first, iPair.second);
+  
+  if(txn != nullptr)
+  {
+    FieldID iPos = pTable->GetPos(affairsCol);
+    
+    pRecord->Remove(iPos);
+    
+  }
+  return pRecord;
 }
 
 std::vector<Record *> Instance::GetTableInfos(const String &sTableName) const {

@@ -23,6 +23,7 @@ CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o
  ../src/macros.h
  ../src/manager/index_manager.h
  ../src/manager/table_manager.h
+ ../src/manager/transaction_manager.h
  ../src/minios/os.h
  ../src/minios/raw_page.h
  ../src/page/linked_page.h
@@ -45,6 +46,8 @@ CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o
  ../src/table/column.h
  ../src/table/schema.h
  ../src/table/table.h
+ ../src/transaction/transaction.h
+ ../src/transaction/writerecord.h
  ../src/utils/bitmap.h
  ../third_party/antlr4-cpp-runtime-4.7/src/ANTLRErrorListener.h
  ../third_party/antlr4-cpp-runtime-4.7/src/ANTLRErrorStrategy.h
@@ -365,6 +368,36 @@ CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o
  ../src/table/table.h
  ../src/utils/bitmap.h
  /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/table_manager.cc
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o
+ ../src/condition/condition.h
+ ../src/defines.h
+ ../src/field/compare.h
+ ../src/field/field.h
+ ../src/field/fields.h
+ ../src/field/float_field.h
+ ../src/field/int_field.h
+ ../src/field/none_field.h
+ ../src/field/string_field.h
+ ../src/index/index.h
+ ../src/macros.h
+ ../src/manager/index_manager.h
+ ../src/manager/table_manager.h
+ ../src/manager/transaction_manager.h
+ ../src/page/page.h
+ ../src/page/table_page.h
+ ../src/record/record.h
+ ../src/record/transform.h
+ ../src/result/disk_result.h
+ ../src/result/mem_result.h
+ ../src/result/result.h
+ ../src/result/results.h
+ ../src/system/instance.h
+ ../src/table/column.h
+ ../src/table/schema.h
+ ../src/table/table.h
+ ../src/transaction/transaction.h
+ ../src/transaction/writerecord.h
+ /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/transaction_manager.cc
 CMakeFiles/thdb_shared.dir/src/minios/os.cc.o
  ../src/defines.h
  ../src/exception/exception.h
@@ -1319,6 +1352,7 @@ CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o
  ../src/macros.h
  ../src/manager/index_manager.h
  ../src/manager/table_manager.h
+ ../src/manager/transaction_manager.h
  ../src/page/page.h
  ../src/page/table_page.h
  ../src/record/fixed_record.h
@@ -1332,6 +1366,8 @@ CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o
  ../src/table/column.h
  ../src/table/schema.h
  ../src/table/table.h
+ ../src/transaction/transaction.h
+ ../src/transaction/writerecord.h
  ../third_party/antlr4-cpp-runtime-4.7/src/ANTLRErrorListener.h
  ../third_party/antlr4-cpp-runtime-4.7/src/ANTLRErrorStrategy.h
  ../third_party/antlr4-cpp-runtime-4.7/src/ANTLRFileStream.h
@@ -1605,6 +1641,7 @@ CMakeFiles/thdb_shared.dir/src/system/instance.cc.o
  ../src/macros.h
  ../src/manager/index_manager.h
  ../src/manager/table_manager.h
+ ../src/manager/transaction_manager.h
  ../src/page/page.h
  ../src/page/table_page.h
  ../src/record/fixed_record.h
@@ -1618,6 +1655,8 @@ CMakeFiles/thdb_shared.dir/src/system/instance.cc.o
  ../src/table/column.h
  ../src/table/schema.h
  ../src/table/table.h
+ ../src/transaction/transaction.h
+ ../src/transaction/writerecord.h
  /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/system/instance.cc
 CMakeFiles/thdb_shared.dir/src/table/column.cc.o
  ../src/defines.h
@@ -1662,6 +1701,26 @@ CMakeFiles/thdb_shared.dir/src/table/table.cc.o
  ../src/table/table.h
  ../src/utils/bitmap.h
  /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/table/table.cc
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o
+ ../src/condition/condition.h
+ ../src/defines.h
+ ../src/field/compare.h
+ ../src/field/field.h
+ ../src/field/fields.h
+ ../src/field/float_field.h
+ ../src/field/int_field.h
+ ../src/field/none_field.h
+ ../src/field/string_field.h
+ ../src/page/page.h
+ ../src/page/table_page.h
+ ../src/record/record.h
+ ../src/record/transform.h
+ ../src/table/column.h
+ ../src/table/schema.h
+ ../src/table/table.h
+ ../src/transaction/transaction.h
+ ../src/transaction/writerecord.h
+ /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/transaction/transaction.cc
 CMakeFiles/thdb_shared.dir/src/utils/bitmap.cc.o
  ../src/defines.h
  ../src/utils/bitmap.h

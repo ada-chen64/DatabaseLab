@@ -92,6 +92,7 @@ class Instance {
   TableManager *_pTableManager;
   IndexManager *_pIndexManager;
   TransactionManager *_pTransactionManager;
+  String affairsCol = "affairsID";
 };
 
 }  // namespace thdb

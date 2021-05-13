@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc" "/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.o"
+  "/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc" "/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

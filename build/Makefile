@@ -784,6 +784,33 @@ home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.s:
 	$(MAKE) -f CMakeFiles/lab4_test.dir/build.make CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.s
 .PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.s
 
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.o: home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o
+
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.o
+
+# target to build an object file
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o:
+	$(MAKE) -f CMakeFiles/lab4_test.dir/build.make CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o
+
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.i: home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.i
+
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.i
+
+# target to preprocess a source file
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.i:
+	$(MAKE) -f CMakeFiles/lab4_test.dir/build.make CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.i
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.i
+
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.s: home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.s
+
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.s
+
+# target to generate assembly for a file
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.s:
+	$(MAKE) -f CMakeFiles/lab4_test.dir/build.make CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.s
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.s
+
 src/backend/backend.o: src/backend/backend.cc.o
 
 .PHONY : src/backend/backend.o
@@ -1242,6 +1269,33 @@ src/manager/table_manager.s: src/manager/table_manager.cc.s
 src/manager/table_manager.cc.s:
 	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.s
 .PHONY : src/manager/table_manager.cc.s
+
+src/manager/transaction_manager.o: src/manager/transaction_manager.cc.o
+
+.PHONY : src/manager/transaction_manager.o
+
+# target to build an object file
+src/manager/transaction_manager.cc.o:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o
+.PHONY : src/manager/transaction_manager.cc.o
+
+src/manager/transaction_manager.i: src/manager/transaction_manager.cc.i
+
+.PHONY : src/manager/transaction_manager.i
+
+# target to preprocess a source file
+src/manager/transaction_manager.cc.i:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.i
+.PHONY : src/manager/transaction_manager.cc.i
+
+src/manager/transaction_manager.s: src/manager/transaction_manager.cc.s
+
+.PHONY : src/manager/transaction_manager.s
+
+# target to generate assembly for a file
+src/manager/transaction_manager.cc.s:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.s
+.PHONY : src/manager/transaction_manager.cc.s
 
 src/minios/os.o: src/minios/os.cc.o
 
@@ -1890,6 +1944,33 @@ src/table/table.s: src/table/table.cc.s
 src/table/table.cc.s:
 	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/table/table.cc.s
 .PHONY : src/table/table.cc.s
+
+src/transaction/transaction.o: src/transaction/transaction.cc.o
+
+.PHONY : src/transaction/transaction.o
+
+# target to build an object file
+src/transaction/transaction.cc.o:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o
+.PHONY : src/transaction/transaction.cc.o
+
+src/transaction/transaction.i: src/transaction/transaction.cc.i
+
+.PHONY : src/transaction/transaction.i
+
+# target to preprocess a source file
+src/transaction/transaction.cc.i:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.i
+.PHONY : src/transaction/transaction.cc.i
+
+src/transaction/transaction.s: src/transaction/transaction.cc.s
+
+.PHONY : src/transaction/transaction.s
+
+# target to generate assembly for a file
+src/transaction/transaction.cc.s:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.s
+.PHONY : src/transaction/transaction.cc.s
 
 src/utils/bitmap.o: src/utils/bitmap.cc.o
 
@@ -5612,6 +5693,9 @@ help:
 	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.o"
 	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.i"
 	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.s"
+	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.o"
+	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.i"
+	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.s"
 	@echo "... src/backend/backend.o"
 	@echo "... src/backend/backend.i"
 	@echo "... src/backend/backend.s"
@@ -5663,6 +5747,9 @@ help:
 	@echo "... src/manager/table_manager.o"
 	@echo "... src/manager/table_manager.i"
 	@echo "... src/manager/table_manager.s"
+	@echo "... src/manager/transaction_manager.o"
+	@echo "... src/manager/transaction_manager.i"
+	@echo "... src/manager/transaction_manager.s"
 	@echo "... src/minios/os.o"
 	@echo "... src/minios/os.i"
 	@echo "... src/minios/os.s"
@@ -5735,6 +5822,9 @@ help:
 	@echo "... src/table/table.o"
 	@echo "... src/table/table.i"
 	@echo "... src/table/table.s"
+	@echo "... src/transaction/transaction.o"
+	@echo "... src/transaction/transaction.i"
+	@echo "... src/transaction/transaction.s"
 	@echo "... src/utils/bitmap.o"
 	@echo "... src/utils/bitmap.i"
 	@echo "... src/utils/bitmap.s"

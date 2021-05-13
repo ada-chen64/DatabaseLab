@@ -15,6 +15,7 @@ CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/index/index.h
 CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/macros.h
 CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/manager/index_manager.h
 CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/manager/table_manager.h
+CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/manager/transaction_manager.h
 CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/page/page.h
 CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/page/table_page.h
 CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/record/record.h
@@ -27,6 +28,8 @@ CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/system/instance.h
 CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/table/column.h
 CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/table/schema.h
 CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/table/table.h
+CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/transaction/transaction.h
+CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/transaction/writerecord.h
 CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../src/utils/display.h
 CMakeFiles/thdb_shell.dir/executable/shell.cc.o: ../executable/shell.cc
 

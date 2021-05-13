@@ -22,6 +22,7 @@ CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/index/index.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/macros.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/manager/index_manager.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/manager/table_manager.h
+CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/manager/transaction_manager.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/minios/os.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/minios/raw_page.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/page/linked_page.h
@@ -44,6 +45,8 @@ CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/system/instance.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/table/column.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/table/schema.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/table/table.h
+CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/transaction/transaction.h
+CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/transaction/writerecord.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../src/utils/bitmap.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../third_party/antlr4-cpp-runtime-4.7/src/ANTLRErrorListener.h
 CMakeFiles/thdb_shared.dir/src/backend/backend.cc.o: ../third_party/antlr4-cpp-runtime-4.7/src/ANTLRErrorStrategy.h
@@ -364,6 +367,36 @@ CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/table/schema.h
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/table/table.h
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/utils/bitmap.h
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/manager/table_manager.cc
+
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/condition/condition.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/defines.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/field/compare.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/field/field.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/field/fields.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/field/float_field.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/field/int_field.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/field/none_field.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/field/string_field.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/index/index.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/macros.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/manager/index_manager.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/manager/table_manager.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/manager/transaction_manager.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/page/page.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/page/table_page.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/record/record.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/record/transform.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/result/disk_result.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/result/mem_result.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/result/result.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/result/results.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/system/instance.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/table/column.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/table/schema.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/table/table.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/transaction/transaction.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/transaction/writerecord.h
+CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/manager/transaction_manager.cc
 
 CMakeFiles/thdb_shared.dir/src/minios/os.cc.o: ../src/defines.h
 CMakeFiles/thdb_shared.dir/src/minios/os.cc.o: ../src/exception/exception.h
@@ -1318,6 +1351,7 @@ CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/index/index.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/macros.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/manager/index_manager.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/manager/table_manager.h
+CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/manager/transaction_manager.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/page/page.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/page/table_page.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/record/fixed_record.h
@@ -1331,6 +1365,8 @@ CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/system/instance
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/table/column.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/table/schema.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/table/table.h
+CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/transaction/transaction.h
+CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/transaction/writerecord.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../third_party/antlr4-cpp-runtime-4.7/src/ANTLRErrorListener.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../third_party/antlr4-cpp-runtime-4.7/src/ANTLRErrorStrategy.h
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../third_party/antlr4-cpp-runtime-4.7/src/ANTLRFileStream.h
@@ -1604,6 +1640,7 @@ CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/index/index.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/macros.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/manager/index_manager.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/manager/table_manager.h
+CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/manager/transaction_manager.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/page/page.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/page/table_page.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/record/fixed_record.h
@@ -1617,6 +1654,8 @@ CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/system/instance.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/table/column.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/table/schema.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/table/table.h
+CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/transaction/transaction.h
+CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/transaction/writerecord.h
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/system/instance.cc
 
 CMakeFiles/thdb_shared.dir/src/table/column.cc.o: ../src/defines.h
@@ -1661,6 +1700,26 @@ CMakeFiles/thdb_shared.dir/src/table/table.cc.o: ../src/table/schema.h
 CMakeFiles/thdb_shared.dir/src/table/table.cc.o: ../src/table/table.h
 CMakeFiles/thdb_shared.dir/src/table/table.cc.o: ../src/utils/bitmap.h
 CMakeFiles/thdb_shared.dir/src/table/table.cc.o: ../src/table/table.cc
+
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/condition/condition.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/defines.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/field/compare.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/field/field.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/field/fields.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/field/float_field.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/field/int_field.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/field/none_field.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/field/string_field.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/page/page.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/page/table_page.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/record/record.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/record/transform.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/table/column.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/table/schema.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/table/table.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/transaction/transaction.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/transaction/writerecord.h
+CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/transaction/transaction.cc
 
 CMakeFiles/thdb_shared.dir/src/utils/bitmap.cc.o: ../src/defines.h
 CMakeFiles/thdb_shared.dir/src/utils/bitmap.cc.o: ../src/utils/bitmap.h

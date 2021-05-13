@@ -30,7 +30,7 @@ class TablePage : public Page {
   FieldID GetPos(const String &sCol);
   FieldType GetType(const String &sCol);
   Size GetSize(const String &sCol);
-
+  
  private:
   void Store();
   void Load();

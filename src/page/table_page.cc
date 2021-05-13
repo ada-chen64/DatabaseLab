@@ -156,4 +156,5 @@ FieldType TablePage::GetType(const String &sCol) {
 
 Size TablePage::GetSize(const String &sCol) { return _iSizeVec[GetPos(sCol)]; }
 
+
 }  // namespace thdb

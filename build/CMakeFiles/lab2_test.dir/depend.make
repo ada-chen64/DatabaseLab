@@ -47,6 +47,7 @@ CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: ../src/macros.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: ../src/manager/index_manager.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: ../src/manager/table_manager.h
+CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: ../src/manager/transaction_manager.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: ../src/page/page.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: ../src/page/table_page.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: ../src/record/record.h
@@ -59,6 +60,8 @@ CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: ../src/table/column.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: ../src/table/schema.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: ../src/table/table.h
+CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: ../src/transaction/transaction.h
+CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: ../src/transaction/writerecord.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: googletest-src/googletest/include/gtest/gtest-death-test.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/main.cc.o: googletest-src/googletest/include/gtest/gtest-matchers.h
@@ -95,6 +98,7 @@ CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: ../src/macros.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: ../src/manager/index_manager.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: ../src/manager/table_manager.h
+CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: ../src/manager/transaction_manager.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: ../src/page/page.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: ../src/page/table_page.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: ../src/record/record.h
@@ -107,6 +111,8 @@ CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: ../src/table/column.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: ../src/table/schema.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: ../src/table/table.h
+CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: ../src/transaction/transaction.h
+CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: ../src/transaction/writerecord.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: ../src/utils/display.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/random_sql_test.cc.o: /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_generator.h
@@ -145,6 +151,7 @@ CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: ../src/macros.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: ../src/manager/index_manager.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: ../src/manager/table_manager.h
+CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: ../src/manager/transaction_manager.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: ../src/page/page.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: ../src/page/table_page.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: ../src/record/record.h
@@ -157,6 +164,8 @@ CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: ../src/table/column.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: ../src/table/schema.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: ../src/table/table.h
+CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: ../src/transaction/transaction.h
+CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: ../src/transaction/writerecord.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: ../src/utils/display.h
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc
 CMakeFiles/lab2_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab2/sql_test.cc.o: googletest-src/googletest/include/gtest/gtest-death-test.h

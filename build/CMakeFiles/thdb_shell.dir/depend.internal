@@ -16,6 +16,7 @@ CMakeFiles/thdb_shell.dir/executable/shell.cc.o
  ../src/macros.h
  ../src/manager/index_manager.h
  ../src/manager/table_manager.h
+ ../src/manager/transaction_manager.h
  ../src/page/page.h
  ../src/page/table_page.h
  ../src/record/record.h
@@ -28,5 +29,7 @@ CMakeFiles/thdb_shell.dir/executable/shell.cc.o
  ../src/table/column.h
  ../src/table/schema.h
  ../src/table/table.h
+ ../src/transaction/transaction.h
+ ../src/transaction/writerecord.h
  ../src/utils/display.h
  /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/executable/shell.cc

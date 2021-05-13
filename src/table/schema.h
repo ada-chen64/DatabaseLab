@@ -13,7 +13,7 @@ class Schema {
 
   Size GetSize() const;
   Column GetColumn(Size nPos) const;
-
+  void AddCol(Column iCol);
  private:
   std::vector<Column> _iColVec;
 };
