@@ -55,6 +55,10 @@ TEST_F(RecoveryTests, RedoTest) {
   delete db;
 
   db = new Instance();
+
+  db->Redo();
+  db->Undo();
+
   txn = db->GetTransactionManager()->Begin();
   CheckExist(txn, record_init);
 }
@@ -67,6 +71,10 @@ TEST_F(RecoveryTests, UndoTest) {
   delete db;
 
   db = new Instance();
+
+  db->Redo();
+  db->Undo();
+
   txn = db->GetTransactionManager()->Begin();
   CheckNotExist(txn);
 }
