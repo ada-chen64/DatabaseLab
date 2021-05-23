@@ -17,6 +17,7 @@ class RecoveryTests : public ::testing::Test {
   void TearDown() override {
     db->DropTable(table_name);
     delete db;
+    Clear();
   }
 
   void CheckExist(Transaction *txn, String record_string) {
@@ -56,11 +57,13 @@ TEST_F(RecoveryTests, RedoTest) {
 
   db = new Instance();
 
-  db->Redo();
-  db->Undo();
+  db->GetRecoveryManager()->Redo();
+  db->GetRecoveryManager()->Undo();
 
   txn = db->GetTransactionManager()->Begin();
   CheckExist(txn, record_init);
+  db->GetTransactionManager()->Commit(txn);
+  delete txn;
 }
 
 TEST_F(RecoveryTests, UndoTest) {
@@ -72,11 +75,13 @@ TEST_F(RecoveryTests, UndoTest) {
 
   db = new Instance();
 
-  db->Redo();
-  db->Undo();
+  db->GetRecoveryManager()->Redo();
+  db->GetRecoveryManager()->Undo();
 
   txn = db->GetTransactionManager()->Begin();
   CheckNotExist(txn);
+  db->GetTransactionManager()->Commit(txn);
+  delete txn;
 }
 
 }  // namespace thdb
