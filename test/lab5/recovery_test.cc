@@ -7,6 +7,7 @@ class RecoveryTests : public ::testing::Test {
  public:
   // This function is called before every test.
   void SetUp() override {
+    Init();
     db = new Instance();
     std::vector<Column> columns({Column(column_name, FieldType::INT_TYPE)});
     Schema schema(columns);
