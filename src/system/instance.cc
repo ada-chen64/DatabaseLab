@@ -20,12 +20,14 @@ Instance::Instance() {
   _pTableManager = new TableManager();
   _pIndexManager = new IndexManager();
   _pTransactionManager = new TransactionManager();
+  _pRecoveryManager = new RecoveryManager();
 }
 
 Instance::~Instance() {
   delete _pTableManager;
   delete _pIndexManager;
   delete _pTransactionManager;
+  delete _pRecoveryManager;
 }
 
 Table *Instance::GetTable(const String &sTableName) const {
@@ -91,7 +93,8 @@ std::vector<PageSlotID> Intersection(std::vector<PageSlotID> iA,
 
 std::vector<PageSlotID> Instance::Search(
     const String &sTableName, Condition *pCond,
-    const std::vector<Condition *> &iIndexCond, const Transaction *txn) {
+    const std::vector<Condition *> &iIndexCond, 
+    const Transaction *txn) {
   Table *pTable = GetTable(sTableName);
   if (pTable == nullptr) throw TableException();
   std::vector<PageSlotID> iRes;
@@ -222,6 +225,7 @@ uint32_t Instance::Delete(const String &sTableName, Condition *pCond,
                           const std::vector<Condition *> &iIndexCond,
                           const Transaction *txn) {
   auto iResVec = Search(sTableName, pCond, iIndexCond, txn);
+
   Table *pTable = GetTable(sTableName);
   bool bHasIndex = _pIndexManager->HasIndex(sTableName);
   for (const auto &iPair : iResVec) {
@@ -247,6 +251,7 @@ uint32_t Instance::Update(const String &sTableName, Condition *pCond,
                           const std::vector<Transform> &iTrans,
                           const Transaction *txn) {
   auto iResVec = Search(sTableName, pCond, iIndexCond, txn);
+
   Table *pTable = GetTable(sTableName);
   bool bHasIndex = _pIndexManager->HasIndex(sTableName);
   for (const auto &iPair : iResVec) {
@@ -290,7 +295,7 @@ uint32_t Instance::Update(const String &sTableName, Condition *pCond,
 }
 
 Record *Instance::GetRecord(const String &sTableName, const PageSlotID &iPair,
-                            const Transaction *txn) const {
+                            Transaction *txn) const {
   Table *pTable = GetTable(sTableName);
   Record *pRecord = pTable->GetRecord(iPair.first, iPair.second);
   
