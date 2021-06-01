@@ -94,7 +94,9 @@ class Instance {
  private:
   TableManager *_pTableManager;
   IndexManager *_pIndexManager;
+  WALManager *_pWALManager;
   TransactionManager *_pTransactionManager;
+  RecoveryManager *_pRecoveryManager;
   String affairsCol = "affairsID";
 
 };

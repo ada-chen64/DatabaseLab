@@ -88,6 +88,14 @@ defines.h
 index/index.h
 ../src/manager/index/index.h
 
+../src/manager/recovery_manager.h
+manager/table_manager.h
+../src/manager/manager/table_manager.h
+manager/transaction_manager.h
+../src/manager/manager/transaction_manager.h
+manager/wal_manager.h
+../src/manager/manager/wal_manager.h
+
 ../src/manager/table_manager.h
 defines.h
 ../src/manager/defines.h
@@ -105,6 +113,16 @@ defines.h
 ../src/manager/defines.h
 transaction/transaction.h
 ../src/manager/transaction/transaction.h
+manager/wal_manager.h
+../src/manager/manager/wal_manager.h
+
+../src/manager/wal_manager.h
+stdio.h
+-
+stdlib.h
+-
+transaction/writerecord.h
+../src/manager/transaction/writerecord.h
 
 ../src/page/page.h
 defines.h
@@ -163,6 +181,8 @@ index/index.h
 ../src/system/index/index.h
 manager/index_manager.h
 ../src/system/manager/index_manager.h
+manager/recovery_manager.h
+../src/system/manager/recovery_manager.h
 manager/table_manager.h
 ../src/system/manager/table_manager.h
 manager/transaction_manager.h

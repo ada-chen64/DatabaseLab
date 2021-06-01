@@ -14,8 +14,10 @@ CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.o: ../src/index/index.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.o: ../src/macros.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.o: ../src/manager/index_manager.h
+CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.o: ../src/manager/recovery_manager.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.o: ../src/manager/table_manager.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.o: ../src/manager/transaction_manager.h
+CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.o: ../src/manager/wal_manager.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.o: ../src/page/page.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.o: ../src/page/table_page.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/main.cc.o: ../src/record/record.h
@@ -65,8 +67,10 @@ CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o: ../src/index/index.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o: ../src/macros.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o: ../src/manager/index_manager.h
+CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o: ../src/manager/recovery_manager.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o: ../src/manager/table_manager.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o: ../src/manager/transaction_manager.h
+CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o: ../src/manager/wal_manager.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o: ../src/page/page.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o: ../src/page/table_page.h
 CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.o: ../src/record/fixed_record.h

@@ -441,9 +441,33 @@ CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o.provides: CMakeFiles/t
 CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o.provides.build: CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o
 
 
+CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o: CMakeFiles/thdb_shared.dir/flags.make
+CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o: ../src/manager/recovery_manager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/recovery_manager.cc
+
+CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/recovery_manager.cc > CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.i
+
+CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/recovery_manager.cc -o CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.s
+
+CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o.requires:
+
+.PHONY : CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o.requires
+
+CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o.provides: CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o.requires
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o.provides.build
+.PHONY : CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o.provides
+
+CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o.provides.build: CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o
+
+
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o: ../src/manager/table_manager.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/table_manager.cc
 
 CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.i: cmake_force
@@ -467,7 +491,7 @@ CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o.provides.build: CMakeF
 
 CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o: ../src/manager/transaction_manager.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/transaction_manager.cc
 
 CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.i: cmake_force
@@ -489,9 +513,33 @@ CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o.provides: CMakeF
 CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o.provides.build: CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o
 
 
+CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o: CMakeFiles/thdb_shared.dir/flags.make
+CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o: ../src/manager/wal_manager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/wal_manager.cc
+
+CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/wal_manager.cc > CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.i
+
+CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/wal_manager.cc -o CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.s
+
+CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o.requires:
+
+.PHONY : CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o.requires
+
+CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o.provides: CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o.requires
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o.provides.build
+.PHONY : CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o.provides
+
+CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o.provides.build: CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o
+
+
 CMakeFiles/thdb_shared.dir/src/minios/os.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/minios/os.cc.o: ../src/minios/os.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/thdb_shared.dir/src/minios/os.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/thdb_shared.dir/src/minios/os.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/minios/os.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/minios/os.cc
 
 CMakeFiles/thdb_shared.dir/src/minios/os.cc.i: cmake_force
@@ -515,7 +563,7 @@ CMakeFiles/thdb_shared.dir/src/minios/os.cc.o.provides.build: CMakeFiles/thdb_sh
 
 CMakeFiles/thdb_shared.dir/src/minios/raw_page.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/minios/raw_page.cc.o: ../src/minios/raw_page.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/thdb_shared.dir/src/minios/raw_page.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/thdb_shared.dir/src/minios/raw_page.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/minios/raw_page.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/minios/raw_page.cc
 
 CMakeFiles/thdb_shared.dir/src/minios/raw_page.cc.i: cmake_force
@@ -539,7 +587,7 @@ CMakeFiles/thdb_shared.dir/src/minios/raw_page.cc.o.provides.build: CMakeFiles/t
 
 CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o: ../src/page/linked_page.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/page/linked_page.cc
 
 CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.i: cmake_force
@@ -563,7 +611,7 @@ CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o.provides.build: CMakeFiles/
 
 CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o: ../src/page/node_page.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/page/node_page.cc
 
 CMakeFiles/thdb_shared.dir/src/page/node_page.cc.i: cmake_force
@@ -587,7 +635,7 @@ CMakeFiles/thdb_shared.dir/src/page/node_page.cc.o.provides.build: CMakeFiles/th
 
 CMakeFiles/thdb_shared.dir/src/page/page.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/page/page.cc.o: ../src/page/page.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/thdb_shared.dir/src/page/page.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/thdb_shared.dir/src/page/page.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/page/page.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/page/page.cc
 
 CMakeFiles/thdb_shared.dir/src/page/page.cc.i: cmake_force
@@ -611,7 +659,7 @@ CMakeFiles/thdb_shared.dir/src/page/page.cc.o.provides.build: CMakeFiles/thdb_sh
 
 CMakeFiles/thdb_shared.dir/src/page/record_page.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/page/record_page.cc.o: ../src/page/record_page.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/thdb_shared.dir/src/page/record_page.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/thdb_shared.dir/src/page/record_page.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/page/record_page.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/page/record_page.cc
 
 CMakeFiles/thdb_shared.dir/src/page/record_page.cc.i: cmake_force
@@ -635,7 +683,7 @@ CMakeFiles/thdb_shared.dir/src/page/record_page.cc.o.provides.build: CMakeFiles/
 
 CMakeFiles/thdb_shared.dir/src/page/table_page.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/page/table_page.cc.o: ../src/page/table_page.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/thdb_shared.dir/src/page/table_page.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/thdb_shared.dir/src/page/table_page.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/page/table_page.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/page/table_page.cc
 
 CMakeFiles/thdb_shared.dir/src/page/table_page.cc.i: cmake_force
@@ -659,7 +707,7 @@ CMakeFiles/thdb_shared.dir/src/page/table_page.cc.o.provides.build: CMakeFiles/t
 
 CMakeFiles/thdb_shared.dir/src/page/toast_page.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/page/toast_page.cc.o: ../src/page/toast_page.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/thdb_shared.dir/src/page/toast_page.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/thdb_shared.dir/src/page/toast_page.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/page/toast_page.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/page/toast_page.cc
 
 CMakeFiles/thdb_shared.dir/src/page/toast_page.cc.i: cmake_force
@@ -683,7 +731,7 @@ CMakeFiles/thdb_shared.dir/src/page/toast_page.cc.o.provides.build: CMakeFiles/t
 
 CMakeFiles/thdb_shared.dir/src/parser/ErrorListener.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/parser/ErrorListener.cc.o: ../src/parser/ErrorListener.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/thdb_shared.dir/src/parser/ErrorListener.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/thdb_shared.dir/src/parser/ErrorListener.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/parser/ErrorListener.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/parser/ErrorListener.cc
 
 CMakeFiles/thdb_shared.dir/src/parser/ErrorListener.cc.i: cmake_force
@@ -707,7 +755,7 @@ CMakeFiles/thdb_shared.dir/src/parser/ErrorListener.cc.o.provides.build: CMakeFi
 
 CMakeFiles/thdb_shared.dir/src/parser/SQLBaseVisitor.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/parser/SQLBaseVisitor.cc.o: ../src/parser/SQLBaseVisitor.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/thdb_shared.dir/src/parser/SQLBaseVisitor.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/thdb_shared.dir/src/parser/SQLBaseVisitor.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/parser/SQLBaseVisitor.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/parser/SQLBaseVisitor.cc
 
 CMakeFiles/thdb_shared.dir/src/parser/SQLBaseVisitor.cc.i: cmake_force
@@ -731,7 +779,7 @@ CMakeFiles/thdb_shared.dir/src/parser/SQLBaseVisitor.cc.o.provides.build: CMakeF
 
 CMakeFiles/thdb_shared.dir/src/parser/SQLLexer.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/parser/SQLLexer.cc.o: ../src/parser/SQLLexer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/thdb_shared.dir/src/parser/SQLLexer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/thdb_shared.dir/src/parser/SQLLexer.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/parser/SQLLexer.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/parser/SQLLexer.cc
 
 CMakeFiles/thdb_shared.dir/src/parser/SQLLexer.cc.i: cmake_force
@@ -755,7 +803,7 @@ CMakeFiles/thdb_shared.dir/src/parser/SQLLexer.cc.o.provides.build: CMakeFiles/t
 
 CMakeFiles/thdb_shared.dir/src/parser/SQLParser.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/parser/SQLParser.cc.o: ../src/parser/SQLParser.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/thdb_shared.dir/src/parser/SQLParser.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/thdb_shared.dir/src/parser/SQLParser.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/parser/SQLParser.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/parser/SQLParser.cc
 
 CMakeFiles/thdb_shared.dir/src/parser/SQLParser.cc.i: cmake_force
@@ -779,7 +827,7 @@ CMakeFiles/thdb_shared.dir/src/parser/SQLParser.cc.o.provides.build: CMakeFiles/
 
 CMakeFiles/thdb_shared.dir/src/parser/SQLVisitor.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/parser/SQLVisitor.cc.o: ../src/parser/SQLVisitor.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/thdb_shared.dir/src/parser/SQLVisitor.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/thdb_shared.dir/src/parser/SQLVisitor.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/parser/SQLVisitor.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/parser/SQLVisitor.cc
 
 CMakeFiles/thdb_shared.dir/src/parser/SQLVisitor.cc.i: cmake_force
@@ -803,7 +851,7 @@ CMakeFiles/thdb_shared.dir/src/parser/SQLVisitor.cc.o.provides.build: CMakeFiles
 
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o: ../src/parser/SystemVisitor.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/parser/SystemVisitor.cc
 
 CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.i: cmake_force
@@ -827,7 +875,7 @@ CMakeFiles/thdb_shared.dir/src/parser/SystemVisitor.cc.o.provides.build: CMakeFi
 
 CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o: ../src/record/fixed_record.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/record/fixed_record.cc
 
 CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.i: cmake_force
@@ -851,7 +899,7 @@ CMakeFiles/thdb_shared.dir/src/record/fixed_record.cc.o.provides.build: CMakeFil
 
 CMakeFiles/thdb_shared.dir/src/record/record.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/record/record.cc.o: ../src/record/record.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/thdb_shared.dir/src/record/record.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/thdb_shared.dir/src/record/record.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/record/record.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/record/record.cc
 
 CMakeFiles/thdb_shared.dir/src/record/record.cc.i: cmake_force
@@ -875,7 +923,7 @@ CMakeFiles/thdb_shared.dir/src/record/record.cc.o.provides.build: CMakeFiles/thd
 
 CMakeFiles/thdb_shared.dir/src/record/transform.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/record/transform.cc.o: ../src/record/transform.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/thdb_shared.dir/src/record/transform.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/thdb_shared.dir/src/record/transform.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/record/transform.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/record/transform.cc
 
 CMakeFiles/thdb_shared.dir/src/record/transform.cc.i: cmake_force
@@ -899,7 +947,7 @@ CMakeFiles/thdb_shared.dir/src/record/transform.cc.o.provides.build: CMakeFiles/
 
 CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o: ../src/record/variable_record.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/record/variable_record.cc
 
 CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.i: cmake_force
@@ -923,7 +971,7 @@ CMakeFiles/thdb_shared.dir/src/record/variable_record.cc.o.provides.build: CMake
 
 CMakeFiles/thdb_shared.dir/src/result/mem_result.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/result/mem_result.cc.o: ../src/result/mem_result.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/thdb_shared.dir/src/result/mem_result.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/thdb_shared.dir/src/result/mem_result.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/result/mem_result.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/result/mem_result.cc
 
 CMakeFiles/thdb_shared.dir/src/result/mem_result.cc.i: cmake_force
@@ -947,7 +995,7 @@ CMakeFiles/thdb_shared.dir/src/result/mem_result.cc.o.provides.build: CMakeFiles
 
 CMakeFiles/thdb_shared.dir/src/result/result.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/result/result.cc.o: ../src/result/result.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/thdb_shared.dir/src/result/result.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/thdb_shared.dir/src/result/result.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/result/result.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/result/result.cc
 
 CMakeFiles/thdb_shared.dir/src/result/result.cc.i: cmake_force
@@ -971,7 +1019,7 @@ CMakeFiles/thdb_shared.dir/src/result/result.cc.o.provides.build: CMakeFiles/thd
 
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.o: ../src/system/instance.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/thdb_shared.dir/src/system/instance.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/thdb_shared.dir/src/system/instance.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/system/instance.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/system/instance.cc
 
 CMakeFiles/thdb_shared.dir/src/system/instance.cc.i: cmake_force
@@ -995,7 +1043,7 @@ CMakeFiles/thdb_shared.dir/src/system/instance.cc.o.provides.build: CMakeFiles/t
 
 CMakeFiles/thdb_shared.dir/src/table/column.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/table/column.cc.o: ../src/table/column.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/thdb_shared.dir/src/table/column.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/thdb_shared.dir/src/table/column.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/table/column.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/table/column.cc
 
 CMakeFiles/thdb_shared.dir/src/table/column.cc.i: cmake_force
@@ -1019,7 +1067,7 @@ CMakeFiles/thdb_shared.dir/src/table/column.cc.o.provides.build: CMakeFiles/thdb
 
 CMakeFiles/thdb_shared.dir/src/table/schema.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/table/schema.cc.o: ../src/table/schema.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/thdb_shared.dir/src/table/schema.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/thdb_shared.dir/src/table/schema.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/table/schema.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/table/schema.cc
 
 CMakeFiles/thdb_shared.dir/src/table/schema.cc.i: cmake_force
@@ -1043,7 +1091,7 @@ CMakeFiles/thdb_shared.dir/src/table/schema.cc.o.provides.build: CMakeFiles/thdb
 
 CMakeFiles/thdb_shared.dir/src/table/table.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/table/table.cc.o: ../src/table/table.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/thdb_shared.dir/src/table/table.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/thdb_shared.dir/src/table/table.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/table/table.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/table/table.cc
 
 CMakeFiles/thdb_shared.dir/src/table/table.cc.i: cmake_force
@@ -1067,7 +1115,7 @@ CMakeFiles/thdb_shared.dir/src/table/table.cc.o.provides.build: CMakeFiles/thdb_
 
 CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o: ../src/transaction/transaction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/transaction/transaction.cc
 
 CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.i: cmake_force
@@ -1091,7 +1139,7 @@ CMakeFiles/thdb_shared.dir/src/transaction/transaction.cc.o.provides.build: CMak
 
 CMakeFiles/thdb_shared.dir/src/utils/bitmap.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/utils/bitmap.cc.o: ../src/utils/bitmap.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/thdb_shared.dir/src/utils/bitmap.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/thdb_shared.dir/src/utils/bitmap.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/utils/bitmap.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/utils/bitmap.cc
 
 CMakeFiles/thdb_shared.dir/src/utils/bitmap.cc.i: cmake_force
@@ -1115,7 +1163,7 @@ CMakeFiles/thdb_shared.dir/src/utils/bitmap.cc.o.provides.build: CMakeFiles/thdb
 
 CMakeFiles/thdb_shared.dir/src/utils/display.cc.o: CMakeFiles/thdb_shared.dir/flags.make
 CMakeFiles/thdb_shared.dir/src/utils/display.cc.o: ../src/utils/display.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/thdb_shared.dir/src/utils/display.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/thdb_shared.dir/src/utils/display.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/thdb_shared.dir/src/utils/display.cc.o -c /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/utils/display.cc
 
 CMakeFiles/thdb_shared.dir/src/utils/display.cc.i: cmake_force
@@ -1155,8 +1203,10 @@ thdb_shared_OBJECTS = \
 "CMakeFiles/thdb_shared.dir/src/field/string_field.cc.o" \
 "CMakeFiles/thdb_shared.dir/src/index/index.cc.o" \
 "CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o" \
+"CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o" \
 "CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o" \
 "CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o" \
+"CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o" \
 "CMakeFiles/thdb_shared.dir/src/minios/os.cc.o" \
 "CMakeFiles/thdb_shared.dir/src/minios/raw_page.cc.o" \
 "CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o" \
@@ -1204,8 +1254,10 @@ lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/src/field/none_field.cc.o
 lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/src/field/string_field.cc.o
 lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/src/index/index.cc.o
 lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o
+lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o
 lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o
 lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o
+lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o
 lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/src/minios/os.cc.o
 lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/src/minios/raw_page.cc.o
 lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o
@@ -1236,7 +1288,7 @@ lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/src/utils/display.cc.o
 lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/build.make
 lib/libthdb_shared.so: lib/libantlr4-runtime.so
 lib/libthdb_shared.so: CMakeFiles/thdb_shared.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Linking CXX shared library lib/libthdb_shared.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Linking CXX shared library lib/libthdb_shared.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/thdb_shared.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -1260,8 +1312,10 @@ CMakeFiles/thdb_shared.dir/requires: CMakeFiles/thdb_shared.dir/src/field/none_f
 CMakeFiles/thdb_shared.dir/requires: CMakeFiles/thdb_shared.dir/src/field/string_field.cc.o.requires
 CMakeFiles/thdb_shared.dir/requires: CMakeFiles/thdb_shared.dir/src/index/index.cc.o.requires
 CMakeFiles/thdb_shared.dir/requires: CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.o.requires
+CMakeFiles/thdb_shared.dir/requires: CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o.requires
 CMakeFiles/thdb_shared.dir/requires: CMakeFiles/thdb_shared.dir/src/manager/table_manager.cc.o.requires
 CMakeFiles/thdb_shared.dir/requires: CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.o.requires
+CMakeFiles/thdb_shared.dir/requires: CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o.requires
 CMakeFiles/thdb_shared.dir/requires: CMakeFiles/thdb_shared.dir/src/minios/os.cc.o.requires
 CMakeFiles/thdb_shared.dir/requires: CMakeFiles/thdb_shared.dir/src/minios/raw_page.cc.o.requires
 CMakeFiles/thdb_shared.dir/requires: CMakeFiles/thdb_shared.dir/src/page/linked_page.cc.o.requires

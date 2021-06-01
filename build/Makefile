@@ -209,6 +209,19 @@ antlr4-runtime/fast:
 .PHONY : antlr4-runtime/fast
 
 #=============================================================================
+# Target rules for targets named lab5_test
+
+# Build rule for target.
+lab5_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lab5_test
+.PHONY : lab5_test
+
+# fast build rule for target.
+lab5_test/fast:
+	$(MAKE) -f CMakeFiles/lab5_test.dir/build.make CMakeFiles/lab5_test.dir/build
+.PHONY : lab5_test/fast
+
+#=============================================================================
 # Target rules for targets named thdb_clear
 
 # Build rule for target.
@@ -811,6 +824,60 @@ home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.
 	$(MAKE) -f CMakeFiles/lab4_test.dir/build.make CMakeFiles/lab4_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.s
 .PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.cc.s
 
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.o: home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.cc.o
+
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.o
+
+# target to build an object file
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.cc.o:
+	$(MAKE) -f CMakeFiles/lab5_test.dir/build.make CMakeFiles/lab5_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.cc.o
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.cc.o
+
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.i: home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.cc.i
+
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.i
+
+# target to preprocess a source file
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.cc.i:
+	$(MAKE) -f CMakeFiles/lab5_test.dir/build.make CMakeFiles/lab5_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.cc.i
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.cc.i
+
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.s: home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.cc.s
+
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.s
+
+# target to generate assembly for a file
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.cc.s:
+	$(MAKE) -f CMakeFiles/lab5_test.dir/build.make CMakeFiles/lab5_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.cc.s
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.cc.s
+
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.o: home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.cc.o
+
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.o
+
+# target to build an object file
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.cc.o:
+	$(MAKE) -f CMakeFiles/lab5_test.dir/build.make CMakeFiles/lab5_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.cc.o
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.cc.o
+
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.i: home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.cc.i
+
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.i
+
+# target to preprocess a source file
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.cc.i:
+	$(MAKE) -f CMakeFiles/lab5_test.dir/build.make CMakeFiles/lab5_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.cc.i
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.cc.i
+
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.s: home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.cc.s
+
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.s
+
+# target to generate assembly for a file
+home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.cc.s:
+	$(MAKE) -f CMakeFiles/lab5_test.dir/build.make CMakeFiles/lab5_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.cc.s
+.PHONY : home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.cc.s
+
 src/backend/backend.o: src/backend/backend.cc.o
 
 .PHONY : src/backend/backend.o
@@ -1243,6 +1310,33 @@ src/manager/index_manager.cc.s:
 	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/index_manager.cc.s
 .PHONY : src/manager/index_manager.cc.s
 
+src/manager/recovery_manager.o: src/manager/recovery_manager.cc.o
+
+.PHONY : src/manager/recovery_manager.o
+
+# target to build an object file
+src/manager/recovery_manager.cc.o:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.o
+.PHONY : src/manager/recovery_manager.cc.o
+
+src/manager/recovery_manager.i: src/manager/recovery_manager.cc.i
+
+.PHONY : src/manager/recovery_manager.i
+
+# target to preprocess a source file
+src/manager/recovery_manager.cc.i:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.i
+.PHONY : src/manager/recovery_manager.cc.i
+
+src/manager/recovery_manager.s: src/manager/recovery_manager.cc.s
+
+.PHONY : src/manager/recovery_manager.s
+
+# target to generate assembly for a file
+src/manager/recovery_manager.cc.s:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/recovery_manager.cc.s
+.PHONY : src/manager/recovery_manager.cc.s
+
 src/manager/table_manager.o: src/manager/table_manager.cc.o
 
 .PHONY : src/manager/table_manager.o
@@ -1296,6 +1390,33 @@ src/manager/transaction_manager.s: src/manager/transaction_manager.cc.s
 src/manager/transaction_manager.cc.s:
 	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/transaction_manager.cc.s
 .PHONY : src/manager/transaction_manager.cc.s
+
+src/manager/wal_manager.o: src/manager/wal_manager.cc.o
+
+.PHONY : src/manager/wal_manager.o
+
+# target to build an object file
+src/manager/wal_manager.cc.o:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.o
+.PHONY : src/manager/wal_manager.cc.o
+
+src/manager/wal_manager.i: src/manager/wal_manager.cc.i
+
+.PHONY : src/manager/wal_manager.i
+
+# target to preprocess a source file
+src/manager/wal_manager.cc.i:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.i
+.PHONY : src/manager/wal_manager.cc.i
+
+src/manager/wal_manager.s: src/manager/wal_manager.cc.s
+
+.PHONY : src/manager/wal_manager.s
+
+# target to generate assembly for a file
+src/manager/wal_manager.cc.s:
+	$(MAKE) -f CMakeFiles/thdb_shared.dir/build.make CMakeFiles/thdb_shared.dir/src/manager/wal_manager.cc.s
+.PHONY : src/manager/wal_manager.cc.s
 
 src/minios/os.o: src/minios/os.cc.o
 
@@ -5633,6 +5754,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... lab2_test"
 	@echo "... antlr4-runtime"
+	@echo "... lab5_test"
 	@echo "... thdb_clear"
 	@echo "... thdb_shared"
 	@echo "... thdb_init"
@@ -5696,6 +5818,12 @@ help:
 	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.o"
 	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.i"
 	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab4/mvcc_test.s"
+	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.o"
+	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.i"
+	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/main.s"
+	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.o"
+	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.i"
+	@echo "... home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab5/recovery_test.s"
 	@echo "... src/backend/backend.o"
 	@echo "... src/backend/backend.i"
 	@echo "... src/backend/backend.s"
@@ -5744,12 +5872,18 @@ help:
 	@echo "... src/manager/index_manager.o"
 	@echo "... src/manager/index_manager.i"
 	@echo "... src/manager/index_manager.s"
+	@echo "... src/manager/recovery_manager.o"
+	@echo "... src/manager/recovery_manager.i"
+	@echo "... src/manager/recovery_manager.s"
 	@echo "... src/manager/table_manager.o"
 	@echo "... src/manager/table_manager.i"
 	@echo "... src/manager/table_manager.s"
 	@echo "... src/manager/transaction_manager.o"
 	@echo "... src/manager/transaction_manager.i"
 	@echo "... src/manager/transaction_manager.s"
+	@echo "... src/manager/wal_manager.o"
+	@echo "... src/manager/wal_manager.i"
+	@echo "... src/manager/wal_manager.s"
 	@echo "... src/minios/os.o"
 	@echo "... src/minios/os.i"
 	@echo "... src/minios/os.s"

@@ -40,8 +40,10 @@ CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/main.cc.o: ../src/index/index.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/main.cc.o: ../src/macros.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/main.cc.o: ../src/manager/index_manager.h
+CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/main.cc.o: ../src/manager/recovery_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/main.cc.o: ../src/manager/table_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/main.cc.o: ../src/manager/transaction_manager.h
+CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/main.cc.o: ../src/manager/wal_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/main.cc.o: ../src/page/page.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/main.cc.o: ../src/page/table_page.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/main.cc.o: ../src/record/record.h
@@ -91,8 +93,10 @@ CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/random_sql_test.cc.o: ../src/index/index.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/random_sql_test.cc.o: ../src/macros.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/random_sql_test.cc.o: ../src/manager/index_manager.h
+CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/random_sql_test.cc.o: ../src/manager/recovery_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/random_sql_test.cc.o: ../src/manager/table_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/random_sql_test.cc.o: ../src/manager/transaction_manager.h
+CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/random_sql_test.cc.o: ../src/manager/wal_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/random_sql_test.cc.o: ../src/page/page.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/random_sql_test.cc.o: ../src/page/table_page.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/random_sql_test.cc.o: ../src/record/record.h
@@ -144,8 +148,10 @@ CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/record_page_test.cc.o: ../src/index/index.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/record_page_test.cc.o: ../src/macros.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/record_page_test.cc.o: ../src/manager/index_manager.h
+CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/record_page_test.cc.o: ../src/manager/recovery_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/record_page_test.cc.o: ../src/manager/table_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/record_page_test.cc.o: ../src/manager/transaction_manager.h
+CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/record_page_test.cc.o: ../src/manager/wal_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/record_page_test.cc.o: ../src/page/linked_page.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/record_page_test.cc.o: ../src/page/page.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/record_page_test.cc.o: ../src/page/record_page.h
@@ -198,8 +204,10 @@ CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/sql_test.cc.o: ../src/index/index.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/sql_test.cc.o: ../src/macros.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/sql_test.cc.o: ../src/manager/index_manager.h
+CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/sql_test.cc.o: ../src/manager/recovery_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/sql_test.cc.o: ../src/manager/table_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/sql_test.cc.o: ../src/manager/transaction_manager.h
+CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/sql_test.cc.o: ../src/manager/wal_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/sql_test.cc.o: ../src/page/page.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/sql_test.cc.o: ../src/page/table_page.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/sql_test.cc.o: ../src/record/record.h
@@ -272,8 +280,10 @@ CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/table_test.cc.o: ../src/index/index.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/table_test.cc.o: ../src/macros.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/table_test.cc.o: ../src/manager/index_manager.h
+CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/table_test.cc.o: ../src/manager/recovery_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/table_test.cc.o: ../src/manager/table_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/table_test.cc.o: ../src/manager/transaction_manager.h
+CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/table_test.cc.o: ../src/manager/wal_manager.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/table_test.cc.o: ../src/page/page.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/table_test.cc.o: ../src/page/table_page.h
 CMakeFiles/lab1_test.dir/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-test/test/lab1/table_test.cc.o: ../src/record/fixed_record.h

@@ -11,6 +11,7 @@ Transaction *TransactionManager::Begin() {
     newtransact->SetActive(active);
     newtransact->SetCommit(committed);
     num_transact++;
+    walManager->deleteLog();
     return newtransact; 
 }
 
@@ -24,7 +25,7 @@ void TransactionManager::Commit(Transaction *txn) {
             break;
         }
     } 
-
+    walManager->writeLog("", NULL, NULL, ActionType::COMMIT_TYPE, "", "");
     return; 
 }
 
@@ -68,6 +69,9 @@ std::vector<TxnID> TransactionManager::GetActive(){
     return active;
 }
 
+void TransactionManager::SetWALManager(WALManager* _walManager){
+    walManager = _walManager;
+}
 
 
 }  // namespace thdb

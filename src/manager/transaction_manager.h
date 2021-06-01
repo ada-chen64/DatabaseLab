@@ -5,7 +5,7 @@
 
 #include "defines.h"
 #include "transaction/transaction.h"
-
+#include "manager/wal_manager.h"
 namespace thdb {
 
 class TransactionManager {
@@ -17,10 +17,12 @@ class TransactionManager {
   void Commit(Transaction *txn);
   void Abort(Transaction *txn);
   std::vector<TxnID> GetActive();
+  void SetWALManager(WALManager* _walManager);
  private:
   TxnID num_transact;
   std::vector<TxnID> active;
   std::vector<TxnID> committed;
+  WALManager* walManager;
   
 };
 

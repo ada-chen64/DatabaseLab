@@ -15,8 +15,10 @@ CMakeFiles/thdb_shell.dir/executable/shell.cc.o
  ../src/index/index.h
  ../src/macros.h
  ../src/manager/index_manager.h
+ ../src/manager/recovery_manager.h
  ../src/manager/table_manager.h
  ../src/manager/transaction_manager.h
+ ../src/manager/wal_manager.h
  ../src/page/page.h
  ../src/page/table_page.h
  ../src/record/record.h

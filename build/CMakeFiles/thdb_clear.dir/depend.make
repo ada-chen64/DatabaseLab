@@ -14,8 +14,10 @@ CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/field/string_field.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/index/index.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/macros.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/manager/index_manager.h
+CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/manager/recovery_manager.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/manager/table_manager.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/manager/transaction_manager.h
+CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/manager/wal_manager.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/page/page.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/page/table_page.h
 CMakeFiles/thdb_clear.dir/executable/clear.cc.o: ../src/record/record.h

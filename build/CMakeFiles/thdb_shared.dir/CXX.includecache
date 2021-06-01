@@ -192,6 +192,14 @@ defines.h
 index/index.h
 ../src/manager/index/index.h
 
+../src/manager/recovery_manager.h
+manager/table_manager.h
+../src/manager/manager/table_manager.h
+manager/transaction_manager.h
+../src/manager/manager/transaction_manager.h
+manager/wal_manager.h
+../src/manager/manager/wal_manager.h
+
 ../src/manager/table_manager.h
 defines.h
 ../src/manager/defines.h
@@ -209,6 +217,16 @@ defines.h
 ../src/manager/defines.h
 transaction/transaction.h
 ../src/manager/transaction/transaction.h
+manager/wal_manager.h
+../src/manager/manager/wal_manager.h
+
+../src/manager/wal_manager.h
+stdio.h
+-
+stdlib.h
+-
+transaction/writerecord.h
+../src/manager/transaction/writerecord.h
 
 ../src/minios/os.h
 defines.h
@@ -353,6 +371,8 @@ index/index.h
 ../src/system/index/index.h
 manager/index_manager.h
 ../src/system/manager/index_manager.h
+manager/recovery_manager.h
+../src/system/manager/recovery_manager.h
 manager/table_manager.h
 ../src/system/manager/table_manager.h
 manager/transaction_manager.h
@@ -1676,6 +1696,14 @@ page/record_page.h
 record/fixed_record.h
 /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/record/fixed_record.h
 
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/recovery_manager.cc
+manager/recovery_manager.h
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/manager/recovery_manager.h
+fstream
+-
+sstream
+-
+
 /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/table_manager.cc
 manager/table_manager.h
 /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/manager/table_manager.h
@@ -1699,6 +1727,14 @@ manager/transaction_manager.h
 /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/manager/transaction_manager.h
 system/instance.h
 /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/system/instance.h
+
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/wal_manager.cc
+manager/wal_manager.h
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/manager/wal_manager.h
+defines.h
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/manager/defines.h
+fstream
+-
 
 /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/minios/os.cc
 minios/os.h
@@ -1957,6 +1993,8 @@ exception/exceptions.h
 /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/system/exception/exceptions.h
 manager/table_manager.h
 /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/system/manager/table_manager.h
+manager/wal_manager.h
+/home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/system/manager/wal_manager.h
 record/fixed_record.h
 /home/ada/Documents/Tsinghua_Year_4/shujuku/dbtrain-lab-2017080067/src/system/record/fixed_record.h
 record/record.h

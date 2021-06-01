@@ -10,6 +10,7 @@
 #include "condition/conditions.h"
 #include "exception/exceptions.h"
 #include "manager/table_manager.h"
+#include "manager/wal_manager.h"
 #include "record/fixed_record.h"
 #include "record/record.h"
 #include "field/fields.h"
@@ -20,7 +21,10 @@ Instance::Instance() {
   _pTableManager = new TableManager();
   _pIndexManager = new IndexManager();
   _pTransactionManager = new TransactionManager();
-  _pRecoveryManager = new RecoveryManager();
+  _pWALManager = new WALManager();
+  _pRecoveryManager = new RecoveryManager(_pTransactionManager, _pTableManager,
+    _pWALManager);
+  _pTransactionManager->SetWALManager(_pWALManager);
 }
 
 Instance::~Instance() {
@@ -186,12 +190,6 @@ PageSlotID Instance::Insert(const String &sTableName,
     //printf("txn ID: %s\n",std::to_string(txn->GetTxnID()).c_str());
     nRawVec.push_back(std::to_string(txn->GetTxnID()));
     pRecord->Build(nRawVec);
-    
-    
-    // Field *iField = new IntField(stoi(iRawVec[0]));
-    // pRecord->SetField(0, iField);
-    // Field *tField = new IntField(txn->GetTxnID());
-    // pRecord->SetField(1, tField);
 
 
   }
@@ -202,6 +200,8 @@ PageSlotID Instance::Insert(const String &sTableName,
   
 
   PageSlotID iPair = pTable->InsertRecord(pRecord);
+  _pWALManager->writeLog(sTableName, iPair.first, iPair.second, 
+      ActionType::INSERT_TYPE, "", pRecord->ToString());
   if(txn != nullptr)
   {
     std::vector<WriteRecord*>* iWR = txn->GetWriteRecords();
@@ -240,8 +240,11 @@ uint32_t Instance::Delete(const String &sTableName, Condition *pCond,
       }
       delete pRecord;
     }
-
+    Record *pRecord = pTable->GetRecord(iPair.first, iPair.second);
+    _pWALManager->writeLog(sTableName,iPair.first, iPair.second,
+        ActionType::DELETE_TYPE, pRecord->ToString(), "");
     pTable->DeleteRecord(iPair.first, iPair.second);
+    
   }
   return iResVec.size();
 }
@@ -295,7 +298,7 @@ uint32_t Instance::Update(const String &sTableName, Condition *pCond,
 }
 
 Record *Instance::GetRecord(const String &sTableName, const PageSlotID &iPair,
-                            Transaction *txn) const {
+                            const Transaction *txn) const {
   Table *pTable = GetTable(sTableName);
   Record *pRecord = pTable->GetRecord(iPair.first, iPair.second);
   

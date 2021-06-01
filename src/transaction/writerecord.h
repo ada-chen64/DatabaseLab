@@ -9,7 +9,9 @@
 namespace thdb {
     enum class ActionType{
         DELETE_TYPE = 0,
-        UPDATE_TYPE = 1
+        UPDATE_TYPE = 1,
+        INSERT_TYPE = 2,
+        COMMIT_TYPE = 3
     };
     class WriteRecord{
      public:

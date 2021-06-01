@@ -72,6 +72,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/lab3_test.dir/DependInfo.cmake"
   "CMakeFiles/lab2_test.dir/DependInfo.cmake"
   "CMakeFiles/antlr4-runtime.dir/DependInfo.cmake"
+  "CMakeFiles/lab5_test.dir/DependInfo.cmake"
   "CMakeFiles/thdb_clear.dir/DependInfo.cmake"
   "CMakeFiles/thdb_shared.dir/DependInfo.cmake"
   "CMakeFiles/thdb_init.dir/DependInfo.cmake"
